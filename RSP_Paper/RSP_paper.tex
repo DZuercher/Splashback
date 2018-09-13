@@ -1,0 +1,1059 @@
+\pdfoutput=1
+\documentclass[iop, apjl, twocolappendix, numberedappendix]{emulateapj}
+%\usepackage{newtxtext,newtxmath}
+\usepackage[T1]{fontenc}
+%\usepackage{ae,aecompl}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{txfonts}
+\usepackage{ulem}
+\usepackage{xspace}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+%\usepackage{nccmath}
+\usepackage[utf8]{inputenc}
+\newcommand{\fhat}[1]{\expandafter\hat#1}
+\newcommand{\fbar}[1]{\expandafter\bar#1}
+\newcommand\fnurl[2]{%
+  \href{#2}{#1}\footnote{\url{#2}}%
+}
+\def\rs{r_{\rm s}}
+\def\rhos{\rho_{\rm s}}
+\def\se{s_{\rm e}}
+\def\ftrans{f_{\rm trans}}
+\def\rhog{\rho_{\rm g}}
+\def\rhoginner{\rho_{\rm g}^{\rm inner}}
+\def\rhogouter{\rho_{\rm g}^{\rm outer}}
+\def\rt{r_{\rm t}}
+\def\rout{r_{\rm out}}
+\def\mpch{h^{-1}{\rm Mpc}}
+\def\msunh{h^{-1}{\rm M_{\odot}}}
+\shorttitle{Splashback radius of Planck-SZ clusters}
+\shortauthors{Zürcher, More}
+
+\begin{document}
+
+\title{The Splashback Radius of Planck-SZ clusters}
+
+\author{
+Dominik Zürcher \altaffilmark{1, 2}
+Surhud More \altaffilmark{1, 3}, 
+}
+\affil{
+$^{1}$Kavli Institute for the Physics and Mathematics of the Universe (Kavli IPMU, WPI), \\ 
+$^{2}$Department of Physics, ETH Zurich, Wolfgang Pauli Strasse 27, 8093 Zurich, Switzerland\\
+$^{3}$The University of Tokyo, 5-1-5 Kashiwanoha, Kashiwa, Chiba 277-8583\\
+}
+
+\begin{abstract}
+We present evidence for the existence of the splashback radius
+in galaxy clusters selected using the Sunyaev-Zeldovich effect.
+We show that the deprojected cross-correlation of galaxy clusters
+found in the Planck survey with galaxies detected photometrically in
+the Pan-STARRS survey, shows a sharp steepening feature (a
+logarithmic slope steeper than $-3$), which we associate with the
+splashback radius.  We infer the three-dimensional splashback radius
+for the SZ cluster sample to be $r_{\rm sp}=1.81_{-0.33}^{+0.28}$ $\mpch$,
+where the cluster sample has an average halo mass $M_{\rm
+500c}=3.0\times10^{14}\msunh$ at an average redshift of $z=0.18$.
+The inferred value of the splashback radius is consistent with the
+expected location for dark matter halos in the standard cold dark
+matter paradigm. However, given the limited precision of our
+measurements, we cannot conclusively rule out the smaller splashback
+radius measured so far in the literature for photometrically
+selected galaxy clusters. We show that the splashback radius does
+not depend upon the galaxy magnitude for galaxies fainter than
+$M_i-5\log h=-19.44$, and is present at a consistent location in
+both red and blue galaxy populations. The presence of the splashback radius in
+color-separated galaxy distributions could potentially be used to put lower limits on the
+quenching timescales for galaxies. Further, we record a strong increase 
+in the fraction of red galaxies that is associated with the splashback radius.
+
+\end{abstract}
+
+%\begin{keywords}
+%galaxies:clusters:general -- galaxies:halos -- methods:observational -- cosmology:dark matter -- cosmology:large-scale structure of Universe -- cosmology:observations
+%\end{keywords}
+
+\section{Introduction}
+\label{sec:Introduction}
+
+The density distribution of matter within dark matter halos shapes
+the potential well in which galaxies form and grow. Therefore, the
+structure of these dark matter halos has been extensively studied
+both theoretically as well as in numerical simulations \citep[see
+e.g.,][]{gunn1972infall, fillmore1984self, bertschinger1985self,
+navarro1997universal, moore1999dark}. Studies with numerical
+simulations show that the density profiles of dark matter halos
+within their virial radii are roughly self-similar and follow the
+Navarro-Frenk-White (NFW) profile \citep{navarro1997universal},
+which asymptotes to a slope of $-1$ in the inner regions and $-3$ at
+large radii. There has been intense debate in the literature about
+the exact form of the density profile 
+\citep[e.g.,][]{navarro2004inner}, the value of the asymptotic inner slope,
+as well as the outskirts and boundaries of dark matter halos
+\citep{cuesta2008virialized, more2011overdensity, diemer2013pseudo}. 
+
+The recent study of \citet{diemer2014dependence} has sparked a
+renewed interest in understanding the structure of dark matter halos
+on scales beyond the typical virial radii.
+\citet{diemer2014dependence} investigated the outskirts of dark
+matter halos in numerical simulations and found the existence of a
+physical feature, namely a sharp steepening in the density
+distributions of dark matter halos, which is not captured by
+commonly used functional forms such as the NFW profile. They showed
+that even for halos of the same mass, the position of the feature
+changes depending upon the mass accretion rate of the halos. A simple
+theoretical toy model to explain this feature was presented by
+\citet{adhikari2014splashback}. They showed that the feature
+observed by \citet{diemer2014dependence} results from the  piling up
+of recently accreted dark matter particles at the apocenters of
+their orbits, and its location corresponds to the last density
+caustic in the self-similar models of secondary infall
+\citep{fillmore1984self, bertschinger1985self, lithwick2011self}.
+They coined the term ``splashback radius`` for this feature. Their
+toy model also naturally explains the accretion rate dependence --
+faster accreting halos have smaller splashback radii. 
+
+The interpretation of the accretion rate dependence is
+straightforward. Due to the continuous change of the gravitational
+potential of the halo, depending on its accretion rate, the kinetic
+energy of a recently accreted dark matter particle, gained during
+its infall onto the cluster, does not suffice to climb the deepened
+potential well completely again, but instead it ``splashes back`` at
+a distance that depends on the recent deepening of the potential
+well.
+
+Subsequently, \citet{more2015splashback} studied the
+growth rate of dark matter halos at low redshift and showed that
+pseudo-evolution, caused by the ill-definition of the halo boundary
+through the virial radius, accounts for nearly all of the apparent
+growth of galaxy-sized halos and can also account for a substantial
+fraction of the growth of cluster-sized halos
+\citep{diemer2013pseudo}. They suggested the use of the splashback
+radius as a natural boundary for dark matter halos and explored its
+consequences for the inferred boundaries and growth rates of the
+halos.  It was found that depending on the accretion rate of the
+halo, the splashback radius may lie well beyond the commonly used
+virial radius. For quickly accreting halos the splashback radius is
+expected to occur at $\approx 0.8-1$ $r_{\mathrm{200m}}$ and at
+$\approx 1.5$ $r_{\mathrm{200m}}$ for slowly accreting halos
+\citep{more2015splashback}.
+
+Given the mass of the halo, the location of the splashback radius
+constitutes a direct probe of the halo accretion rate. Motivated by
+these studies, \citet{more2016detection} tried to detect this
+feature in observations. Using the optically selected Sloan Digital
+Sky Survey RedMaPPer galaxy cluster catalog
+\citep{rykoff2014redmapper}, and by cross-correlating it with the
+SDSS photometric galaxy sample, \citet{more2016detection} found evidence
+for the steepening of the dark matter density profile, and therefore
+the splashback radius of this sample of galaxy clusters (later
+corroborated by including further models for mis-centering by
+\citet{baxter2017halo}). Somewhat surprisingly,
+\citet{more2016detection} found that the location of the splashback
+radius was inconsistent with that expected from numerical
+simulations of dark matter by about $20\pm5$\%. Although they
+investigated potential systematic issues, they did not have access
+to mock cluster catalogs which could mimic the selection effects of
+optically-identified clusters. \citet{busch2017assembly} used a
+simplified optical cluster selection algorithm on the Millennium
+simulation, and pointed out that optical clusters can be heavily
+affected by projection issues, and could potentially introduce
+systematics in the inference of the splashback radius, as well as
+halo assembly bias. The existence of projection effects in the
+optical cluster catalog in the context of halo assembly bias was 
+also demonstrated by \citet{zu2016level}.
+
+\citet{umetsu2017lensing} used Xray selected clusters to look for
+the splashback radius using the weak lensing signal, however
+stacking issues and the low signal-to-noise ratio remains a significant
+hurdle. \citet{chang2017splashback} find evidence for the splashback
+radius in the weak lensing signal, but their analysis was again done
+using optically selected clusters in the Dark energy survey
+\citep{dark2005dark}. Regardless of the projection issues present in
+the optical cluster catalog, there is some inherent circularity
+present in the logic of using photometric galaxies to select
+clusters as over-densities in a given aperture, and then using the
+same photometric sample of galaxies to look for the splashback
+radius. There is a possibility that the aperture used to select the
+cluster catalogs could be imprinted in a non-trivial way on the
+measured number density profiles of clusters. 
+
+In this work, we move away from the optical cluster selection and
+explore the use of SZ selected cluster catalogs. While the SZ
+selected clusters can also be susceptible to systematic selection
+effects, the scales on which the SZ signal is measured and the
+cluster selection is performed is much smaller than the expected
+location of the splashback radius. Therefore, we do not expect major
+systematic biases due to the selection process. We use this sample
+to explore the evidence for the splashback radius in observations.
+Due to the low signal-to-noise ratio of the weak lensing signal, we
+perform our analysis using cross-correlation of galaxies with
+clusters instead. The SDSS sample used by \citet{more2016detection}
+was deep enough such that biases in the location of the splashback
+radius due to dynamical friction effects were expected to be small.
+Nevertheless, we use galaxy samples, which are even fainter by
+$0.5-1$ magnitudes compared to those used by
+\citet{more2016detection}.
+
+Given that the splashback radius represents a true halo boundary,
+the observations of the splashback radius can be used to study a
+variety of galaxy formation questions. Such as questions 
+regarding the timescales and the spatial scales within
+which star forming galaxies quench after they fall into the cluster
+potential. Answers to those questions are important to understand 
+the evolution of satellite galaxies in massive galaxy clusters. 
+If blue galaxies quench before
+they complete a single orbit, then they are not expected to show a
+splashback feature in their density distribution. In pursuit of this
+question, we also explore the dependence of the cluster-galaxy
+cross-correlations separately for the red and blue galaxies and
+explore their relative contributions to the overall density profile.
+
+This paper is organized as follows: Section~\ref{sec:Methods} starts
+by introducing the data, namely the cluster and the galaxy catalogs
+as well as the methods that are used to derive the results which are
+presented in visual and tabular form and  discussed in
+Section~\ref{sec:Results}. We outline the steps that will be taken
+in future works in Section~\ref{sec:Future} and finally we summarize
+our findings in Section~\ref{sec:Conclusions} and provide a short
+outlook on what needs yet to be done. Throughout the paper, we use a
+flat $\Lambda$CDM cosmology with $\Omega_{\rm m}=0.27$ to convert
+redshifts and angles into cosmological distances. Also, we denote 
+three-dimensional distances by $r$ and projected distances by $R$.
+
+
+\section{Data and Methods}
+\label{sec:Methods}
+The methodology we adopt for locating the splashback radius closely
+follows \citet{more2016detection}. We perform a cross-correlation
+between SZ selected galaxy clusters with photometric galaxies in
+order to assess the existence and location of the splashback radius.
+We describe the data sets we use and our methodology in this
+section.
+
+
+\subsection{Cluster catalog}
+\label{sec:clusters}
+The baryonic component of a galaxy cluster is dominated by the hot,
+ionized  intra-cluster medium (ICM), which is gravitationally bound
+within the cluster. The cosmic microwave background (CMB) photons
+that pass through the cluster inverse Compton scatter off the hot
+electrons and gain energy. This effect is known as the thermal
+Sunyaev-Zeldovich (SZ) effect
+\citep{sunyaev1970small,sunyaev1980velocity}. The effect has a
+characteristic frequency dependence and results in an intensity
+decrease below 220 GHz and an associated increase at higher
+frequencies. The multiple frequency channels on the Planck satellite
+allow a detection of galaxy clusters using the SZ effect
+\citep{collaboration2016planck}. As part of the 2015 Data Release of
+the Planck mission, the second Planck Catalogue of Sunyaev-Zeldovich
+Sources (PSZ2) was made available to the community. The PSZ2 catalog
+contains detections based on  three different techniques
+\citep{ade2016planck}, and the union of these catalogs has in total
+1653 galaxy clusters, of which 1203 clusters have been confirmed by
+cross-matching to other galaxy clusters from external data sets. 
+\begin{table}
+    \centering
+    \caption{Comparison of the PSZ2 cluster catalog
+    against the RedMaPPer cluster catalog used by
+\citet{more2016detection}. The values of the mass estimates
+$M_{\mathrm{500c}}$, $M_{\mathrm{200m}}$, redshifts $z$ and expected
+splashback radii $r^{\mathrm{3D,theo}}_{\mathrm{sp}}$ represent the
+catalog averages. The redshifts for both catalogs are given from the
+survey. For the RedMaPPer catalog the $M_{\mathrm{200m}}$ mass
+estimates were obtained from gravitational lensing and for the PSZ2
+catalog the $M_{\mathrm{500c}}$ estimates were calculated from the
+survey parameters using the scaling relation between the integrated
+Compton Y-parameter $Y_{500c}$ and $M_{500c}$ as found by
+\citet{ade2014planck}. The missing mass estimates as well as the
+expected values of the splashback radii were calculated using the
+Python package COLOSSUS \citep{diemer2017colossus}. The predictions
+for the splashback radii $r^{\mathrm{3D,theo}}_{\mathrm{sp}}$ is
+given in comoving units.}
+    \label{tab:cluster_catalogs} 
+    \begin{tabular}{ccc}
+    \hline 
+    & RedMaPPer & PSZ2 \\
+    \hline 
+    $z$ & 0.24 & 0.177 \\
+    \hline 
+    \# objects & 8643 & 596\\
+    \hline
+    $M_{\mathrm{500c}}$ [$h^{-1}10^{14} $M$_{\sun}$] & 0.9 & 3.0 \\
+    \hline
+    $M_{\mathrm{200m}}$ [$h^{-1}10^{14} $M$_{\sun}$] & 1.8 & 6.2\\ 
+    \hline
+    $r^{\mathrm{3D,theo}}_{\mathrm{sp}}$ [$h^{-1}$ Mpc] & 1.37 & 1.89 \\
+    \hline
+    \end{tabular} 
+\end{table}
+\begin{table*}
+    \centering
+    \caption{Summary and comparison of the properties of the galaxy catalogs used in this work as well as the SDSS catalog used in \citet{more2016detection}.}
+    \label{tab:galaxy_catalogs}
+    \begin{tabular}{ccccc}
+    \hline 
+    & SDSS & PS 21 & PS 21.5 & PS 22 \\ 
+    \hline 
+    depth [mag] & 21.00 & 21.00 & 21.50 & 22.00\\ 
+    \hline 
+    eff. area [deg$^2$] & $\approx$ 10'000 & 21'148 & 20'586 & 15'689\\ 
+    \hline 
+    \# objects & 57'181'113 & 93'772'329 & 123'188'529 & 105'809'113 \\
+    \hline
+    objects/deg$^2$ & 5718 & 4434 & 5984 & 6744\\ 
+    \hline
+    \end{tabular} 
+\end{table*}
+\begin{table*}
+    \centering
+    \caption{Summary of the priors used in the MCMC sampling
+procedure. The MCMC chains are constrained using flat priors or
+normal priors on some of the fitting parameters. This table lists
+the ranges of the flat priors and the central positions as well as
+the scales of the normal priors ( format: center | scale ),
+respectively.}
+    \label{tab:priors}
+    \begin{tabular}{ccccccccccc}
+    \hline 
+    & $\log_{10}(\rho_{\mathrm{s}})$ & $\log_{10}(\alpha)$ & $\log_{10}(r_{\mathrm{s}})$ & $\rho_0$ & $s_{\mathrm{e}}$ & $\log_{10}(r_{\mathrm{t}})$ & $\log_{10}(\beta)$ & $\log_{10}(\gamma)$ & $f_{\rm min}$ & $\sigma$\\ 
+    \hline 
+    Prior Type & None & Normal & Flat & None & None & Flat & Normal & Normal & Normal & Normal\\ 
+    \hline 
+    Prior Range & - & $\log_{10}(0.2)| 1.2$ & [0.1,5.0] & - & - & [0.1,5.0] & $\log_{10}(6.0) | 0.4$ & $\log_{10}(4.0) | 0.4$ & $0.15 | 0.21$ & $0.41 | 0.3$\\
+    \hline
+    \end{tabular} 
+\end{table*}
+
+The 1-$\sigma$ errors on the cluster positions are $\sim1.6\arcmin$
+and the estimated purity of the catalog has a lower limit of 83\%
+(probability that a detection corresponds to a real object). The
+integrated Compton Y-parameter $Y_{500c}$ of each of the clusters
+are also provided. Based on the scaling relation between $Y_{500c}$
+and $M_{500c}$ \citep{ade2014planck} the mass estimates $M_{500c}$
+of the clusters are calculated
+\citep{adam2016planck,collaboration2016planck}. The PSZ2 union
+cluster catalog is publicly available from the \fnurl{\textit{Planck
+Legacy Archive}}{https://pla.esac.esa.int/pla/\# home}.
+
+We restrict ourselves to the redshift range $0.03 \leq z \leq 0.33$
+in order to mimic the redshift range used by
+\citet{more2016detection}. Due to the large beam size of the Planck
+satellite, the cluster positions as reported in the catalog may be
+mis-centered from the true centers of the galaxy clusters. We perform
+a visual inspection of Pan-STARRS images taken around the detected
+galaxy clusters in order to locate the nearest, brightest cluster
+galaxy (BCG). We regard the position of the BCG as the true cluster
+location, under the assumption that the BCG is located at the true,
+gravitational center. Due to this crude assumption, we additionally 
+include the effects of a possible, remaining mis-centering of the 
+cluster positions in our model for the two-dimensional correlation 
+function (see Section~\ref{sec:mis-centering}). 
+The final sample that we use consists of 596
+galaxy clusters and is about an order of magnitude smaller compared
+to the sample used in \citet{more2016detection}. The sample we use
+in this paper has an average redshift of 0.177, and an average
+cluster mass $M_{500c}$ of about $3.0 \cdot 10^{14}
+h^{-1}$M$_{\sun}$. In Table~\ref{tab:cluster_catalogs} we compare
+the main properties of the cluster catalog used in this work to that
+used by \citet{more2016detection}. The sky positions of the clusters
+can be found in Figure~\ref{fig:planck_fig} in
+Appendix~\ref{sec:figures}. 
+
+\citet{kosyra2015environment} found no evidence for a significant
+correlation between the density of Planck detections and the
+weighted average noise of all Planck channels at $z<0.5$. Since we
+restrict ourselves to $z<0.33$, we utilize the selection mask of the
+PSZ2 union catalog in order to construct a random galaxy cluster
+catalog, which is roughly one order of magnitude larger than the
+original catalog. The redshifts of these random objects are drawn
+from the parent cluster catalog in order to match the redshift
+distribution of the original cluster catalog. 
+
+\subsection{Galaxy catalog}
+\label{sec:galaxies}
+The Panoramic Survey Telescope and Rapid Response System
+(Pan-STARRS) is a wide-field astronomical imaging and data
+processing facility operated by the University of Hawaii's Institute
+for Astronomy \citep{kaiser2002pan,kaiser2010pan}. We use data from
+the 3$\pi$ Steradian Survey carried out with this facility, which
+was released as part of Data Release 1 (DR1). The survey covers the
+entire sky north of $\delta=-31\degr$ (in ICRS coordinates) in five
+broadband filters ($g_{\mathrm{P1}}, r_{\mathrm{P1}},
+i_{\mathrm{P1}}, z_{\mathrm{P1}}, y_{\mathrm{P1}}$) with multiple
+pointings. The mean 5$\sigma$ point source limiting sensitivities
+amount to (23.3, 23.2, 23.1, 22.3, 21.4) magnitudes for the
+individual bands, respectively. 
+
+For the visual inspection and centering of the clusters, we use the
+Pan-Starrs $gri$ \textit{stack} images around each cluster position.
+The galaxy catalog is obtained from the  \textit{StackObjectThin}
+table, which is publicly available on the \fnurl{\textit{Barbara A.
+Mikulski Archive for Space Telescopes}
+(MAST)}{http://archive.stsci.edu/}. To select only objects detected
+with acceptable precision we restrict our search to those objects
+which have been flagged as \textit{BestDetection}s. We further
+restrict the catalog to objects flagged as
+\textit{PrimaryDetection}s in order to select unique objects. This
+is necessary since the survey is divided into overlapping
+\textit{projectioncells} and \textit{skycells}.
+
+The magnitudes of the selected objects are then corrected for the
+extinction caused by the dust present in the Milky Way. This is done
+using the \fnurl{mwdust}{https://github.com/jobovy/mwdust} Python
+module provided by \citet{bovy2016galactic}. The extinction
+correction is performed using a dust map combining the measurements
+of \citet{marshall2006modelling}, \citet{green2015three} and
+\citet{drimmel2003three}. Only objects with an extinction corrected
+$i_{\mathrm{P1}}$ band Kron magnitude brighter than 22.0 are
+selected from the catalog. This results in a galaxy catalog
+consisting out of 1'155'285'728 objects. Starting from this catalog
+three different sub-catalogs named PS 21, PS 21.5 and PS 22 with a
+survey depth of 21.0, 21.5 and 22.0 magnitudes, respectively are
+constructed.
+
+As mentioned in the description of the Pan-STARRS survey by
+\citet{chambers2016pan} there is a significant variation in the
+depth of the 3$\pi$ Steradian survey even on small scales. In order
+to avoid choosing objects in shallow regions of the survey the
+minimal observed Kron magnitude in the $i_{\mathrm{P1}}$ band in
+each \textit{skycell} is recorded and only objects in skycells with
+a minimal observed Kron magnitude of 21.0, 21.5 and 22.0 or brighter
+are selected depending on the corresponding catalog. Since most of
+the shallow regions lie in the galactic plane, we mask out the
+region at low galactic latitudes $|b|<20\degr$. The resultant
+HEALPix maps showing the excluded areas on the sky can be found in
+Figure~\ref{fig:heal_map}. We further disregard objects in bad
+pixel regions as indicated by the $i_{\mathrm{P1}}$ band
+\textit{stack.mask} images.
+
+At this point of the analysis, our object catalogs contain both
+galaxies and stars. The 3$\pi$ Steradian Survey provides both the
+Kron and PSF model based magnitudes for each object. These
+magnitudes are expected to be similar for stars while the Kron
+magnitudes are brighter for galaxies. Therefore, we flag all objects
+with a value of $i_{\mathrm{P1,PSF}} - i_{\mathrm{P1,Kron}}< 0.05$
+as stars \citep{farrow2013pan}. Despite this cut, bright, close-by
+stars at magnitudes brighter than 13.5 tend to be classified as
+extended objects \citep{chambers2016pan}. To avoid contamination of
+the galaxy catalog due to such bright stars, we further remove all
+objects with $i_{\mathrm{P1,PSF}} < 15.0$. Since there are very few
+galaxies at such low magnitudes this does not introduce a selection
+bias. We list the main characteristics of the galaxy catalogs we
+have used in Table~\ref{tab:galaxy_catalogs}.
+
+\subsection{Estimation of the spatial density profile}
+\label{sec:estimators}
+
+We use the Davis-Peebles estimator \citep{davis1983survey} to
+compute the cross-correlation between our galaxy clusters and
+galaxies. This estimator can be written as
+\begin{equation}
+\xi_{\rm 2D}(R) = \frac{\rm D_1D_2-R_1D_2}{\rm R_1D_2}\,
+\end{equation}
+where D$_1$D$_2$ and R$_1$D$_2$ are the normalized numbers of
+cluster-galaxy pairs and cluster randoms-galaxy pairs at a given
+comoving projected separation $R$. The subtraction of the signal
+around random cluster positions gets rid of the uncorrelated pairs
+and allows us to estimate the projected cross-correlation.
+
+Given the flux limited galaxy catalog that we use, we expect to
+observe more correlated galaxies in galaxy clusters that lie closer
+to us, but with much fainter absolute magnitudes. To avoid
+such biases with redshift of the clusters we restrict ourselves to
+galaxies with absolute magnitudes brighter than a certain magnitude
+limit, which depends on the depth of the used galaxy catalog. We
+make the assumption that the galaxies reside at the redshift of the
+cluster in question. The used magnitude limits are (-19.44, -18.94
+and -18.44) for the catalogs PS 21, PS 21.5 and PS 22, respectively.
+
+We use the functional form of \citet{diemer2014dependence} in order
+to model our two-dimensional correlation function measurements. This
+functional form consists of an inner Einasto profile and an outer
+power law profile connected by a smooth transition
+\begin{align}
+\xi_{\rm 3D}(r) &= \rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r) + \rho_{\mathrm{out}}(r)\,, \\
+\rho_{\mathrm{in}}(r)&=\rho_{\mathrm{s}}\exp\left( -\frac{2}{\alpha}\left[ \left( \frac{r}{r_{\mathrm{s}}}\right)^{\alpha}-1 \right] \right)\,,\\
+\rho_{\mathrm{out}}(r)&=\rho_{\mathrm{0}}\left( \frac{r}{r_{\mathrm{out}}}\right)^{-s_{\mathrm{e}}} \,,\label{eq:model} \\
+f_{\mathrm{trans}}(r)&=\left( 1+\left( \frac{r}{r_{\mathrm{t}}} \right)^{\beta} \right)^{-\gamma/ \beta}\,,
+\label{eq:dk14}
+\end{align}
+where $r$ indicates the three-dimensional radial distance from the
+halo center \citep{diemer2014dependence}. We model the
+two-dimensional correlation function, $\xi_{\rm 2D}$ as an integral
+over the three-dimensional correlation function
+\begin{equation}
+\xi_{\rm (2D,0)}(R)=\frac{1}{R_{\rm max}}\int^{R_{\mathrm{max}}}_0 \xi_{\rm 3D}(\sqrt{R^2+x^2}) dx \,
+\label{eq:surface}
+\end{equation}
+where we adopt $R_{\mathrm{max}}=40$ $h^{-1}$Mpc for the maximum projection
+length. Variations of this length do not change the location of the
+splashback radius appreciably as tested in
+\citet{more2016detection}. The functional form adopted in
+Equation~\ref{eq:dk14} has nine model parameters,
+$\rho_{\mathrm{s}}, \alpha, r_{\mathrm{s}}, r_{\mathrm{out}},
+\rho_{\mathrm{0}}, s_{\mathrm{e}}, r_{\mathrm{t}}, \beta$ and
+$\gamma$. Given the perfect degeneracy between the parameters
+$r_{\mathrm{out}}$ and $\rho_{\rm o}$, we fix $r_{\mathrm{out}}=1.5$ $
+h^{-1}$Mpc. 
+
+\paragraph{Modelling cluster mis-centering}
+\label{sec:mis-centering}
+Mis-centering of the central cluster positions can heavily affect 
+the small-scale correlation function on scales smaller than the typical mis-centering distance. 
+Although, the splashback radius is located at much larger scales, 
+the change of the inner part of the correlation function can alter the model fit significantly. Mis-centering effects are not expected to change the location of the splashback feature but they can in principle decrease the significance of the evidence for the splashback feature \citep{baxter2017halo}.
+  
+The mass dependence of the exact mis-centering fractions are not
+well understood and mis-centering effects are therefore difficult to model \citep{Skibba:2011, Hoshino:2015}. We follow the approach outlined in \citet{baxter2017halo} to take the effects of a possible mis-centering of a fraction of the cluster positions 
+into account by modelling the influence on the two-dimensional correlation function.
+ 
+Denoting the fraction of mis-centered clusters in the sample with $f_{\rm mis}$ we relate
+the correlation function $\xi_{\rm 2D}(R)$ that is affected by the mis-centering of the clusters to the correlation function
+unaffected by mis-centering $\xi_{\rm (2D,0)}(R)$ by
+
+\begin{equation} 
+\xi_{\rm 2D}(R) = (1-f_{\rm mis})\xi_{\rm (2D,0)}(R)+f_{\rm mis}\xi_{\rm (2D,mis)}(R)
+\label{eq:full}
+\end{equation}
+
+where the contribution of the mis-centered clusters to the correlation function is captured by $\xi_{\rm (2D,mis)}$. 
+We model the mis-centered component $\xi_{\rm (2D,mis)}$ as
+ 
+\begin{equation}
+\xi_{\rm (2D,mis)}(R)=\int_0^\infty \mathrm{d}R_{\rm mis} P(R_{\rm mis})\xi_{\rm (2D,mis)}(R|R_{\rm mis})
+\end{equation}
+
+where we assign a probability $P(R_{\rm mis})$ that a cluster is mis-centered by a comoving distance $R_{\rm mis}$.
+The contribution $\xi_{\rm (2D,mis)}(R|R_{\rm mis})$ from a cluster mis-centered by a distance $R_{\rm mis}$ 
+relates to the unaffected correlation function $\xi_{\rm (2D,0)}$ as
+
+\begin{equation}
+\xi_{\rm (2D,mis)}(R|R_{\rm mis})=\int_0^{2\pi}\frac{\mathrm{d}\theta}{2\pi}\xi_{\rm (2D,0)}\left(\sqrt{R^2+R_{\rm mis}^2+2RR_{\rm mis}\cos{\theta}}\right)
+\end{equation}
+
+according to \citet{yang2006weak} and \citet{johnston2007cross}. Following \citet{simet2016weak} we model the mis-centering probability 
+$P(R_{\rm mis})$ as a Rayleigh distribution:
+
+\begin{equation}
+P(R_{\rm mis})=\frac{R_{\rm mis}}{\sigma^2}\exp{\left( -\frac{R_{\rm mis}^2}{2\sigma^2}\right)}
+\end{equation}
+
+Therefore, the mis-centered contribution is fully characterized by the two parameters $f_{\rm mis}$ and the witdh 
+of the mis-centering probability distribution $\sigma$.
+\newline
+
+We cross-match our SZ selected cluster sample with the X-Ray selected ACCEPT cluster sample \citep{cavagnolo2009vizier}.
+Assuming the ACCEPT clusters to lay at the true gravitational cluster centers we construct Gaussian priors
+for the two mis-centering model parameters $f_{\rm mis}$ and $\sigma$ from the comparison of the 
+two samples. The central values as well as the scales of the priors are listed in Table~\ref{tab:priors}.
+
+
+
+Including mis-centering our model is described by ten model parameters.
+We infer the posterior distributions of those parameters by fitting the model for the two-dimensional correlation
+function affected by mis-centering to the measured two-dimensional correlation signal. 
+We use the affine invariant Markov Chain Monte Carlo sampler of \citet{goodman2010ensemble} as
+implemented in the parallel python package {\it emcee} by
+\citet{foreman2013emcee}. We adopt priors similar to
+\citet{more2016detection} on some of our parameters based on the
+expectations of their values from numerical simulations, but double
+the scales of the normal priors compared to their work (see
+Table~\ref{tab:priors}). The central value for the prior on $\alpha$
+is deduced from mass estimates \citep{gao2008redshift}, whereas the
+central values on the priors of $\beta$ and $\gamma$ were
+recommended by \citet{diemer2014dependence}.
+
+The splashback radius for galaxy cluster scale halos is consistent
+with the location of the steepest logarithmic slope of the density
+profile. We estimate the steepest slope of both the two-dimensional
+and the three-dimensional cross-correlation function. The two
+locations of the steepest slope are expected to be different by
+about 20\% for typical cluster halo parameters
+\citep{diemer2014dependence, more2016detection}.
+
+\subsection{Separation of red and blue galaxies}
+\label{sec:Color}
+
+We are also interested in measuring the cluster-galaxy
+cross-correlations for the blue and the red galaxy samples
+separately. We use a $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ color cut
+which varies with the redshift of the clusters in order to account
+for the k-corrections, which cannot be computed individually for
+each galaxy. We regard a galaxy as red if
+$g_{\mathrm{P1}}-r_{\mathrm{P1}} > 0.65 + 3.04$ $(z_{\mathrm{clu}} -
+0.1)$ and as blue otherwise. Depending upon the cluster redshift
+under consideration the same galaxy may be considered red or blue. Our
+method avoids the use of uncertain photometric redshifts to derive
+k-corrections \citep[cf.][]{baxter2017halo}. We will study the
+cross-correlations to derive the splashback radii for these galaxy
+populations separately, as well as the fractional
+contributions of the red and the blue galaxies to the total density profile
+as a function of radius.
+
+
+\section{Results}
+\label{sec:Results}
+\subsection{Cluster-galaxy cross-correlations}
+The measurements of the two-dimensional cluster-galaxy
+cross-correlations are shown as black points with error bars in the
+left column of Figure~\ref{fig:2D_graphs}. The different rows
+correspond to the three different absolute magnitude limits that we
+have used to select all the galaxies when calculating the
+cross-correlations. The cross-correlation signal is clearly detected
+in all three measurements and the corresponding signal-to-noise
+ratios of the measurements are listed in Table~\ref{tab:snr}.
+
+We fit these measurements with our parametric model in Equation~\ref{eq:full}
+and compute the posterior distribution of the model parameters 
+as described in Section~\ref{sec:estimators}. The
+median of the MCMC fit is indicated by the central solid line, while
+the shaded area marks the 68\% credible interval for the fit. The
+median values of the posterior distributions of the parameters along
+with their 68\% confidence intervals are listed in
+Table~\ref{tab:fit_parameters} along with their minimal, reduced
+$\chi^2$ values. The two-dimensional posterior distributions for
+each pair of parameters are shown in Figures~\ref{fig:corner_21},
+\ref{fig:corner_21.5} and \ref{fig:corner_22} for the three absolute
+magnitude limits, respectively.
+
+\begin{figure}
+    \includegraphics[scale=0.65]{2D_graphs.pdf}
+\caption{The estimates of the two-dimensional cross-correlation
+signals (black dots) are shown in the left column. The colored
+curves show the two-dimensional model fits of the functional
+form in Equation~\ref{eq:surface}. The magnitude limit applied to the galaxy
+catalog is indicated in each row along with the signal-to-noise ratio (SNR). 
+The vertical, shaded regions indicate the estimates of the locations of 
+steepest slope of the profiles as estimated from the corresponding minima of the
+derivative profiles, which are shown in the right column. For
+comparison, the location of the $r_{\mathrm{200m}}$ radius as
+calculated from the average cluster sample properties is indicated
+by the black, dotted lines.}
+   \label{fig:2D_graphs}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[scale=0.65]{3D_graphs.pdf}
+\caption{The estimates of the three-dimensional cross-correlation
+signals are shown in the left column. The colored curves show the
+model fits of the functional form in Equation~\ref{eq:model}. The magnitude
+limit applied on the galaxy catalog is indicated in each row along with 
+the signal-to-noise ratio (SNR). The vertical, shaded regions indicate the 
+estimates of the splashback radii as estimated from the corresponding minima 
+of the derivative profiles, which are shown in the right column. For comparison, 
+the location of the $r_{\mathrm{200m}}$ radius as calculated from the
+average cluster sample properties is indicated by the black, dotted
+lines.}
+   \label{fig:3D_graphs} 
+\end{figure}
+
+
+\begin{table}
+    \centering
+    \caption{We list the signal to noise ratios (SNRs) of our
+different estimates of the two-dimensional cross-correlation
+obtained by using the different galaxy samples. For comparison: The SNR
+achieved by \citet{more2016detection} is 263.0. It is much higher
+due to size of the cluster sample used in their study.}
+    \label{tab:snr}
+    \begin{tabular}{cccc}
+    \hline
+    gal cat & PS 21 & PS 21.5 & PS 22 \\ 
+    \hline
+    \hline
+   SNR & 42.4 & 43.3 & 30.9 \\
+    \hline
+    \end{tabular} 
+\end{table}
+
+\begin{table*}
+    \centering
+    \caption{We list our findings for the fitting parameters obtained from cross-correlating the galaxy cluster sample with the different galaxy catalogs. For each parameter estimate the median as well as the 16\% and 84\% quantiles of the posterior distribution are given. We also list the estimated locations of the steepening feature in the two-dimensional cross-correlation signal ($R_{\mathrm{sp}}^{\mathrm{2D}}$) as well as the three-dimensional splashback radius ($r_{\mathrm{sp}}^{\mathrm{3D}}$). In the last column the minimal, reduced $\chi^2$ value of the model fit is indicated. The two-dimensional posterior distributions of the fitting parameters are displayed in 
+Figure~\ref{fig:corner_21} up to Figure~\ref{fig:cornerblue}.}
+    \label{tab:fit_parameters}
+    \begin{tabular}{cccccccccccccc}
+    \hline 
+gal cat & $\log_{10}(\rho_{\mathrm{s}})$ & $\log_{10}(\alpha)$ & $\log_{10}(r_{\mathrm{s}})$ & $\rho_{\mathrm{0}}$ & $s_{\mathrm{e}}$ & $\log_{10}(r_{\mathrm{t}})$ & $\log_{10}(\beta)$ & $\log_{10}(\gamma)$ & $R_{\rm sp}^{\rm 2D}$& $r_{\rm sp}^{\rm 3D}$& $\chi^2/\nu$ \\
+\hline 
+\hline 
+PS 21 & $-0.92_{-0.56}^{+0.50}$ & $-1.19_{-0.21}^{+0.22}$ & $0.31_{-0.26}^{+0.29}$ & $0.0130_{-0.0083}^{+0.0062}$ & $0.72_{-0.22}^{+0.27}$ & $0.103_{-0.110}^{+0.056}$ & $0.85_{-0.36}^{+0.27}$ & $0.28_{-0.19}^{+0.12}$ & $1.35_{-0.12}^{+0.13}$ & $1.76_{-0.33}^{+0.29}$ & $0.511$ \\
+\hline
+PS 21.5 & $-0.91_{-0.48}^{+0.51}$ & $-0.98_{-0.18}^{+0.16}$ & $0.28_{-0.28}^{+0.26}$ & $0.0084_{-0.0060}^{+0.0041}$ & $0.53_{-0.23}^{+0.27}$ & $0.086_{-0.112}^{+0.051}$ & $0.78_{-0.34}^{+0.26}$ & $0.25_{-0.18}^{+0.12}$ & $1.30_{-0.10}^{+0.10}$ & $1.81_{-0.33}^{+0.28}$ & $0.178$ \\
+\hline
+PS 22 & $-0.99_{-0.46}^{+0.49}$ & $-0.90_{-0.17}^{+0.16}$ & $0.27_{-0.27}^{+0.26}$ & $0.0058_{-0.0052}^{+0.0027}$ & $0.43_{-0.29}^{+0.26}$ & $0.114_{-0.252}^{+0.076}$ & $0.71_{-0.38}^{+0.27}$ & $0.27_{-0.33}^{+0.16}$ & $1.33_{-0.17}^{+0.13}$ & $1.96_{-0.45}^{+0.37}$ & $0.264$ \\
+\hline 
+PS 21.5 (R) & $0.17_{-0.50}^{+1.03}$ & $-0.95_{-0.34}^{+0.44}$ & $-0.21_{-0.56}^{+0.26}$ & $0.0073_{-0.0084}^{+0.0040}$ & $0.59_{-0.38}^{+0.34}$ & $0.18_{-0.35}^{+0.22}$ & $0.52_{-0.41}^{+0.26}$ & $0.29_{-0.32}^{+0.23}$ & $1.20_{-0.12}^{+0.14}$ & $2.03_{-0.38}^{+0.38}$ & $1.194$ \\
+\hline
+PS 21.5 (B) & $-0.83_{-0.44}^{+0.49}$ & $-0.71_{-0.18}^{+0.19}$ & $0.24_{-0.30}^{+0.26}$ & $0.0112_{-0.0062}^{+0.0048}$ & $0.63_{-0.18}^{+0.23}$ & $0.28_{-0.20}^{+0.14}$ & $0.55_{-0.25}^{+0.16}$ & $0.44_{-0.33}^{+0.25}$ & $1.53_{-0.13}^{+0.13}$ & $2.30_{-0.23}^{+0.24}$ & $0.603$ \\
+\hline
+    \end{tabular} 
+\end{table*}
+
+\begin{figure*}
+\centering{
+  \includegraphics[scale=0.8]{derivatives.pdf}}
+\caption{We show the distributions of the logarithmic derivatives of
+the three-dimensional cross-correlation signals at the location of
+the splashback radius. In the left panel the distributions of the
+derivatives of the full profiles are shown, whereas only the inner
+halo term (namely $\rho_{\mathrm{in}}f_{\mathrm{trans}}$) is
+considered in the right panel.}
+   \label{fig:derivatives} 
+\end{figure*}
+\begin{figure*}
+\centering{
+    \includegraphics[scale=0.8]{splashback.pdf}}
+\caption{Shown are the posterior distributions of the inferred
+locations of steepest slope of the two- and three dimensional
+cross-correlation signals. On the left side the distributions of the
+locations of the two-dimensional steepening feature
+($R_{\mathrm{sp}}^{\mathrm{2D}}$) are shown, whereas the
+distributions of the three-dimensional counterparts
+($r_{\mathrm{sp}}^{\mathrm{3D}}$) are shown on the right. The
+magnitude limit applied to the galaxy catalogs is indicated for each
+distribution. Note that the colors of the distributions match with
+the colors used in Figure~\ref{fig:2D_graphs} and
+Figure~\ref{fig:3D_graphs}. For comparison, the location of the virial
+radius $r_{\mathrm{200m}}$ as calculated from the average cluster
+sample properties is indicated by the black, dotted lines.}
+   \label{fig:splashback} 
+\end{figure*}
+\begin{figure}
+    \includegraphics[scale=0.65]{color_separated.pdf}
+\caption{\textit{Top row: } The two-dimensional cross-correlations
+of the red and blue galaxy populations as inferred by
+cross-correlating the cluster sample with the color-separated
+subsamples that were extracted from the PS 21.5 galaxy catalog are
+shown in the left panel, whereas the associated derivative profiles
+are shown on the right. The vertical, shaded bands indicate the
+locations of steepest slope of the cross-correlation signal as
+inferred from the two subsamples, whereas the black, dashed lines
+indicate the upper and lower bounds of the same feature but as
+estimated from the full PS 21.5 galaxy catalog. \textit{Bottom row:
+} We show the three-dimensional cross-correlations as
+inferred by cross-correlating the cluster sample with the
+color-separated galaxy subsamples, as well as the corresponding
+splashback radii (indicated by the colored, vertical bands) and
+their derivative profiles. Here, the black, dashed lines indicate
+upper and lower bounds of the three-dimensional splashback radius
+corresponding to the full PS 21.5 galaxy sample.}
+   \label{fig:color_curve} 
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width= \columnwidth]{color_fraction.pdf}
+\caption{Fractional contributions of the red and blue galaxy
+populations to the total galaxy number density. We show the
+locations of the splashback radii associated with the two subsamples
+with the colored, vertical bands and the upper and lower bounds of
+the splashback radius obtained from the full PS 21.5 catalog with
+the black, dashed lines.}
+   \label{fig:color_fraction} 
+\end{figure}
+The right panels in Figure~\ref{fig:2D_graphs} show the
+corresponding analytical derivatives of the two-dimensional
+cross-correlations and the 68\% confidence interval based on our
+model fits. The logarithmic derivatives show a distinct steepening
+feature at around $1.3-1.5~\mpch$. The figure shows that the
+location of the steepest slope does not change appreciably when the
+magnitude limit is changed, even though we use a sample which is one
+magnitude deeper than $M_{\rm i}-5\log h=-19.44$. The 68\%
+confidence interval of the location of the steepest slope is
+indicated by the vertical, shaded region. We also show the location
+of the virial radius $r_{\mathrm{200m}}$ based on the Planck SZ mass estimate 
+as a black, dotted line in each panel.
+
+We use the posterior distributions of our model parameters to infer
+the three-dimensional cross-correlation and its logarithmic
+derivative. These inferences along with the corresponding 68\%
+confidence intervals are presented in Figure~\ref{fig:3D_graphs},
+maintaining the same color scheme as in Figure~\ref{fig:2D_graphs}
+for ease of comparison. The three-dimensional cross-correlations
+also show significant steepening in each of the cases that we have
+explored, reaching logarithmic derivatives steeper than $-3$. The
+inferred 68\% confidence regions for the locations of the steepest
+slope of the three-dimensional cross-correlations are shown with
+vertical, shaded regions in each panel. The posterior
+distributions of the locations of the steepest slope in the
+two-dimensional and three-dimensional cross-correlations can be
+found in the left hand and the right hand panels of
+Figure~\ref{fig:splashback}, respectively. The estimates of the splashback radii
+for each of the samples are listed in Table~\ref{tab:fit_parameters}
+and our results show that the location of the splashback radius does
+not depend upon the sample once we use galaxies fainter than $M_{\rm
+i}-5\log h=-19.44$. Our measurements have an accuracy of $\sim$15\%.
+
+Following \citet{baxter2017halo}, we also present the values of the
+logarithmic derivatives at the location of the steepest slope for
+the total three-dimensional cross-correlations, as well as those for
+the inner halo term in the left and right hand panels of
+Figure~\ref{fig:derivatives}, respectively. The logarithmic slope of the 
+cross-correlation is significantly steeper than $-3$ at the location 
+of the splashback radius, making it difficult to
+be reproduced by classical fitting functions like the NFW profile,
+which reach such slopes only asymptotically and even that only
+without the presence of the outer 2-halo term. This provides
+evidence for the existence of the splashback feature.
+
+We perform a preliminary comparison of the measurements with
+expectations from cold dark matter models. The average halo mass of
+the PSZ2 clusters as estimated from the Sunyaev-Zeldovich signal
+is $M_{\rm 500c}=3.0\times10^{14}$ $\msunh$. We convert this mass
+estimate to $M_{\rm 200m}=6.2\times10^{14}$ $\msunh$ using the average
+concentration mass relation of halos following
+\citet{HuKravtsov:2003}. Given the average mass and redshift of our
+cluster sample, we calculate the expected splashback radius to be
+$1.89$ $\mpch$. We base this estimate on the fitting functions
+presented in \citet{more2015splashback}. The splashback radius we
+find for the three samples is consistent with this expectation,
+although we can not rule out $\sim 18\%$ deviations in either directions,
+given our large error bars.
+
+Next we present our measurements of the projected and
+three-dimensional cross-correlations of red and blue galaxies
+satisfying $M_{i}-5\log h<-18.94$ with our SZ-selected cluster
+sample in the top and bottom left hand panels of
+Figure~\ref{fig:color_curve}, respectively. The shaded regions show
+the 68\% confidence intervals from our fits. The vertical, shaded
+bands with different colors indicate the 68\% confidence regions of
+the locations of the steepest slope of the two- and the
+three-dimensional cross-correlations. The black dashed lines show
+these ranges for the entire galaxy sample without regard to color.
+The best fit parameters as well as the inferred splashback radii are
+listed in Table~\ref{tab:fit_parameters}. The right hand
+panels show the corresponding inferred logarithmic derivatives. We
+see that the red galaxies have a steeper cross-correlation profile
+than the blue galaxies. Although there is a tendency for the red
+galaxies to have a smaller splashback radius, the differences we see
+are not statistically significant given the current errors. The
+slopes of the three-dimensional cross-correlations reach values
+steeper than -3 at the splashback radius.
+
+Nevertheless, the fact that we detect the splashback radius for blue
+galaxies is significant. The implication of this result is that
+there needs to be a reasonable fraction of blue galaxies that fall
+into the cluster and continue to stay blue even after reaching their
+apocenters. Star forming galaxies in models which quench their star
+formation on a timescale shorter than the orbital time scale, are
+not expected to show the presence of the splashback radius. A
+quantitative exploration of the implications is beyond the scope of
+this work, but will be followed up in the future.
+
+In Figure~\ref{fig:color_fraction}, we show the fractional
+contributions of the red and blue galaxies to the total,
+three-dimensional cross-correlation \footnote{The fractions are
+obtained by performing an appropriate number density weighting.}.
+The red galaxies dominate the central parts of the galaxy clusters
+but become sub-dominant as we move further away from the centers of the 
+clusters. We see a sharp increase of the fractional contribution of
+red galaxies below the splashback radius. On scales larger than the
+splashback radius, the populations are consistent with a constant
+fraction of $\approx 55\%$ blue and $\approx 45\%$ red galaxies.
+
+\section{Future work}
+\label{sec:Future}
+
+As it can be seen from Table~\ref{tab:snr}, the signal-to-noise
+ratio of our measurement is lower when using the PS 22 catalog
+compared to the other two estimates. This has two causes: Firstly,
+the sky-coverage of the PS 22 catalog is $\approx$ 25\% lower than
+for PS 21 and PS 21.5 since more regions had to be excluded due to
+the survey depth being too low in those regions. Therefore, some
+clusters from the PSZ2 catalog are missed when the PS 22 catalog is
+exploited, which reduces the statistics. Secondly, as we consider
+fainter galaxies, the contamination from background galaxies is
+increased. This requires a better estimate of the uncorrelated
+background component. A more precise estimation of the uncorrelated
+background contamination would be possible by using a random galaxy
+catalog in addition to the random cluster sample. This would allow
+to use the more sophisticated Landy \& Szalay estimator
+\citep{landy1993bias} to perform the background subtraction.
+
+Another approach to increase the statistics of the measurements would be to increase the redshift range in which clusters are being considered. We chose $0.03 \leq z \leq 0.33$ in order to keep the analysis comparable to \citet{more2016detection}. However, this cut reduces the cluster sample size. Increasing the redshift range has its own limitations, though. It would be required to use a brighter magnitude limit for galaxies, which reduces the number of galaxies that can be used to infer the cross-correlation signal. This results in a trade-off and we could investigate the optimal redshift range. Alternatively, other cluster samples that do not rely on optical cluster finding such as Xray based surveys might serve as independent and larger cluster samples. 
+Another plausible approach would be to consider a smaller region of
+the sky, meaning also less clusters but with a deeper field of view,
+such as in the case of the Hyper Suprime-Cam at Subaru Telescope,
+which will survey $\approx 1400$ deg$^2$ of the sky and achieve a
+depth of 26.2 magnitudes \citep{takada2010subaru}.
+
+Lastly, but most importantly, the investigation of any systematics
+which might originate from the SZ selection of the Planck clusters
+is beyond the scope of the current work. We caution that there may
+be residual systematics in the selection which could affect the
+interpretation of our measurements. We will investigate such
+selection systematics with the help of hydrodynamical simulations.
+
+\section{Conclusions}
+\label{sec:Conclusions}
+The splashback radius of dark matter halos is a unique observational
+probe of the mass accretion rate of dark matter halos. Although the
+splashback radius has been well-characterized in simulations, the
+observational evidence for the splashback radius presented using
+optical cluster catalogs has come under intense scrutiny. In this
+work, we tackle this issue by searching for evidence of the
+splashback radius in galaxy clusters found by the Planck surveyor using
+the thermal Sunyaev-Zeldovich effect. The use of this sample avoids
+the circularity of using photometric galaxy catalogs to identify
+clusters as well as to detect the splashback radius. 
+
+We cross-correlate these clusters with photometric galaxies from the
+Pan-STARRS survey to obtain the two-dimensional cross-correlation
+function and search for evidence for the splashback feature.
+Additionally, we divided our galaxy catalog into two subsamples of
+red and blue galaxies and investigated the cross-correlations of the
+two subsamples with the clusters, separately.
+
+Our main findings can be summarized as follows:
+\begin{itemize}
+\item We detect a clear signature of a steepening feature in the
+cross-correlation of Planck SZ clusters with Pan-STARRS
+galaxies. The steepest logarithmic slopes that we find in our cross-correlation
+signals are steeper than $-3$, and would hence be poorly fit by the
+NFW profile. We associate this feature with the splashback feature.
+\item The location of the inferred splashback radius is $r_{\rm
+sp}=1.81_{-0.33}^{+0.28}$ $\mpch$, which is consistent with expectations
+from numerical simulations for
+halos of an average mass $M_{\rm 500c}=3.0\times10^{14}\msunh$ at an
+average redshift of $z=0.18$ in a collision-less dark matter Universe. 
+However, given the errors we cannot
+currently rule out $\sim18\%$ deviations from these expectations.
+\item We find that the location of the steepest slope does not
+strongly depend on the magnitude of the galaxy samples we use, once
+we go fainter than $M_i-5\log h=-19.44$.
+\item By separately studying the cross-correlation of red and blue
+galaxies with the clusters, we present evidence for the presence of
+the splashback feature in both populations. This implies that the
+star formation of a sizable number of blue galaxies does not get
+quenched during their first orbit through the halo.
+\item We also detect a sharp increase in the fraction of red
+galaxies associated with the splashback radius. 
+\end{itemize}
+
+Our curated galaxy catalogs from the Pan-STARRS survey for different
+depths and the corresponding masks are available and can be send
+upon request.
+
+\section*{Acknowledgements}
+DZ is grateful to Kavli IPMU for its hospitality during this
+research project. SM is supported by a grant-in-aid by the Japan
+Society for Promotion of Science (JSPS), grant number 16H01089.
+The Pan-STARRS1 Surveys (PS1) and the PS1 public science archive
+have been made possible through contributions by the Institute for
+Astronomy, the University of Hawaii, the Pan-STARRS Project Office,
+the Max-Planck Society and its participating institutes, the Max
+Planck Institute for Astronomy, Heidelberg and the Max Planck
+Institute for Extraterrestrial Physics, Garching, The Johns Hopkins
+University, Durham University, the University of Edinburgh, the
+Queen's University Belfast, the Harvard-Smithsonian Center for
+Astrophysics, the Las Cumbres Observatory Global Telescope Network
+Incorporated, the National Central University of Taiwan, the Space
+Telescope Science Institute, the National Aeronautics and Space
+Administration under Grant No. NNX08AR22G issued through the
+Planetary Science Division of the NASA Science Mission Directorate,
+the National Science Foundation Grant No. AST-1238877, the
+University of Maryland, Eotvos Lorand University (ELTE), the Los
+Alamos National Laboratory, and the Gordon and Betty Moore
+Foundation.
+
+Based on observations obtained with Planck
+(http://www.esa.int/Planck), an ESA science mission with instruments
+and contributions directly funded by ESA Member States, NASA, and
+Canada.  Some of the results in this paper have been derived using
+the HEALPix (K.M. Górski et al., 2005, ApJ, 622, p759) package
+
+\bibliographystyle{mnras}
+\bibliography{RSP_library} 
+
+
+
+\appendix
+
+\section{Sky maps}
+\label{sec:figures}
+We present the sky locations of the SZ selected clusters from the PSZ2
+catalog that were used in our study in Figure~\ref{fig:planck_fig}.
+The purple areas mark the masked out regions as defined by the union
+selection function of the PSZ2 catalog. The sky maps in
+Figure~\ref{fig:heal_map} show the survey masks of our three galaxy
+catalogs. All sky maps presented in this section use the ICRS
+coordinate system.
+
+\begin{figure}
+\centering{
+    \includegraphics[scale=0.8]{Planck_pres.png}}
+\caption{Sky map showing the sky positions of the used clusters as
+selected from the PSZ2 catalog. In total 596 clusters have been
+selected. The purple areas mark the regions that are excluded by the
+union survey selection function. Note that all clusters with
+$\delta<-31\degr$ have been removed since this region is not covered
+by the Pan-STARRS 3$\pi$ Steradian survey. The ICRS coordinate
+system is used.}
+    \label{fig:planck_fig} 
+\end{figure}
+
+\begin{figure*}
+    \includegraphics[width= \textwidth]{heal_maps.png}
+\caption{Sky maps displaying the masked out regions of the used
+galaxy catalogs extracted from the Pan-STARRS 3$\pi$ Steradian
+survey in purple. The ICRS coordinate system is used.}
+   \label{fig:heal_map} 
+\end{figure*}
+
+\section{Cornerplots}
+\label{sec:cornerplots}
+In Figures \ref{fig:corner_21} to \ref{fig:cornerblue} we present
+the two-dimensional posterior distributions for each pair of the
+fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We obtained the distributions by  using the
+affine invariant Markov Chain Monte Carlo sampler of
+\citet{goodman2010ensemble} as implemented in the parallel python
+package {\it emcee} by \citet{foreman2013emcee}.
+\begin{figure*}
+    \includegraphics[width= \textwidth]{corner21.pdf}
+\caption{The two-dimensional posterior distributions of each pair of
+the fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We cross-correlated PSZ2 galaxy clusters with
+galaxies form the PS 21 galaxy catalog to establish this figure.}
+   \label{fig:corner_21} 
+\end{figure*}
+\begin{figure*}
+    \includegraphics[width= \textwidth]{corner215.pdf}
+\caption{The two-dimensional posterior distributions of each pair of
+the fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We cross-correlated PSZ2 galaxy clusters with
+galaxies form the PS 21.5 galaxy catalog to establish this figure.}
+   \label{fig:corner_21.5} 
+\end{figure*}
+\begin{figure*}
+    \includegraphics[width= \textwidth]{corner22.pdf}
+\caption{The two-dimensional posterior distributions of each pair of
+the fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We cross-correlated PSZ2 galaxy clusters with
+galaxies form the PS 22 galaxy catalog to establish this figure.}
+   \label{fig:corner_22} 
+\end{figure*}
+\begin{figure*}
+    \includegraphics[width= \textwidth]{cornerred.pdf}
+\caption{The two-dimensional posterior distributions of each pair of
+the fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We cross-correlated PSZ2 galaxy clusters with
+galaxies form the PS 21.5 galaxy catalog. Only the galaxies labeled
+as red were used.}
+   \label{fig:cornerred} 
+\end{figure*}
+\begin{figure*}
+    \includegraphics[width= \textwidth]{cornerblue.pdf}
+\caption{The two-dimensional posterior distributions of each pair of
+the fitting parameters corresponding to the functional
+form in Equation~\ref{eq:full}. We cross-correlated PSZ2 galaxy clusters with
+galaxies form the PS 21 galaxy catalog. Only the galaxies labeled as
+blue were used.}
+   \label{fig:cornerblue} 
+\end{figure*}
+
+\label{lastpage}
+\end{document}

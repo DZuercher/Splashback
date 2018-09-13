@@ -1,0 +1,4 @@
+1.) Run Splashpipe for Normal clusters and for Random clusters
+2.) Run combiner on both outputs (notice that pairs.denom files are only required for randomsources which is not available right now)
+3.) Run consolidate
+

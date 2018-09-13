@@ -1,0 +1,5 @@
+gal cat & Planck_PS_21_reloaded & Planck_PS_21.5_reloaded & Planck_PS_22_reloaded \\
+$R_{\mathrm{sp}}^{\mathrm{2D}}$ & $1.35_{-0.12}^{+0.13}$ & $1.30_{-0.10}^{+0.10}$ & $1.33_{-0.17}^{+0.13}$ \\
+\hline
+$r_{\mathrm{sp}}^{\mathrm{3D}}$ & $1.76_{-0.33}^{+0.29}$ & $1.81_{-0.33}^{+0.28}$ & $1.96_{-0.45}^{+0.37}$ \\
+\hline
