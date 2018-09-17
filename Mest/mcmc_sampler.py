@@ -4,7 +4,7 @@ import pandas as pd
 import emcee
 from emcee.utils import MPIPool, sample_ellipsoid
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import functools
 import subprocess
@@ -21,6 +21,9 @@ def MCMC_procedure(type_, add, prevrun, mc = False):
     print("Doing %s with prior %s" % (type_, add))
     data = pd.read_csv("%s/%s/xi_2d.dat" % (input_dir, type_), header = None, sep = ' ')
     cov_data = pd.read_csv("%s/%s/xi_2d_cov.dat" % (input_dir, type_), header = None, sep = ' ')
+    if mc == False:
+	type_ += '_no_mc'
+
     if mc == False:
         mlep = pd.read_csv(output_dir + "/" + type_ +"/MLE_parameters.txt", header = None)
     else:
@@ -123,6 +126,7 @@ def MCMC_procedure(type_, add, prevrun, mc = False):
 
     ntot=0
     it = prevrun
+    ntot = it * nsave
     print("Starting MCMC...")
     while ntot<steps:
         it+=1

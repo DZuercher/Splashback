@@ -6,18 +6,18 @@ def calc_color_frac(red_type, blue_type, add, output_dir):
 
     if mc == True:
 	add += "_mc"
-    print("Sort according to miscentering parameters...")
-    red_parameter_array=pd.read_csv("%s/%s/chainstate_full_modded.txt" % (output_dir, red_type), sep=' ',header=None,error_bad_lines=False,usecols=[8,9])
+	print("Sort according to miscentering parameters...")
+	red_parameter_array=pd.read_csv("%s/%s/chainstate_full_modded.txt" % (output_dir, red_type), sep=' ',header=None,error_bad_lines=False,usecols=[8,9])
 
-    blue_parameter_array=pd.read_csv("%s/%s/chainstate_full_modded.txt" % (output_dir, blue_type), sep=' ',header=None,error_bad_lines=False,usecols=[8,9])
+	blue_parameter_array=pd.read_csv("%s/%s/chainstate_full_modded.txt" % (output_dir, blue_type), sep=' ',header=None,error_bad_lines=False,usecols=[8,9])
 
 
-    red_parameter_array=np.asarray(red_parameter_array)
-    blue_parameter_array=np.asarray(blue_parameter_array)
+	red_parameter_array=np.asarray(red_parameter_array)
+	blue_parameter_array=np.asarray(blue_parameter_array)
 
-    print("Ordering")
-    red_order=np.lexsort((red_parameter_array[:,0],red_parameter_array[:,1]))
-    blue_order=np.lexsort((blue_parameter_array[:,0],blue_parameter_array[:,1]))
+	print("Ordering")
+	red_order=np.lexsort((red_parameter_array[:,0],red_parameter_array[:,1]))
+	blue_order=np.lexsort((blue_parameter_array[:,0],blue_parameter_array[:,1]))
 
     print("Reading Data arrays...")
     red_data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (output_dir, red_type), sep=' ',header=None,error_bad_lines=False,usecols=range(rsteps,rsteps*2))
@@ -27,9 +27,10 @@ def calc_color_frac(red_type, blue_type, add, output_dir):
     red_rho_array=np.asarray(red_data_array.values)
     blue_rho_array=np.asarray(blue_data_array.values)
 
-    print("Reordering arrays...")
-    red_rho_array=red_rho_array[red_order,:]
-    blue_rho_array=blue_rho_array[blue_order,:]
+    if mc == True:
+	print("Reordering arrays...")
+	red_rho_array=red_rho_array[red_order,:]
+	blue_rho_array=blue_rho_array[blue_order,:]
 
     red_frac=red_rho_array[red_cutoff:]/(blue_rho_array[blue_cutoff:]+red_rho_array[red_cutoff:])
     blue_frac=blue_rho_array[blue_cutoff:]/(blue_rho_array[blue_cutoff:]+red_rho_array[red_cutoff:])

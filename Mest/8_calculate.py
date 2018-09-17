@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import scipy.integrate as integrate
 import scipy.special as special

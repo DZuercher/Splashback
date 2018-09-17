@@ -22,6 +22,7 @@ def curve_graphs(types):
 	print("Doing %s",type_)
 	dr_dat = np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, type_))
 
+
 	idx = (dr_dat[:,0] > 0.1) & (dr_dat[:,0] < 10.0)
 	rr=dr_dat[idx,0]
 	rrange=np.linspace(rr[0],rr[-1],rsteps)
@@ -287,11 +288,15 @@ def comp_splash(types):
     f1.savefig("%s/plots/splash_comp_%s.pdf" % (splash_directory, run_type))
 
 
-def color_plot():
+def color_plot(red_type, blue_type):
     f, axarr = plt.subplots(ncols=2,nrows=2,figsize=(6,6))
 
     dr_red=np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, red_type) )
     dr_blue=np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, blue_type) )
+
+    if mc == False:
+        red_type += "_no_mc"
+        blue_type += "_no_mc"
 
     dr_full=np.genfromtxt("%s/%s/results.csv" % (est_directory, full_type), delimiter=',',skip_header=1)
     full_rsp2d=dr_full[:,12]
@@ -546,7 +551,7 @@ def get_tables(types):
     fp.close()
     sp.close
 
-def get_color_table():
+def get_color_table(red_type, blue_type):
     print("Producing fit Table")
     fp=open("%s/plots/color_fitting_table_%s.txt" % (splash_directory, run_type),"w")
     header=r'gal cat & $\log_{10}(\rho_{\mathrm{s}})$ & $\log_{10}(\alpha)$ & $\log_{10}(r_{\mathrm{s}})$ & $\rho_{\mathrm{0}}$ & $s_{\mathrm{e}}$ & $\log_{10}(r_{\mathrm{t}})$ & $\log_{10}(\beta)$ & $\log_{10}(\gamma)$ & $R_{\mathrm{sp}}^{\mathrm{2D}}$ & $r_{\mathrm{sp}}^{\mathrm{3D}}$ & $\chi^2/\nu$ \\'+'\n'
@@ -561,6 +566,11 @@ def get_color_table():
     fp.write(header)
     fp.write("\hline \n")
     fp.write("\hline \n")
+    
+    if mc == False:
+        red_type += "_no_mc"
+        blue_type += "_no_mc"
+
     types = [red_type, blue_type]
     for type_ in types:
         fp.write(type_+" & ")
@@ -639,7 +649,7 @@ def get_color_table():
 run_type = "with_spline"
 
 
-
+mc = True
 font={'size':18}
 font_small={'size':11}
 colors=np.linspace(0,1,6)
@@ -660,8 +670,8 @@ full_type =  'Planck_PS_21.5'
 
 
 print("Plotting color separated plot")
-color_plot()
-get_color_table()
+color_plot(red_type, blue_type)
+get_color_table(red_type, blue_type)
 print("Plotting curves")
 curve_graphs(types)
 print("Plotting splashback comparison")

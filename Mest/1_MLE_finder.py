@@ -1,6 +1,6 @@
 #! coding=utf8
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import scipy.integrate as integrate
 import scipy.special as special
@@ -17,6 +17,8 @@ from scipy.linalg import inv
 
 def MLE_procedure(type_, mc):
     input_dir = "/work/dominik.zuercher/Output/splashpipe/"+type_
+    if mc == False:
+        type_ += "_no_mc"
     output_dir = "/work/dominik.zuercher/Output/Mest/"+type_
     data = pd.read_csv("%s/xi_2d.dat" % (input_dir), header = None, sep = ' ')
     cov_data = pd.read_csv("%s/xi_2d_cov.dat" % (input_dir), header = None, sep = ' ')
@@ -241,7 +243,7 @@ def MLE_procedure(type_, mc):
         gamma=0.24
         fmin=0.1
         sigma=0.1
-    elif (type_=='Planck_PS_21.5_red_spline') & (mc==False):
+    elif (type_=='Planck_PS_21.5_red_spline_no_mc') & (mc==False):
         rhos=-0.4
         alpha=-1.1
         rs=0.03
@@ -250,7 +252,7 @@ def MLE_procedure(type_, mc):
         rt=-0.096
         beta=0.69
         gamma=0.13
-    elif (type_=='Planck_PS_21.5_blue_spline') & (mc==False):
+    elif (type_=='Planck_PS_21.5_blue_spline_no_mc') & (mc==False):
         rhos=-1.5
         alpha=-0.67
         rs=0.35
@@ -331,6 +333,6 @@ if __name__ == "__main__":
 
 
     
-    types = ['Planck_PS_21.5_blue_spline', '']
+    types = ['Planck_PS_21.5_blue_spline', 'Planck_PS_21.5_red_spline']
     for type_ in types:
         MLE_procedure(type_,mc)

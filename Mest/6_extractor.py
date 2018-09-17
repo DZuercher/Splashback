@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import scipy.integrate as integrate
 import scipy.special as special
@@ -61,7 +61,7 @@ if __name__=="__main__":
 
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
-    steps = 11000
+    steps = 48000
     nwalkers = 28
     rsteps = 25
     broken_walker = None   

@@ -4,7 +4,7 @@ import pandas as pd
 import emcee
 from emcee.utils import MPIPool, sample_ellipsoid
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import functools
 import subprocess
@@ -14,14 +14,21 @@ from subprocess import call
 
 
 def MCMC_calc_stats(ndim,rank,type_,add,mc):
+
+    #Reading of the data
+    print("Doing "+str(type_)+" with prior "+str(add))
+
+    data = pd.read_csv("%s/%s/xi_2d.dat" % (input_dir, type_), header=None, sep = ' ')
+    cov_data = pd.read_csv("%s/%s/xi_2d_cov.dat" % (input_dir, type_), header=None, sep = ' ')
+
+    if mc == False:
+	type_ += '_no_mc'
+
     call("mkdir -p %s/%s/data_parts" % (output_dir, type_), shell = 1)
+
     if mc==True:
         add=add+"_mc"
         ndim+=2
-    #Reading of the data
-    print("Doing "+str(type_)+" with prior "+str(add))
-    data = pd.read_csv("%s/%s/xi_2d.dat" % (input_dir, type_), header=None, sep = ' ')
-    cov_data = pd.read_csv("%s/%s/xi_2d_cov.dat" % (input_dir, type_), header=None, sep = ' ')
 
     data = np.asarray(data.values)
     rr = data[:,0]
@@ -111,7 +118,7 @@ if __name__ == "__main__":
     comm = MPI.COMM_WORLD
     rank = comm.rank
     size = comm.size
-    steps = 11000
+    steps = 100000
     mc = True
     rsteps = 25
     ndim = 8 #Number of parameters

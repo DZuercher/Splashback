@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0,'/home/dominik.zuercher/Documents/RSP_Pro/toolbox')
+sys.path.insert(0,'/home/dominik.zuercher/Documents/Splashback/toolbox')
 import tools
 import scipy.integrate as integrate
 import scipy.special as special
@@ -18,6 +18,10 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
         ndim+=2
     #Reading data
     dat=pd.read_csv("%s/%s/xi_2d.dat" % (input_dir, type_), header=None,sep=' ')
+
+    if mc == False:
+	type_ += '_no_mc'
+
 
     dat = np.asarray(dat.values)
     rr = dat[:,0]
@@ -188,7 +192,7 @@ if __name__ == "__main__":
     ndim = 8
     nwalkers = 28
     nwalkers_modded = 28
-    steps = 11000
+    steps = 48000
     rsteps = 25
     types = ['Planck_PS_21.5_blue_spline','Planck_PS_21.5_red_spline']
     adds = ["_best"]
