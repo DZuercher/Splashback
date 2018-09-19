@@ -15,7 +15,7 @@ def assign_color_xr(i):
 
 def curve_graphs(types):
     f1, axarr1 = plt.subplots(ncols=2,nrows=3,figsize=(6,6))
-    f2, axarr2 = plt.subplots(ncols=2,nrows=3,figsize=(6,6))
+    f2, axarr2 = plt.subplots(ncols=3,nrows=3,figsize=(9,6))
     i=0
     shifts=np.asarray([1,1,1])
     for type_ in types:
@@ -33,6 +33,7 @@ def curve_graphs(types):
 	dr_rhos=dr_plotdat[rsteps:rsteps*2,:]
 	dr_devs=dr_plotdat[rsteps*2:rsteps*3,:]
 	dr_rhodevs=dr_plotdat[rsteps*3:rsteps*4,:]
+	dr_rhodevs2=dr_plotdat[rsteps*4:rsteps*5,:]
 
 	dr_splashdat=pd.read_csv("%s/%s/values.dat" % (est_directory, type_), sep=' ',header=None)
 	dr_splashdat=np.asarray(dr_splashdat.values)
@@ -71,9 +72,17 @@ def curve_graphs(types):
 	axarr2[i,1].axvline(x=r200m,c="k",ls=":")
         axarr2[i,1].axvspan(dr_rsp3ds[0]-dr_rsp3ds[2],dr_rsp3ds[0]+dr_rsp3ds[1],color=assign_color(i,0),alpha=0.3)
 
+	axarr2[i,2].axvline(x=r200m,c="k",ls=":")
+        axarr2[i,2].axvspan(dr_rsp3ds[0]-dr_rsp3ds[2],dr_rsp3ds[0]+dr_rsp3ds[1],color=assign_color(i,0),alpha=0.3)
+  
 	#Plot 3D derivative MCMC fits
 	axarr2[i,1].plot(rrange,dr_rhodevs[:,0],linestyle='-',c=assign_color(i,0))
         axarr2[i,1].fill_between(rrange,dr_rhodevs[:,0]-dr_rhodevs[:,2],dr_rhodevs[:,0]+dr_rhodevs[:,1],facecolor=assign_color(i,0),alpha=0.3)
+	
+        #Plot 3D 2nd derivative MCMC fits
+	axarr2[i,2].plot(rrange,dr_rhodevs2[:,0],linestyle='-',c=assign_color(i,0))
+        axarr2[i,2].fill_between(rrange,dr_rhodevs2[:,0]-dr_rhodevs2[:,2],dr_rhodevs2[:,0]+dr_rhodevs2[:,1],facecolor=assign_color(i,0),alpha=0.3)
+
 	i+=1
 
 
@@ -90,6 +99,9 @@ def curve_graphs(types):
     axarr2[0,1].set_xscale("log")
     axarr2[1,1].set_xscale("log")
     axarr2[2,1].set_xscale("log")
+    axarr2[0,2].set_xscale("log")
+    axarr2[1,2].set_xscale("log")
+    axarr2[2,2].set_xscale("log")
 
     axarr1[0,0].set_yscale("log")
     axarr1[1,0].set_yscale("log")
@@ -100,8 +112,9 @@ def curve_graphs(types):
 
     axarr1[2,0].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
     axarr1[2,1].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
-    axarr2[2,1].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
     axarr2[2,0].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
+    axarr2[2,1].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
+    axarr2[2,2].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
 
     axarr1[0,0].set_ylabel(r"$\xi_{\rm 2D}$($R$)")
     axarr1[1,0].set_ylabel(r"$\xi_{\rm 2D}$($R$)")
@@ -116,6 +129,9 @@ def curve_graphs(types):
     axarr2[0,1].set_ylabel(r"d$\log\xi_{\rm 3D}/$d$\log r$")
     axarr2[1,1].set_ylabel(r"d$\log\xi_{\rm 3D}/$d$\log r$")
     axarr2[2,1].set_ylabel(r"d$\log\xi_{\rm 3D}/$d$\log r$")
+    axarr2[0,2].set_ylabel(r"d$^2\log\xi_{\rm 3D}/$d$(\log r)^2$")
+    axarr2[1,2].set_ylabel(r"d$^2\log\xi_{\rm 3D}/$d$(\log r)^2$")
+    axarr2[2,2].set_ylabel(r"d$^2\log\xi_{\rm 3D}/$d$(\log r)^2$")
 
 
     axarr1[0,0].text(0.05, 0.12, r'SNR $42.4$',fontsize=7,transform=axarr1[0,0].transAxes)
@@ -146,6 +162,9 @@ def curve_graphs(types):
     axarr2[0,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
     axarr2[1,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
     axarr2[2,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[0,2].text(2.1,2.95,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[1,2].text(2.1,2.95,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[2,2].text(2.1,3.78,r'$r_{\mathrm{200m}}$',rotation=90)
 
     axarr1[0,0].set_ylim([6e-2,1e1])
     axarr1[1,0].set_ylim([6e-2,1e1])
@@ -172,6 +191,9 @@ def curve_graphs(types):
     axarr2[0,1].set_xlim([0,8])
     axarr2[1,1].set_xlim([0,8])
     axarr2[2,1].set_xlim([0,8])
+    axarr2[0,2].set_xlim([0,8])
+    axarr2[1,2].set_xlim([0,8])
+    axarr2[2,2].set_xlim([0,8])
 
     axarr1[0,1].xaxis.set_ticklabels([])
     axarr1[0,0].xaxis.set_ticklabels([])
@@ -182,6 +204,8 @@ def curve_graphs(types):
     axarr2[0,0].xaxis.set_ticklabels([])
     axarr2[1,0].xaxis.set_ticklabels([])
     axarr2[1,1].xaxis.set_ticklabels([])
+    axarr2[0,2].xaxis.set_ticklabels([])
+    axarr2[1,2].xaxis.set_ticklabels([])
 
     f1.subplots_adjust(hspace=0.1,wspace=0.3)
     f2.subplots_adjust(hspace=0.1,wspace=0.3)
@@ -289,7 +313,8 @@ def comp_splash(types):
 
 
 def color_plot(red_type, blue_type):
-    f, axarr = plt.subplots(ncols=2,nrows=2,figsize=(6,6))
+    f1, axarr1 = plt.subplots(ncols=2,nrows=1,figsize=(6,3))
+    f2, axarr2 = plt.subplots(ncols=3,nrows=1,figsize=(11,3))
 
     dr_red=np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, red_type) )
     dr_blue=np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, blue_type) )
@@ -313,6 +338,7 @@ def color_plot(red_type, blue_type):
     red_rhos=red_plotdat[rsteps:rsteps*2,:]
     red_devs=red_plotdat[rsteps*2:rsteps*3,:]
     red_rhodevs=red_plotdat[rsteps*3:rsteps*4,:]
+    red_rhodevs2=red_plotdat[rsteps*4:rsteps*5,:]
 
     blue_plotdat=pd.read_csv("%s/%s/plotsave.dat" % (est_directory, blue_type),sep=' ',header=None)
     blue_plotdat=np.asarray(blue_plotdat.values)
@@ -320,6 +346,7 @@ def color_plot(red_type, blue_type):
     blue_rhos=blue_plotdat[rsteps:rsteps*2,:]
     blue_devs=blue_plotdat[rsteps*2:rsteps*3,:]
     blue_rhodevs=blue_plotdat[rsteps*3:rsteps*4,:]
+    blue_rhodevs2=blue_plotdat[rsteps*4:rsteps*5,:]
 
     red_splashdat=pd.read_csv("%s/%s/values.dat" % (est_directory, red_type), sep=' ',header=None)
     red_splashdat=np.asarray(red_splashdat.values)
@@ -332,93 +359,109 @@ def color_plot(red_type, blue_type):
     blue_rsp3ds=blue_splashdat[1,:]
 
     #Plot 2D Data
-    axarr[0,0].errorbar(dr_red[:,0], dr_red[:,1], dr_red[:,2], fmt="r.",capsize=2,label =r'$\xi_{DP}^{red}$')
-    axarr[0,0].errorbar(dr_blue[:,0], dr_blue[:,1], dr_blue[:,2], fmt="b.",capsize=2,label =r'$\xi_{DP}^{blue}$')
+    axarr1[0].errorbar(dr_red[:,0], dr_red[:,1], dr_red[:,2], fmt="r.",capsize=2,label =r'$\xi_{DP}^{red}$')
+    axarr1[0].errorbar(dr_blue[:,0], dr_blue[:,1], dr_blue[:,2], fmt="b.",capsize=2,label =r'$\xi_{DP}^{blue}$')
 
     #Plot 2D MCMC fits
-    axarr[0,0].plot(rrange,red_sigmas[:,0],linestyle='-',c='r')
-    axarr[0,0].plot(rrange,blue_sigmas[:,0],linestyle='-',c='b')
+    axarr1[0].plot(rrange,red_sigmas[:,0],linestyle='-',c='r')
+    axarr1[0].plot(rrange,blue_sigmas[:,0],linestyle='-',c='b')
 
-    axarr[0,0].fill_between(rrange,red_sigmas[:,0]-red_sigmas[:,2],red_sigmas[:,0]+red_sigmas[:,1],facecolor='r',alpha=0.3)
-    axarr[0,0].fill_between(rrange,blue_sigmas[:,0]-blue_sigmas[:,2],blue_sigmas[:,0]+blue_sigmas[:,1],facecolor='b',alpha=0.3)
+    axarr1[0].fill_between(rrange,red_sigmas[:,0]-red_sigmas[:,2],red_sigmas[:,0]+red_sigmas[:,1],facecolor='r',alpha=0.3)
+    axarr1[0].fill_between(rrange,blue_sigmas[:,0]-blue_sigmas[:,2],blue_sigmas[:,0]+blue_sigmas[:,1],facecolor='b',alpha=0.3)
 
     #Plot 2D derivative MCMC fits
-    axarr[0,1].plot(rrange,red_devs[:,0],linestyle='-',c='r')
-    axarr[0,1].plot(rrange,blue_devs[:,0],linestyle='-',c='b')
-    axarr[0,1].fill_between(rrange,red_devs[:,0]-red_devs[:,2],red_devs[:,0]+red_devs[:,1],facecolor='r',alpha=0.3)
-    axarr[0,1].fill_between(rrange,blue_devs[:,0]-blue_devs[:,2],blue_devs[:,0]+blue_devs[:,1],facecolor='b',alpha=0.3)
+    axarr1[1].plot(rrange,red_devs[:,0],linestyle='-',c='r')
+    axarr1[1].plot(rrange,blue_devs[:,0],linestyle='-',c='b')
+    axarr1[1].fill_between(rrange,red_devs[:,0]-red_devs[:,2],red_devs[:,0]+red_devs[:,1],facecolor='r',alpha=0.3)
+    axarr1[1].fill_between(rrange,blue_devs[:,0]-blue_devs[:,2],blue_devs[:,0]+blue_devs[:,1],facecolor='b',alpha=0.3)
 
     #Plot 3D MCMC fits
-    axarr[1,0].plot(rrange,red_rhos[:,0],linestyle='-',c='r')
-    axarr[1,0].plot(rrange,blue_rhos[:,0],linestyle='-',c='b')
-    axarr[1,0].fill_between(rrange,red_rhos[:,0]-red_rhos[:,2],red_rhos[:,0]+red_rhos[:,1],facecolor='r',alpha=0.3)
-    axarr[1,0].fill_between(rrange,blue_rhos[:,0]-blue_rhos[:,2],blue_rhos[:,0]+blue_rhos[:,1],facecolor='b',alpha=0.3)
+    axarr2[0].plot(rrange,red_rhos[:,0],linestyle='-',c='r')
+    axarr2[0].plot(rrange,blue_rhos[:,0],linestyle='-',c='b')
+    axarr2[0].fill_between(rrange,red_rhos[:,0]-red_rhos[:,2],red_rhos[:,0]+red_rhos[:,1],facecolor='r',alpha=0.3)
+    axarr2[0].fill_between(rrange,blue_rhos[:,0]-blue_rhos[:,2],blue_rhos[:,0]+blue_rhos[:,1],facecolor='b',alpha=0.3)
 
     #Plot 3D derivative MCMC fits
-    axarr[1,1].plot(rrange,red_rhodevs[:,0],linestyle='-',c='r')
-    axarr[1,1].plot(rrange,blue_rhodevs[:,0],linestyle='-',c='b')
+    axarr2[1].plot(rrange,red_rhodevs[:,0],linestyle='-',c='r')
+    axarr2[1].plot(rrange,blue_rhodevs[:,0],linestyle='-',c='b')
 
-    axarr[1,1].fill_between(rrange,red_rhodevs[:,0]-red_rhodevs[:,2],red_rhodevs[:,0]+red_rhodevs[:,1],facecolor='r',alpha=0.3)
-    axarr[1,1].fill_between(rrange,blue_rhodevs[:,0]-blue_rhodevs[:,2],blue_rhodevs[:,0]+blue_rhodevs[:,1],facecolor='b',alpha=0.3)
+    axarr2[1].fill_between(rrange,red_rhodevs[:,0]-red_rhodevs[:,2],red_rhodevs[:,0]+red_rhodevs[:,1],facecolor='r',alpha=0.3)
+    axarr2[1].fill_between(rrange,blue_rhodevs[:,0]-blue_rhodevs[:,2],blue_rhodevs[:,0]+blue_rhodevs[:,1],facecolor='b',alpha=0.3)
 
+    #Plot 3D 2nd derivative MCMC fits
+    axarr2[2].plot(rrange,red_rhodevs2[:,0],linestyle='-',c='r')
+    axarr2[2].plot(rrange,blue_rhodevs2[:,0],linestyle='-',c='b')
+
+    axarr2[2].fill_between(rrange,red_rhodevs2[:,0]-red_rhodevs2[:,2],red_rhodevs2[:,0]+red_rhodevs2[:,1],facecolor='r',alpha=0.3)
+    axarr2[2].fill_between(rrange,blue_rhodevs2[:,0]-blue_rhodevs2[:,2],blue_rhodevs2[:,0]+blue_rhodevs2[:,1],facecolor='b',alpha=0.3)
 
     #Make vertical line at locations of R200m and R3D
     #axarr[0,0].axvline(x=r200m,c="k",linestyle=":")
-    axarr[0,0].axvspan(red_rsp2ds[0]-red_rsp2ds[2],red_rsp2ds[0]+red_rsp2ds[1],color='r',alpha=0.3)
-    axarr[0,0].axvspan(blue_rsp2ds[0]-blue_rsp2ds[2],blue_rsp2ds[0]+blue_rsp2ds[1],color='b',alpha=0.3)
-    axarr[0,0].axvline(full_rsp2d[0]-full_rsp2d[2],c='k',ls='--')
-    axarr[0,0].axvline(full_rsp2d[0]+full_rsp2d[1],c='k',ls='--')
+    axarr1[0].axvspan(red_rsp2ds[0]-red_rsp2ds[2],red_rsp2ds[0]+red_rsp2ds[1],color='r',alpha=0.3)
+    axarr1[0].axvspan(blue_rsp2ds[0]-blue_rsp2ds[2],blue_rsp2ds[0]+blue_rsp2ds[1],color='b',alpha=0.3)
+    axarr1[0].axvline(full_rsp2d[0]-full_rsp2d[2],c='k',ls='--')
+    axarr1[0].axvline(full_rsp2d[0]+full_rsp2d[1],c='k',ls='--')
 
     #axarr[0,1].axvline(x=r200m,c="k",linestyle=":")
-    axarr[0,1].axvspan(red_rsp2ds[0]-red_rsp2ds[2],red_rsp2ds[0]+red_rsp2ds[1],color='r',alpha=0.3)
-    axarr[0,1].axvspan(blue_rsp2ds[0]-blue_rsp2ds[2],blue_rsp2ds[0]+blue_rsp2ds[1],color='b',alpha=0.3)
-    axarr[0,1].axvline(full_rsp2d[0]-full_rsp2d[2],c='k',ls='--')
-    axarr[0,1].axvline(full_rsp2d[0]+full_rsp2d[1],c='k',ls='--')
+    axarr1[1].axvspan(red_rsp2ds[0]-red_rsp2ds[2],red_rsp2ds[0]+red_rsp2ds[1],color='r',alpha=0.3)
+    axarr1[1].axvspan(blue_rsp2ds[0]-blue_rsp2ds[2],blue_rsp2ds[0]+blue_rsp2ds[1],color='b',alpha=0.3)
+    axarr1[1].axvline(full_rsp2d[0]-full_rsp2d[2],c='k',ls='--')
+    axarr1[1].axvline(full_rsp2d[0]+full_rsp2d[1],c='k',ls='--')
 
     #axarr[1,0].axvline(x=r200m,c="k",linestyle=":")
-    axarr[1,0].axvspan(red_rsp3ds[0]-red_rsp3ds[2],red_rsp3ds[0]+red_rsp3ds[1],color='r',alpha=0.3)
-    axarr[1,0].axvspan(blue_rsp3ds[0]-blue_rsp3ds[2],blue_rsp3ds[0]+blue_rsp3ds[1],color='b',alpha=0.3)
-    axarr[1,0].axvline(full_rsp3d[0]-full_rsp3d[2],c='k',ls='--')
-    axarr[1,0].axvline(full_rsp3d[0]+full_rsp3d[1],c='k',ls='--')
+    axarr2[0].axvspan(red_rsp3ds[0]-red_rsp3ds[2],red_rsp3ds[0]+red_rsp3ds[1],color='r',alpha=0.3)
+    axarr2[0].axvspan(blue_rsp3ds[0]-blue_rsp3ds[2],blue_rsp3ds[0]+blue_rsp3ds[1],color='b',alpha=0.3)
+    axarr2[0].axvline(full_rsp3d[0]-full_rsp3d[2],c='k',ls='--')
+    axarr2[0].axvline(full_rsp3d[0]+full_rsp3d[1],c='k',ls='--')
 
     #axarr[1,1].axvline(x=r200m,c="k",linestyle=":")
-    axarr[1,1].axvspan(red_rsp3ds[0]-red_rsp3ds[2],red_rsp3ds[0]+red_rsp3ds[1],color='r',alpha=0.3)
-    axarr[1,1].axvspan(blue_rsp3ds[0]-blue_rsp3ds[2],blue_rsp3ds[0]+blue_rsp3ds[1],color='b',alpha=0.3)
-    axarr[1,1].axvline(full_rsp3d[0]-full_rsp3d[2],c='k',ls='--')
-    axarr[1,1].axvline(full_rsp3d[0]+full_rsp3d[1],c='k',ls='--')
+    axarr2[1].axvspan(red_rsp3ds[0]-red_rsp3ds[2],red_rsp3ds[0]+red_rsp3ds[1],color='r',alpha=0.3)
+    axarr2[1].axvspan(blue_rsp3ds[0]-blue_rsp3ds[2],blue_rsp3ds[0]+blue_rsp3ds[1],color='b',alpha=0.3)
+    axarr2[1].axvline(full_rsp3d[0]-full_rsp3d[2],c='k',ls='--')
+    axarr2[1].axvline(full_rsp3d[0]+full_rsp3d[1],c='k',ls='--')
 
+    axarr2[2].axvspan(red_rsp3ds[0]-red_rsp3ds[2],red_rsp3ds[0]+red_rsp3ds[1],color='r',alpha=0.3)
+    axarr2[2].axvspan(blue_rsp3ds[0]-blue_rsp3ds[2],blue_rsp3ds[0]+blue_rsp3ds[1],color='b',alpha=0.3)
+    axarr2[2].axvline(full_rsp3d[0]-full_rsp3d[2],c='k',ls='--')
+    axarr2[2].axvline(full_rsp3d[0]+full_rsp3d[1],c='k',ls='--')
 
     #Trim plots
-    axarr[0,0].set_xscale("log")
-    axarr[0,1].set_xscale("log")
-    axarr[1,0].set_xscale("log")
-    axarr[1,1].set_xscale("log")
+    axarr1[0].set_xscale("log")
+    axarr1[1].set_xscale("log")
+    axarr2[0].set_xscale("log")
+    axarr2[1].set_xscale("log")
+    axarr2[2].set_xscale("log")
 
-    axarr[0,0].set_yscale("log")
-    axarr[1,0].set_yscale("log")
+    axarr1[0].set_yscale("log")
+    axarr2[0].set_yscale("log")
 
-    axarr[0,0].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
-    axarr[0,1].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
-    axarr[1,0].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
-    axarr[1,1].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
+    axarr1[0].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
+    axarr1[1].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
+    axarr2[0].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
+    axarr2[1].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
+    axarr2[2].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
 
-    axarr[0,0].set_ylabel(r"$\xi_{\rm 2D}$($R$)")
-    axarr[0,1].set_ylabel(r"d$\log\xi_{\rm 2D}/$d$\log R$")
-    axarr[1,0].set_ylabel(r"$\xi_{\rm 3D}(r)$")
-    axarr[1,1].set_ylabel(r"d$\log\xi_{\rm 3D}/$d$\log r$")
+    axarr1[0].set_ylabel(r"$\xi_{\rm 2D}$($R$)")
+    axarr1[1].set_ylabel(r"d$\log\xi_{\rm 2D}/$d$\log R$")
+    axarr2[0].set_ylabel(r"$\xi_{\rm 3D}(r)$")
+    axarr2[1].set_ylabel(r"d$\log\xi_{\rm 3D}/$d$\log r$")
+    axarr2[2].set_ylabel(r"d$^2\log\xi_{\rm 3D}/$d$(\log r)^2$")
 
-    axarr[0,0].text(0.125, 0.11, r'$M_i-5\log $h$<-18.94$',fontsize=7)
+    axarr1[0].text(0.125, 0.11, r'$M_i-5\log $h$<-18.94$',fontsize=7)
 
-    f.subplots_adjust(hspace=0.25,wspace=0.4)
+    f1.subplots_adjust(hspace=0.25,wspace=0.4)
+    f2.subplots_adjust(hspace=0.25,wspace=0.4)
 
-    axarr[0,0].set_xlim([0,8])
-    axarr[1,0].set_xlim([0,8])
-    axarr[0,1].set_xlim([0,8])
-    axarr[1,1].set_xlim([0,8])
+    axarr1[0].set_xlim([0,8])
+    axarr1[1].set_xlim([0,8])
+    axarr2[0].set_xlim([0,8])
+    axarr2[1].set_xlim([0,8])
+    axarr2[2].set_xlim([0,8])
     
-    axarr[0,0].set_ylim([0.08,20])
+    axarr1[0].set_ylim([0.08,20])
 
-    f.savefig("%s/plots/color_separated_%s.pdf" % (splash_directory, run_type))
+    f1.savefig("%s/plots/color_separated_2D_%s.pdf" % (splash_directory, run_type))
+    f2.savefig("%s/plots/color_separated_3D_%s.pdf" % (splash_directory, run_type))
     plt.close()
 
     f, axarr = plt.subplots(ncols=1,nrows=1,figsize=(3,3))
@@ -671,12 +714,12 @@ full_type =  'Planck_PS_21.5'
 
 print("Plotting color separated plot")
 color_plot(red_type, blue_type)
-get_color_table(red_type, blue_type)
+#get_color_table(red_type, blue_type)
 print("Plotting curves")
 curve_graphs(types)
 print("Plotting splashback comparison")
-comp_splash(types)
+#comp_splash(types)
 print("Plotting histograms")
-hist_graphs(types)
+#hist_graphs(types)
 print("Producing splashback and fitting parameter tables")
-get_tables(types)
+#get_tables(types)

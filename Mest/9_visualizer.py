@@ -120,6 +120,7 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     print("Plot done")
     
     #Drawing chains
+    nochains=False
     if modded==False:
         data = np.loadtxt("%s/%s/chainstate_full.txt" % (output_dir, type_))
     else:
@@ -129,24 +130,28 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     data=np.asarray(data)
     
     length=data.size/nwalkers/ndim
-    samples = data.reshape((length,nwalkers,ndim))
+    try:
+        samples = data.reshape((length,nwalkers,ndim))
+    except:
+        nochains=True
     if mc==False:
         param_names = [r'$\log_{10}(\rho_{\mathrm{s}})$',r'$\alpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(\rho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(\beta)$',r'$\log_{10}(\gamma)$']
     else:
         param_names = [r'$\log_{10}(\rho_{\mathrm{s}})$',r'$\alpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(\rho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(\beta)$',r'$\log_{10}(\gamma)$',r'f$_{\rm min}$',r'$\sigma$']
 
-    #Visualisation of chains
-    fig=plt.figure(1)
-    colors=np.linspace(0,1,int(nwalkers))
-    f, axarr = plt.subplots(ndim,sharex=True)
-    for i in range(ndim):
-        for j in range(nwalkers):
-            x=np.linspace(1,samples.shape[0],samples.shape[0])
-            axarr[i].plot(x,samples[:,j,i],c=cm.nipy_spectral(colors[j]),alpha=0.4)
-            axarr[i].set_ylabel(param_names[i])
+    if nochains==False:
+	#Visualisation of chains
+	fig=plt.figure(1)
+	colors=np.linspace(0,1,int(nwalkers))
+	f, axarr = plt.subplots(ndim,sharex=True)
+	for i in range(ndim):
+	    for j in range(nwalkers):
+		x=np.linspace(1,samples.shape[0],samples.shape[0])
+		axarr[i].plot(x,samples[:,j,i],c=cm.nipy_spectral(colors[j]),alpha=0.4)
+		axarr[i].set_ylabel(param_names[i])
 
-    plt.savefig("%s/%s/chains.pdf" % (output_dir, type_))
-    plt.close(fig)
+	plt.savefig("%s/%s/chains.pdf" % (output_dir, type_))
+	plt.close(fig)
     print("chains drawn")
     
 
@@ -187,14 +192,14 @@ if __name__ == "__main__":
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
     modded = True
-    mc = True
+    mc = False
 
     ndim = 8
     nwalkers = 28
     nwalkers_modded = 28
-    steps = 48000
+    steps = 100000
     rsteps = 25
-    types = ['Planck_PS_21.5_blue_spline','Planck_PS_21.5_red_spline']
+    types = ['Planck_PS_21.5_blue_spline','Planck_PS_21.5_red_spline', 'Planck_PS_21', 'Planck_PS_21.5', 'Planck_PS_22']
     adds = ["_best"]
     for add in adds:
         for type_ in types:

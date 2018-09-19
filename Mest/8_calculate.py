@@ -20,13 +20,16 @@ def cal_procedure(type_,add,modded=False):
         data_array=pd.read_csv("%s/%s/Data_full.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
     else:
         data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
+        dev2_array=pd.read_csv("%s/%s/dev2_full_modded.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
 
     print("Read")
     data_array=np.asarray(data_array.values)
+    dev2_array=np.asarray(dev2_array.values)
     sigma_array=data_array[:,0:rsteps]
     rho_array=data_array[:,rsteps:rsteps*2]
     dev_array=data_array[:,rsteps*2:rsteps*3]
     rhodev_array=data_array[:,rsteps*3:rsteps*4]
+    rhodev2_array = dev2_array
     rsp2d_array=data_array[:,rsteps*4]
     rsp2d_array=rsp2d_array.reshape((rsp2d_array.size,1))
     rsp3d_array=data_array[:,rsteps*4+1]
@@ -48,6 +51,8 @@ def cal_procedure(type_,add,modded=False):
     print("devs done")
     rhodevs = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(rhodev_array, [16, 50, 84], axis=0))))
     print("rhodevs done")
+    rhodevs2 = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(rhodev2_array, [16, 50, 84], axis=0))))
+    print("rhodevs2 done")
     rsp2ds = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(rsp2d_array, [16, 50, 84], axis=0))))
     rsp2ds=rsp2ds.reshape(rsp2ds.size)
     print("rsp2ds done")
@@ -67,7 +72,7 @@ def cal_procedure(type_,add,modded=False):
     print("maxinnerrhodevs done")
 
     #Saving
-    outarr=np.vstack((sigmas,rhos,devs,rhodevs))
+    outarr=np.vstack((sigmas,rhos,devs,rhodevs, rhodevs2))
     np.savetxt("%s/%s/plotsave.dat" % (output_dir, type_), outarr)
     valarr=np.vstack((rsp2ds,rsp3ds,chisquares,maxrhodevs,maxinnerrhodevs))
     np.savetxt("%s/%s/values.dat" % (output_dir, type_), valarr)
@@ -104,7 +109,7 @@ if __name__ == "__main__":
 
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
-    types = ["Planck_PS_21.5_blue_spline","Planck_PS_21.5_red_spline"]
+    types = ["Planck_PS_21.5_blue_spline","Planck_PS_21.5_red_spline", "Planck_PS_21", "Planck_PS_21.5", "Planck_PS_22"]
     adds = ["_best"]
     for add in adds:
         for type_ in types:
