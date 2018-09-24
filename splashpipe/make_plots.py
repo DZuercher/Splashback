@@ -21,7 +21,9 @@ def curve_graphs(types):
     for type_ in types:
 	print("Doing %s",type_)
 	dr_dat = np.genfromtxt("%s/%s/xi_2d.dat" % (splash_directory, type_))
-
+        
+        if mc == False:
+            type_ += "_no_mc"
 
 	idx = (dr_dat[:,0] > 0.1) & (dr_dat[:,0] < 10.0)
 	rr=dr_dat[idx,0]
@@ -162,9 +164,9 @@ def curve_graphs(types):
     axarr2[0,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
     axarr2[1,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
     axarr2[2,1].text(2.1,-0.75,r'$r_{\mathrm{200m}}$',rotation=90)
-    axarr2[0,2].text(2.1,2.95,r'$r_{\mathrm{200m}}$',rotation=90)
-    axarr2[1,2].text(2.1,2.95,r'$r_{\mathrm{200m}}$',rotation=90)
-    axarr2[2,2].text(2.1,3.78,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[0,2].text(2.1,3.2,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[1,2].text(2.1,3.2,r'$r_{\mathrm{200m}}$',rotation=90)
+    axarr2[2,2].text(2.1,3.4,r'$r_{\mathrm{200m}}$',rotation=90)
 
     axarr1[0,0].set_ylim([6e-2,1e1])
     axarr1[1,0].set_ylim([6e-2,1e1])
@@ -185,6 +187,9 @@ def curve_graphs(types):
     axarr2[0,1].set_ylim([-3.75,-0.5])
     axarr2[1,1].set_ylim([-3.75,-0.5])
     axarr2[2,1].set_ylim([-3.75,-0.5])
+    axarr2[0,2].set_ylim([-3.8,3.8])
+    axarr2[1,2].set_ylim([-3.8,3.8])
+    axarr2[2,2].set_ylim([-3.8,4])
     axarr2[0,0].set_xlim([0,8])
     axarr2[1,0].set_xlim([0,8])
     axarr2[2,0].set_xlim([0,8])
@@ -224,6 +229,8 @@ def hist_graphs(types):
     shifts=np.asarray([1,1,1])
     labels=[r'$M_{\rm i}$-$5\log$h$<-19.44$',r'$M_{\rm i}$-$5\log$h$<-18.94$',r'$M_{\rm i}$-$5\log$h$<-18.44$']
     for type_ in types:
+        if mc == False:
+            type_ += "_no_mc"
         print("Doing %s",type_)
 	dr_data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (est_directory, type_), sep=' ',header=None,error_bad_lines=False,usecols=(rsteps*4,rsteps*4+1,rsteps*4+3,rsteps*4+4))
 	dr_data_array=np.asarray(dr_data_array.values)
@@ -233,7 +240,7 @@ def hist_graphs(types):
 	dr_rsp3d_array=dr_rsp3d_array.reshape((dr_rsp3d_array.size,1))
 	dr_maxrhodev_array=dr_data_array[:,2]
 	dr_maxinnerrhodev_array=dr_data_array[:,3]
-	dr_maxinnerrhodev_array=-dr_maxinnerrhodev_array.reshape((dr_maxinnerrhodev_array.size,1))
+	dr_maxinnerrhodev_array=dr_maxinnerrhodev_array.reshape((dr_maxinnerrhodev_array.size,1))
 
         print("Data read")
         print("Binning...")
@@ -293,6 +300,8 @@ def comp_splash(types):
     splash3d_high=np.zeros(0)
     colors=np.zeros(0)
     for type_ in types:
+        if mc == False:
+            type_ += "_no_mc"
         dr_dat=np.genfromtxt("%s/%s/results.csv" % (est_directory, type_), delimiter=',',skip_header=1)
 	col=assign_color(i,0)
 	lab=labels[i]
@@ -339,6 +348,7 @@ def color_plot(red_type, blue_type):
     red_devs=red_plotdat[rsteps*2:rsteps*3,:]
     red_rhodevs=red_plotdat[rsteps*3:rsteps*4,:]
     red_rhodevs2=red_plotdat[rsteps*4:rsteps*5,:]
+
 
     blue_plotdat=pd.read_csv("%s/%s/plotsave.dat" % (est_directory, blue_type),sep=' ',header=None)
     blue_plotdat=np.asarray(blue_plotdat.values)
@@ -512,6 +522,8 @@ def get_tables(types):
     rsp3ds=np.zeros((1,3))
     for type_ in types:
         fp.write(type_+" & ")
+        if mc == False:
+            type_ += "_no_mc"
         dat=pd.read_csv("%s/%s/results.csv" % (est_directory, type_))
 
         foo2d=dat.rsp2d.values
@@ -689,10 +701,10 @@ def get_color_table(red_type, blue_type):
 ######################################
 
 
-run_type = "with_spline"
+run_type = "with_hard_spline_no_mc"
 
 
-mc = True
+mc = False
 font={'size':18}
 font_small={'size':11}
 colors=np.linspace(0,1,6)
@@ -704,8 +716,8 @@ splash_directory = "/work/dominik.zuercher/Output/splashpipe"
 est_directory = "/work/dominik.zuercher/Output/Mest"
 
 types=['Planck_PS_21','Planck_PS_21.5','Planck_PS_22']
-red_type = 'Planck_PS_21.5_red_spline'
-blue_type = 'Planck_PS_21.5_blue_spline'
+red_type = 'Planck_PS_21.5_red_hard_spline'
+blue_type = 'Planck_PS_21.5_blue_hard_spline'
 full_type =  'Planck_PS_21.5'
 
 
@@ -714,12 +726,12 @@ full_type =  'Planck_PS_21.5'
 
 print("Plotting color separated plot")
 color_plot(red_type, blue_type)
-#get_color_table(red_type, blue_type)
+get_color_table(red_type, blue_type)
 print("Plotting curves")
 curve_graphs(types)
 print("Plotting splashback comparison")
-#comp_splash(types)
+comp_splash(types)
 print("Plotting histograms")
 #hist_graphs(types)
 print("Producing splashback and fitting parameter tables")
-#get_tables(types)
+get_tables(types)

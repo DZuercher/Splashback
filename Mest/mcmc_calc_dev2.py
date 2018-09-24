@@ -95,10 +95,9 @@ if __name__ == "__main__":
     ndim = 8 #Number of parameters
     radmax = 10.0
     nwalkers = 28 #Total Number of walkers (98)
-    steps = 2000000
+    steps = 280000
     diag = False
-
-    modded = True
+    modded = False
 
 
     input_dir = "/work/dominik.zuercher/Output/splashpipe"

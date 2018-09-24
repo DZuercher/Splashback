@@ -199,7 +199,7 @@ if __name__ == "__main__":
     nwalkers_modded = 28
     steps = 100000
     rsteps = 25
-    types = ['Planck_PS_21.5_blue_spline','Planck_PS_21.5_red_spline', 'Planck_PS_21', 'Planck_PS_21.5', 'Planck_PS_22']
+    types = ['Planck_PS_21.5_blue_hard_spline','Planck_PS_21.5_red_hard_spline']
     adds = ["_best"]
     for add in adds:
         for type_ in types:

@@ -58,6 +58,8 @@ def correct_chain(type_,add,modded=False):
     print("Saving modded chains...")
     np.savetxt("%s/%s/chainstate_full_modded.txt" % (output_dir, type_), samples)
 
+    print("Saving modded data...")
+    np.savetxt("%s/%s/Data_full_modded.txt" % (output_dir, type_), value_array)
 def correct_dev2(type_,modded):
     if mc == False:
         type_ += "_no_mc"
@@ -90,10 +92,10 @@ if __name__=="__main__":
 
     mc = False
 
-    types=["Planck_PS_21.5_red_spline", "Planck_PS_21.5_blue_spline", "Planck_PS_21", "Planck_PS_21.5", "Planck_PS_22"]
+    types=["Planck_PS_21.5_red_hard_spline", "Planck_PS_21.5_blue_hard_spline"]
     adds = ["_best"]
     modded = False
     for add in adds:
         for type_ in types:
-            #correct_chain(type_,add,modded)
-	    correct_dev2(type_,modded)
+            correct_chain(type_,add,modded)
+	    #correct_dev2(type_,modded)

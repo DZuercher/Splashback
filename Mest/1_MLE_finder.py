@@ -261,6 +261,24 @@ def MLE_procedure(type_, mc):
         rt=0.144
         beta=0.57
         gamma=0.24
+    elif (type_=='Planck_PS_21.5_red_hard_spline_no_mc') & (mc==False):
+        rhos=-0.4
+        alpha=-1.1
+        rs=0.03
+        rho0=0.009
+        se=0.84
+        rt=-0.096
+        beta=0.69
+        gamma=0.13
+    elif (type_=='Planck_PS_21.5_blue_hard_spline_no_mc') & (mc==False):
+        rhos=-1.5
+        alpha=-0.67
+        rs=0.35
+        rho0=0.001
+        se=0.58
+        rt=0.144
+        beta=0.57
+        gamma=0.24
     else: 
         print("No prior defined!")
 
@@ -333,6 +351,6 @@ if __name__ == "__main__":
 
 
     
-    types = ['Planck_PS_21.5_blue_spline', 'Planck_PS_21.5_red_spline']
+    types = ['Planck_PS_21.5_blue_hard_spline', 'Planck_PS_21.5_red_hard_spline']
     for type_ in types:
         MLE_procedure(type_,mc)

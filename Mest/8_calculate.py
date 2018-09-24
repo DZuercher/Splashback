@@ -15,6 +15,9 @@ import frogress
 
 def cal_procedure(type_,add,modded=False):
 
+    if mc == False:
+        type_ += "_no_mc"
+
     #Reading data
     if modded==False:
         data_array=pd.read_csv("%s/%s/Data_full.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
@@ -104,12 +107,12 @@ def cal_procedure(type_,add,modded=False):
 if __name__ == "__main__":
 
     rsteps = 25
-    mc = True
+    mc = False
     modded = True
 
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
-    types = ["Planck_PS_21.5_blue_spline","Planck_PS_21.5_red_spline", "Planck_PS_21", "Planck_PS_21.5", "Planck_PS_22"]
+    types = ["Planck_PS_21.5_blue_hard_spline","Planck_PS_21.5_red_hard_spline"]
     adds = ["_best"]
     for add in adds:
         for type_ in types:

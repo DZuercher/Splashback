@@ -158,7 +158,7 @@ def MCMC_procedure(type_, add, prevrun, mc = False):
 
 if __name__ == "__main__":
 
-    mc = True
+    mc = False
 
     init_type = "tight"
     diag = False #Reduces covariance matrix to diagonals

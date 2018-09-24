@@ -119,7 +119,7 @@ if __name__ == "__main__":
     rank = comm.rank
     size = comm.size
     steps = 100000
-    mc = True
+    mc = False
     rsteps = 25
     ndim = 8 #Number of parameters
     radmax = 10.0

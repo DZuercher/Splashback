@@ -20,7 +20,7 @@ function combine_data {
 #Main
 ##########################
 prior='best'
-types='Planck_PS_21.5_red_spline'
+types='Planck_PS_21.5_red_hard_spline_no_mc Planck_PS_21.5_blue_hard_spline_no_mc'
 for type in $types
 do
     combine_data $type 

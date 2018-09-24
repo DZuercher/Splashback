@@ -46,12 +46,7 @@ def get_cuts(color, bin_num, bins, z_steps, confidence):
         else:
             red_mu = popt[4]
             red_sigma = popt[5]
-
-        if include_PS_errors == False:
-            cut = red_mu - confidence * np.abs(red_sigma)
-        else:
-	    cut = red_mu - confidence * np.sqrt( red_sigma**2.0  + red_err**2.0 + green_err**2.0 )
-
+        cut = red_mu - confidence * np.abs(red_sigma)
         cuts[it - 1] = cut 
 
         if (it % 10 == 0):
@@ -66,46 +61,35 @@ def get_cuts(color, bin_num, bins, z_steps, confidence):
 
 if __name__ == "__main__":
 
-
-    include_PS_errors = True
-    red_err = 0.065
-    green_err = 0.051
     min_z = 0.03
     max_z = 0.33
     z_step = 100
     bins = 500
 
-    confidence = 2 # Confidence level to exclude Reds from Blues (in sigmas)
+    confidence = 3 # Confidence level to exclude Reds from Blues (in sigmas)
 
-    catalog = "/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat"
-    output_dir = "/work/dominik.zuercher/Output/match_PS"
 
+    catalog = "/work/dominik.zuercher/Output/match_PS_GAMA/matched_spec.dat"
+    output_dir = "/work/dominik.zuercher/Output/match_PS_GAMA"
+
+    rrange = np.linspace(0, 0.35, 1000)
 
     data = np.loadtxt(catalog)
     redshift = data[:,0]
-    red_PS = data[:,3]
-    green_PS = data[:,4]
-    id_ = data[:,5]
+    color_PS = data[:,1]
 
-    idx = (red_PS < 900) & (red_PS > -900) & (green_PS < 900) & (green_PS > -900) 
+    idx = (color_PS < 900) & (color_PS > -900) 
     redshift = redshift[idx]
-    red_PS = red_PS[idx]
-    green_PS = green_PS[idx]
-    id_ = id_[idx]
-    color = green_PS - red_PS
+    color_PS = color_PS[idx]
     print("Catalog read")
 
     bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
     print("Redshift binning done")
-    cuts = get_cuts(color, bin_num, bins, z_step, confidence)
+    cuts = get_cuts(color_PS, bin_num, bins, z_step, confidence)
     print("histograms made")
 
-
-
-
     plt.figure(-1)
-    plt.scatter(redshift[id_ == True], color[id_ == True], s = 0.01, color = 'b', label = "Blue")
-    plt.scatter(redshift[id_ == False], color[id_ == False], s = 0.01, color = 'r', label = "Red")
+    plt.scatter(redshift, color_PS, s = 0.01, color = 'b', label = "Blue")
     z_edges = np.linspace(min_z, max_z, num = z_step)
     z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
 
@@ -113,23 +97,31 @@ if __name__ == "__main__":
     z_middles = z_middles[idx]
     cuts = cuts[idx]
 
+    output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
+    np.savetxt("%s/spline_data.dat" % output_dir, output)
+
+
     spl = UnivariateSpline(z_middles, cuts)
 
-    rrange = np.linspace(0, 0.35, 1000)
+    SDSS_data = np.genfromtxt("/work/dominik.zuercher/Output/match_PS/spline_data.dat")
+    z_middles_SDSS = SDSS_data[:,0]
+    cuts_SDSS = SDSS_data[:,1]
+
+    spl_SDSS = UnivariateSpline(z_middles_SDSS, cuts_SDSS)
+
+    SDSS_with_err_data = np.genfromtxt("/work/dominik.zuercher/Output/match_PS/spline_data_with_errors.dat")
+    z_middles_SDSS_with_err = SDSS_with_err_data[:,0]
+    cuts_SDSS_with_err = SDSS_with_err_data[:,1]
+
+    spl_SDSS_with_err = UnivariateSpline(z_middles_SDSS_with_err, cuts_SDSS_with_err)
+
+
     yy0 = cut(rrange)
 
-    output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
-    if include_PS_errors == False:
-        np.savetxt("%s/spline_data.dat" % output_dir, output)
-    else:
-        np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
-    
-    #np.savetxt("%s/redshifts.dat" % output_dir, z_middles.reshape(z_middles.size,1))
-    #np.savetxt("%s/colors.dat" % output_dir, cuts.reshape(z_middles.size,1))
-
-    #plt.plot(z_middles, cuts, 'k-', lw = 0.3, label = "cut")
-    plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
-    plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
+    plt.plot(rrange, yy0, 'g-',lw=0.8, label="orig. cut")
+    plt.plot(rrange, spl(rrange), 'k-', lw=0.8, label = "GAMA spline")
+    plt.plot(rrange, spl_SDSS(rrange), 'r-', lw=0.8, label = "SDSS spline")
+    plt.plot(rrange, spl_SDSS_with_err(rrange), 'm-', lw=0.8, label = "SDSS spline with err")
 
     plt.ylim([0,3])
     plt.xlim([0.03,0.33])
@@ -137,24 +129,6 @@ if __name__ == "__main__":
     plt.xlabel("z")
     plt.ylabel("g-r")
     plt.savefig("%s/color_vs_z.pdf" % output_dir)
-
-
-
-    #Calculate contaminations for mixed characterization (best estimate?)
-    #Falses
-    reds_below_cut = (id_ == False) & (color < spl(redshift) )
-    blues_above_cut = (id_ == True) & (color >= spl(redshift) )
-    #Rights
-    reds_above_cut = (id_ == False) & (color >= spl(redshift) )
-    blues_below_cut = (id_ == True) & (color < spl(redshift) )
-
-    print("Reds below cut: %s" % np.sum(reds_below_cut))
-    print("Blues below cut: %s" % np.sum(blues_below_cut))
-    print("Reds above cut: %s" % np.sum(reds_above_cut))
-    print("Blues above cut: %s" % np.sum(blues_above_cut))
-
-
-
 
 
 

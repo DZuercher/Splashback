@@ -26,9 +26,9 @@ function combine_chains {
 #Main
 ##########################
 
-types='Planck_PS_21.5_blue_spline Planck_PS_21.5_red_spline'
+types='Planck_PS_21.5_blue_hard_spline_no_mc Planck_PS_21.5_red_hard_spline_no_mc'
 prior='best'
-mc=1
+mc=0
 
 for type in $types
 do
