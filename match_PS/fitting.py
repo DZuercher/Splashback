@@ -67,7 +67,7 @@ def get_cuts(color, bin_num, bins, z_steps, confidence):
 if __name__ == "__main__":
 
 
-    include_PS_errors = True
+    include_PS_errors = False
     red_err = 0.065
     green_err = 0.051
     min_z = 0.03
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     z_step = 100
     bins = 500
 
-    confidence = 2 # Confidence level to exclude Reds from Blues (in sigmas)
+    confidence = 3 # Confidence level to exclude Reds from Blues (in sigmas)
 
     catalog = "/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat"
     output_dir = "/work/dominik.zuercher/Output/match_PS"
