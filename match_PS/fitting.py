@@ -29,7 +29,7 @@ def bin_redshifts(redshift, min_z, max_z, z_steps):
     return bin_num
 
 
-def get_cuts(color, bin_num, bins, z_steps, confidence):
+def get_cuts(color, bin_num, bins, z_steps, confidence, include_PS_errors):
     cuts = np.zeros(z_steps-1)
     for it in frogress.bar(range(1,z_steps)):
         colors = color[bin_num == it]
@@ -67,9 +67,12 @@ def get_cuts(color, bin_num, bins, z_steps, confidence):
 if __name__ == "__main__":
 
 
-    include_PS_errors = False
-    red_err = 0.065
-    green_err = 0.051
+    calc_contamination = True
+
+    #Error on magnitudes at 21.5 mag
+    red_err = 0.029
+    green_err = 0.022
+
     min_z = 0.03
     max_z = 0.33
     z_step = 100
@@ -95,9 +98,12 @@ if __name__ == "__main__":
     color = green_PS - red_PS
     print("Catalog read")
 
+
     bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
     print("Redshift binning done")
-    cuts = get_cuts(color, bin_num, bins, z_step, confidence)
+    cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
+    if calc_contamination == True:
+	cuts_err = get_cuts(color, bin_num, bins, z_step, confidence, True)
     print("histograms made")
 
 
@@ -109,27 +115,34 @@ if __name__ == "__main__":
     z_edges = np.linspace(min_z, max_z, num = z_step)
     z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
 
-    idx = (cuts > 0.45) & (cuts < 1.5)
-    z_middles = z_middles[idx]
+    idx = (cuts > 0.0) & (cuts < 1.5)
+    z_middles_1 = z_middles[idx]
     cuts = cuts[idx]
+    cuts_err = cuts_err[idx]
 
-    spl = UnivariateSpline(z_middles, cuts)
+    spl = UnivariateSpline(z_middles_1, cuts)
+
+    spl_err = UnivariateSpline(z_middles_1, cuts_err)
+
 
     rrange = np.linspace(0, 0.35, 1000)
     yy0 = cut(rrange)
 
+    """
     output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
     if include_PS_errors == False:
         np.savetxt("%s/spline_data.dat" % output_dir, output)
     else:
         np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
-    
+    """
+
     #np.savetxt("%s/redshifts.dat" % output_dir, z_middles.reshape(z_middles.size,1))
     #np.savetxt("%s/colors.dat" % output_dir, cuts.reshape(z_middles.size,1))
 
     #plt.plot(z_middles, cuts, 'k-', lw = 0.3, label = "cut")
-    plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
+    #plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
     plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
+    plt.plot(rrange, spl_err(rrange), 'k-', lw=0.3, label = "spline (inc. PS errors)")
 
     plt.ylim([0,3])
     plt.xlim([0.03,0.33])
@@ -142,22 +155,14 @@ if __name__ == "__main__":
 
     #Calculate contaminations for mixed characterization (best estimate?)
     #Falses
-    reds_below_cut = (id_ == False) & (color < spl(redshift) )
-    blues_above_cut = (id_ == True) & (color >= spl(redshift) )
+    reds_below_cut = (color < spl(redshift) ) & (color > spl_err(redshift))
+    #blues_above_cut = (id_ == True) & (color >= spl(redshift) )
     #Rights
-    reds_above_cut = (id_ == False) & (color >= spl(redshift) )
-    blues_below_cut = (id_ == True) & (color < spl(redshift) )
+    #reds_above_cut = (id_ == False) & (color >= spl(redshift) )
+    blues_below_cut = (color < spl_err(redshift) )
 
     print("Reds below cut: %s" % np.sum(reds_below_cut))
     print("Blues below cut: %s" % np.sum(blues_below_cut))
-    print("Reds above cut: %s" % np.sum(reds_above_cut))
-    print("Blues above cut: %s" % np.sum(blues_above_cut))
-
-
-
-
-
-
-
-
-
+    print("Contamination: %f" % (np.sum(reds_below_cut)/(np.sum(reds_below_cut) + np.sum(blues_below_cut)))*100.0 )
+    #print("Reds above cut: %s" % np.sum(reds_above_cut))
+    #print("Blues above cut: %s" % np.sum(blues_above_cut))

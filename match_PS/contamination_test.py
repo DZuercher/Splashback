@@ -14,7 +14,7 @@ def NFW(r, rho0, rs):
 def einasto(r, rho0, A, alpha):
     return rho0*np.exp(-A*r**alpha)
 
-contamination = 0.5
+contamination = 0.20
 rsteps = 25
 radmax = 10.0
 
@@ -64,8 +64,10 @@ blue_true_dev = blue_array[rsteps*3:rsteps*4,0]
 #blue_rho = np.poly1d(p)
 #blue_dev = blue_rho.deriv()
 
-blue_rho = rrange**(-1.5)
-blue_dev = rrange*(-1.5*rrange**(-2.5))/(rrange**(-1.5))
+scale = 0.055
+
+blue_rho = scale*rrange**(-1.5)
+blue_dev = rrange*(-1.5*scale*rrange**(-2.5))/blue_rho
 
 
 red_rho = tools.einasto_profile(rrange,red_par_array)
@@ -74,13 +76,13 @@ red_dev = tools.logdev_einasto_profile(rrange,red_par_array)
 #blue_dev = rrange/np.exp(blue_rho(rrange))*blue_dev_proto
 
 full = contamination*red_rho + (1.0 - contamination)*blue_rho
-full_dev = contamination*red_dev + (1.0 - contamination)*blue_dev
+full_dev = rrange/full*(contamination*tools.dev_einasto_profile(rrange,red_par_array) + (1.0 - contamination)*scale*-1.5*rrange**(-2.5))
 
 
 
 f, ax = plt.subplots(ncols = 2, nrows = 1)
 ax[0].plot(rrange, red_rho,'r-', label = r"Red 21.5 (6 $\sigma$)")
-ax[0].plot(rrange, full,'k-', label = "50\% contamination by Reds")
+ax[0].plot(rrange, full,'k-', label = "%f contamination by Reds" % contamination)
 ax[0].plot(rrange, blue_rho,'b-', label = r"$r^{-1.5}$ power law")
 ax[0].plot(rrange, blue_corr,'b--', label = r"Blue 21.5 (6 $\sigma$)")
 ax[1].plot(rrange, red_dev,'r-')

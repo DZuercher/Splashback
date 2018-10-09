@@ -84,6 +84,7 @@ def procedure(rank):
     dec = ps_dat.dec.values
     rband = ps_dat.rband.values
     gband = ps_dat.gband.values
+    iband = ps_dat.mag_auto.values
     color = gband - rband
     ps_cat = np.hstack((ra.reshape(ra.size,1), dec.reshape(ra.size,1), color.reshape(color.size,1)))
     print("PS read")
@@ -96,6 +97,7 @@ def procedure(rank):
     green_matched = np.zeros(0)
     red_PS_matched = np.zeros(0)
     green_PS_matched = np.zeros(0)
+    iband_PS_matched = np.zeros(0)
     #print("id_ is %s" % id_)
     #print("found %s matchings" % np.sum(id_))
     #print("Distances %s" % dd)
@@ -109,14 +111,16 @@ def procedure(rank):
 	    green_now = g[ii[el]]
 	    red_PS_now = rband[el]
 	    green_PS_now = gband[el]
+	    iband_PS_now = iband[el]
 	    z_matched = np.append(z_matched, z_now)
 	    red_matched = np.append(red_matched, red_now)
 	    green_matched = np.append(green_matched, green_now)
 	    red_PS_matched = np.append(red_PS_matched, red_PS_now)
 	    green_PS_matched = np.append(green_PS_matched, green_PS_now)
+	    iband_PS_matched = np.append(iband_PS_matched, iband_PS_now)
 
     if z_matched.size > 0:
-	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), red_matched.reshape(red_matched.size,1), green_matched.reshape(green_matched.size,1), red_PS_matched.reshape(red_PS_matched.size,1), green_PS_matched.reshape(green_PS_matched.size,1) )))
+	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), red_matched.reshape(red_matched.size,1), green_matched.reshape(green_matched.size,1), red_PS_matched.reshape(red_PS_matched.size,1), green_PS_matched.reshape(green_PS_matched.size,1), iband_PS_matched.reshape(iband_PS_matched.size,1) )))
 	print("saved!")
     return
 
