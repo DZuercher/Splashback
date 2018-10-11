@@ -12,7 +12,7 @@ catalog = pd.read_csv("/work/dominik.zuercher/DataStore/Pan-Starrs/Originals/sho
 
 red = np.asarray(catalog['red'].values)
 rederr = np.asarray(catalog['rederr'].values)
-idx = (red > -900) & (red < 21.4) & (rederr > -900) & (red > 20.4)
+idx = (red > -900) & (red < 21.9) & (rederr > -900) & (red > 15.4) #+ 0.4
 red = red[idx]
 rederr = rederr[idx]
 
@@ -27,7 +27,7 @@ print("Red error: %s" % (3*foo))
 
 green = np.asarray(catalog['green'].values)
 greenerr = np.asarray(catalog['greenerr'].values)
-idx = (green > -900) & (green < 22.3) & (greenerr > -900) & (green > 21.3)
+idx = (green > -900) & (green < 23.0) & (greenerr > -900) & (green > 22.8) #+1.3
 green = green[idx]
 greenerr = greenerr[idx]
 
@@ -40,7 +40,7 @@ catalog = pd.read_csv("/work/dominik.zuercher/DataStore/Pan-Starrs/Originals/sho
 
 iband = np.asarray(catalog['i'].values)
 ibanderr = np.asarray(catalog['ierr'].values)
-idx = (iband > -900) & (iband < 21.0) & (ibanderr > -900) & (iband > 20.0)
+idx = (iband > -900) & (iband < 21.5) & (ibanderr > -900) & (iband > 15.0) 
 iband = iband[idx]
 ibanderr = ibanderr[idx]
 

@@ -67,12 +67,6 @@ def get_cuts(color, bin_num, bins, z_steps, confidence, include_PS_errors):
 if __name__ == "__main__":
 
 
-    calc_contamination = True
-
-    #Error on magnitudes at 21.5 mag
-    red_err = 0.029
-    green_err = 0.022
-
     min_z = 0.03
     max_z = 0.33
     z_step = 100
@@ -88,14 +82,15 @@ if __name__ == "__main__":
     redshift = data[:,0]
     red_PS = data[:,3]
     green_PS = data[:,4]
-    id_ = data[:,5]
+    iband_PS = data[:,5]
+    id_ = data[:,6]
 
     idx = (red_PS < 900) & (red_PS > -900) & (green_PS < 900) & (green_PS > -900) 
     redshift = redshift[idx]
     red_PS = red_PS[idx]
-    green_PS = green_PS[idx]
+    iband_PS = iband_PS[idx]
     id_ = id_[idx]
-    color = green_PS - red_PS
+    color = red_PS - iband_PS
     print("Catalog read")
 
 

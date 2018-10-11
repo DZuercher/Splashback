@@ -104,6 +104,11 @@ if __name__ == '__main__':
     green_err = 0.261
     iband_err = 0.099
 
+    #Errors from 15.0 to 21.5 mag
+    red_err = 0.064
+    green_err = 0.081
+    iband_err = 0.063
+
     min_z = 0.03
     max_z = 0.33
     z_step = 100

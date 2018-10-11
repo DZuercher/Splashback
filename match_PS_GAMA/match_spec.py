@@ -63,7 +63,7 @@ def with_kdtree(cat, ps_cat):
 
 def procedure(rank):
     print("started")
-    #read spectroscopic SDSS galaxies
+    #read spectroscopic GAMA galaxies
     hdul = fits.open(catalog_1)
     data = hdul[1].data
     ra = data['RA']
@@ -87,6 +87,7 @@ def procedure(rank):
     dec = ps_dat.dec.values
     rband = ps_dat.rband.values
     gband = ps_dat.gband.values
+    iband = ps_dat.mag_auto.values
     color = gband - rband
     ps_cat = np.hstack((ra.reshape(ra.size,1), dec.reshape(ra.size,1), color.reshape(color.size,1)))
     print("PS read")
@@ -94,16 +95,23 @@ def procedure(rank):
     dd, ii, id_ = with_kdtree(cat, ps_cat)
     print("Matching done!")
     z_matched = np.zeros(0)
-    color_matched = np.zeros(0)
+    iband_PS_matched = np.zeros(0)
+    red_PS_matched = np.zeros(0)
+    green_PS_matched = np.zeros(0)
     for el in range(dd.size):
 	if id_[el] == True:
 	    z_now = redshift[ii[el]]
-	    color_PS_now = color[el]
+            red_PS_now = rband[el]
+            green_PS_now = gband[el]
+            iband_PS_now = iband[el]
 	    z_matched = np.append(z_matched, z_now)
-	    color_matched = np.append(color_matched, color_PS_now)
+            red_PS_matched = np.append(red_PS_matched, red_PS_now)
+            green_PS_matched = np.append(green_PS_matched, green_PS_now)
+            iband_PS_matched = np.append(iband_PS_matched, iband_PS_now)
+
 
     if z_matched.size > 0:
-	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), color_matched.reshape(color_matched.size,1) )))
+	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), red_PS_matched.reshape(red_PS_matched.size,1), green_PS_matched.reshape(green_PS_matched.size,1), iband_PS_matched.reshape(iband_PS_matched.size,1) )))
 	print("saved!")
     return
 
