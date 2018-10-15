@@ -7,7 +7,7 @@
 #include <ctime>
 #include <cmath>
 #include <fstream>
-#include "cosmology.h"
+//#include "cosmology.h"
 #include "kdtree2.h"
 #include <vector>
 #include <ctime>

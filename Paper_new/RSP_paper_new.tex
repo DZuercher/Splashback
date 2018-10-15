@@ -539,16 +539,18 @@ cross-correlations for the blue and the red galaxy samples
 separately. We use a $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ color cut
 which varies with the redshift of the clusters in order to account
 for the k-corrections, which cannot be computed individually for
-each galaxy. 
+each galaxy.
 
-We exploit the XXX SDSS galaxy sample to calibrate our color cut (cite ???).
-The SDSS galaxy sample is divided into a red and a blue galaxy population
-using the color cut XXX (cite???). By cross matching the sample with our Pan-STARRS
-catalog we can identify parts of the Pan-STARRS galaxies as red and blue galaxies,
-respectively. Additionally, we assign the photometric redshifts from the SDSS sample to
-the matched Pan-STARRS galaxies. The redshift dependent 
-$g_{\mathrm{P1}}-r_{\mathrm{P1}}$ color cut is then calibrated to exclude
-red galaxies from being characterized as blue galaxies at a confidence level of 3$\sigma$.
+We bin the galaxies into narrow redshift bins and produce a histogram of
+the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the galaxies in each bin. Due to
+the Lyman-$\alpha$-break present in the red galaxy population, the two galaxy populations
+separate in such a histogram and we fit a double Gaussian distribution to it.
+Based on the fitted distribution we put a cut in color such that we can exclude a contamination
+of the blue population by incorrectly characterized red galaxies with a confidence of 3$\sigma$.
+Repeating this proceduce for each redshift bin we end up with a redshift dependent color cut that
+separates the red from the blue population minimizing the contamination of the blue population by
+red galaxies. Although being much simpler and faster than calculating the individual k-corrections
+for each galaxy this procedure has its own shortcomings as discussed in Appendix~\ref{sec:Errors}.
 
 Depending upon the cluster redshift
 under consideration the same galaxy may be considered red or blue. Our
@@ -824,6 +826,16 @@ red galaxies below the splashback radius. On scales larger than the
 splashback radius, the fractional contributions of the two populations become
 very similar.
 
+We note that, in principle it is possible that the blue galaxy population does not posses
+a splashback feature but that due to our separation procedure outlined in Section~\ref{sec:Color}
+some of the red galaxies are identified as blue ones and are contaminating the correlation function
+of the blue population. Such a contamination could be caused by a scattering of some of the red galaxies
+into the blue population due to the large photometric errors of the Pan-STARRS galaxies at faint magnitudes.
+We tried to investigate the possiblity of that happening as outlined in 
+Appendix~\ref{sec:Errors}. Unfortunately, we established that at the current state of the data we cannot
+exclude such a contamination and the results derived using the color separated galaxy populations
+should be used with caution therefore.
+
 \section{Future work}
 \label{sec:Future}
 
@@ -859,6 +871,12 @@ the sky, resulting in less clusters but with a deeper field of view,
 such as in the case of the Hyper Suprime-Cam at Subaru Telescope,
 which will survey $\approx 1400$ deg$^2$ of the sky and achieve a
 depth of 26.2 magnitudes \citep{takada2010subaru}.
+
+The separation of the blue and red galaxy populations as described in 
+Section~\ref{sec:Color} is prone to photometric errors. In order to 
+assure our finding of a splashback feature in the blue galaxy population
+a deeper galaxy catalog would be desirable. Again, the future survey
+conducted with the Hyper Suprime-Cam could come to rescue.
 
 Lastly, but most importantly, the investigation of any systematics
 which might originate from the SZ selection of the Planck clusters
@@ -949,17 +967,103 @@ the HEALPix (K.M. Górski et al., 2005, ApJ, 622, p759) package
 \bibliographystyle{mnras}
 \bibliography{RSP_library} 
 
-
-
 \appendix
+
+\section{Estimating the contamination of the blue galaxy population}
+\label{sec:Errors}
+In our separation procedure of the blue from the red galaxy population 
+we assume the photometric magnitudes of the Pan-STARRS galaxies to be exact.
+However, photometric errors could cause red galaxies to scatter into the blue
+population which contaminates the correlation function and might be the cause 
+for the splashback feature observed in the blue population. Therefore, we 
+investigate the possiblity of such a contamination. 
+
+Firstly, we need to know how high such a contamination would have to be in order
+to reproduce the splashback signal as seen in the observations given that the actual
+blue poulation does not posses such a signal at all. We assume a simple $r^{-1.5}$ power 
+law for the correlation signal of the blue population which by construction cannot cause a splashback feature. Then,
+we simulate a contamination of the population by adding some of the accordingly rescaled 
+correlation signal of the red population, which does posses a splashback feature.
+We find that a contamination of at least 20\% is necessary to reproduce the observed
+splashback signal.
+
+Next we estimate the photometric errors of the Pan-STARRS galaxies in each one of the used
+bands (namely $i_{PS}, g_{PS}, r_{PS}$). Since we chose galaxies with $15.0 \leq i_{PS} \leq 21.5$
+for our analysis we consider the $i_{PS}$ errors as given in the Pan-STARRS survey of only 
+the galaxies in this magnitude range. We fit a Gaussian to their distribution and use a conservative $3\sigma$ confidence
+estimate for the photometric error in the $i_{PS}$ band. We repeat the same analysis for the
+$g_{PS}$ and $r_{PS}$ bands, but using magnitude ranges which are shifted by the mean magnitude
+differences between the $i_{PS}$ band and the $g_{PS}$ and $r_{PS}$ bands, respectively.
+The histograms of the errors as well as the estimated photometric errors are shown in
+Figure~\ref{fig:photoerrors}. We find similar photometric errors in the $i_{PS}$ (63 mmag)
+and $r_{PS}$ band (64 mmag) but a larger error in the $g_{PS}$ band of 81 mmag.
+
+\begin{figure}
+\centering{
+    \includegraphics[scale=0.6]{errors.pdf}}
+\caption{Histograms of the photometric errors in the used $i_{PS}, g_{PS}, r_{PS}$ bands.
+The errors were taken dirrectly from the Pan-STARRS survey and sampled for galaxy type 
+objects in the magniude range $15.0 \leq i_{PS} \leq 21.5$, $16.3 \leq g_{PS} \leq 22.8$ and $15.4 \leq r_{PS} \leq 21.9$, respectively. 
+The upper photometric error limits at $3\sigma$
+confidence are listed in the upper right of the figure.}
+    \label{fig:photoerrors}•
+\end{figure}
+
+
+Finally, we estimate the contamination of the blue galaxy population given the cut in $g_{PS} - r_{PS}$
+color that we used to separate the two populations. We start the same way as we established the cut:
+By taking narrow redshift bins and then by binning the $g_{PS} - r_{PS}$ colors of the galaxies in each
+redshift bin. Then we proceed by fitting a double Gaussian to the color distribution in each redshift bin
+(indicated by the solid, accordingly colored lines in Figure~\ref{fig:histogram}). We put the cut which
+separates the two distributions from each other at a $g_{PS} - r_{PS}$ color such that red galaxies are
+excluded from being incorrectly characterized as blue galaxies at a confidence level of $3\sigma$ (indicated
+by the solid, vertical, black line). At that point the fractional contribution of the red population reads 
+$\sim 40\%$ which corresponds to a free field galaxy sample. In order to model the distribution inside of 
+the cluster region we rescale the red distribution such that we end up with a fractional contribution of 
+the red population of $65\%$. We do now take into account the estimated photometric errors in the $g_{PS}$ and
+$r_{PS}$ bands by broadening the Gaussian distributions accordingly. The contamination is then estimated as:
+\begin{equation}
+\sum_{z=0.03}^{0.33} \int_{-\infty}^{cut(z)} 1 + \frac{\mathcal{N}_r(g-r)}{\mathcal{N}_b(g-r)} \mathrm{d}(g-r)
+\end{equation}
+where the sum runs over all redshift bins, the integration is performed over the $g_{PS} - r_{PS}$ color up 
+to the redshift dependent cut $cut(z)$ separating the two distributions and $\mathcal{N}_r(g-r)$ and $\mathcal{N}_b(g-r)$
+representing the broadened Gaussian distributions of the red and blue population, respectively
+(dashed, accordingly colored curves). With the described analysis we calculate a contamination of 24\%, which would
+be high enough to explain the observed splashback signal of the blue galaxy population solely by red galaxies
+that scattered into the blue population. However, this cannot be taken as disproof of the existence of a splashback
+feature in the blue galaxy population. The contamination estimate strongly depenends on two factors: Firstly, on the 
+confidence at which one wants to exclude red galaxies from being misidentified as blue galaxies and secondly on the
+method one uses to estimate the photometric errors (magnitude range and the conservatism of the error estimate).
+Depending on the approach we got contamination estimates ranging from 0.0001\% to 60\%. Therefore, at the current
+state it cannot be concisely established if the observed splashback feature stems from a contamination of red
+galaxies or not. A deeper galaxy catalog with smaller photometric errors, especially in the $g_{PS}$ band is
+required to shed light on this matter.
+
+
+\begin{figure}
+\centering{
+    \includegraphics[scale=0.6]{best_hist_58.pdf}}
+\caption{Histogram of the $g_{PS} - r_{PS}$ colors of the galaxies in a certain redshift bin for illustration
+of the contamination estimation. The solid, colored curves indicate the initially fitted Gaussian distributions,
+whereas the dashed curves represent the Gaussian distributions broadened by the photometric errors of the Pan-STARRS
+survey. The black, vertical line indicates the cut, separating the two galaxy populations as inferred from the original
+distributions. The cut excludes red galaxies from being characterized as blue galaxies at $3/sigma$ confidence.}
+    \label{fig:histogram}•
+\end{figure}
+
 
 \section{Modelling cluster mis-centering}
 \label{sec:mis-centering}
-As described in \citet{baxter2017halo} mis-centering of the central cluster positions are not expected to change the location of the splashback feature but might decrease the significance of the finding. Therefore, we modelled the effects of mis-centering on the correlation function and its influence on the results. 
+As described in \citet{baxter2017halo} mis-centering of the central cluster 
+positions are not expected to change the location of the splashback feature 
+but might decrease the significance of the finding. Therefore, we modelled the 
+effects of mis-centering on the correlation function and its influence on the results. 
 
 The mass dependence of the exact mis-centering fractions are not
-well understood and mis-centering effects are therefore difficult to model \citep{Skibba:2011, Hoshino:2015}. We follow the approach outlined in \citet{baxter2017halo} to take the effects of a possible mis-centering of a fraction of the cluster positions 
-into account by modelling the influence on the two-dimensional correlation function.
+well understood and mis-centering effects are therefore difficult to 
+model \citep{Skibba:2011, Hoshino:2015}. We follow the approach outlined 
+in \citet{baxter2017halo} to take the effects of a possible mis-centering of a fraction 
+of the cluster positions into account by modelling the influence on the two-dimensional correlation function.
  
 Denoting the fraction of mis-centered clusters in the sample with $f_{\rm mis}$ we relate
 the correlation function $\xi'_{\rm 2D}(R)$ that is affected by the mis-centering of the clusters to the correlation function
