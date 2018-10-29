@@ -65,10 +65,11 @@ radius measured so far in the literature for photometrically
 selected galaxy clusters. We show that the splashback radius does
 not depend upon the galaxy magnitude for galaxies fainter than
 $M_i-5\log h=-19.44$, and is present at a consistent location in
-both red and blue galaxy populations. The presence of the splashback radius in
-color-separated galaxy distributions could potentially be used to put lower limits on the
-quenching timescales for galaxies. Further, we record an increase 
-in the fraction of red galaxies that is associated with the splashback radius.
+galaxy populations divided by color. The presence of the splashback radius in
+the blue galaxy population could potentially be used to put lower limits on the
+quenching timescales for galaxies. However, these results need further
+verification with deeper datasets, as photometric errors could cause
+contamination of blue galaxies with red galaxies.
 
 \end{abstract}
 
@@ -178,8 +179,9 @@ present in the logic of using photometric galaxies to select
 clusters as over-densities in a given aperture, and then using the
 same photometric sample of galaxies to look for the splashback
 radius. There is a possibility that the aperture used to select the
-cluster catalogs could be imprinted in a non-trivial way on the
-measured number density profiles of clusters. 
+cluster catalogs could be imprinted in a non-trivial way on the measured number
+density profiles of clusters. {\bf Add citation to the more recent Xray paper
+by Henk Hoekstra and collaborators as well.}
 
 In this work, we move away from the optical cluster selection and
 explore the use of SZ selected cluster catalogs. While the SZ
@@ -459,8 +461,10 @@ galaxies. This estimator can be written as
 where D$_1$D$_2$ and R$_1$D$_2$ are the normalized numbers of
 cluster-galaxy pairs and cluster randoms-galaxy pairs at a given
 comoving projected separation $R$. The subtraction of the signal
-around random cluster positions gets rid of the uncorrelated pairs
-and allows us to estimate the projected cross-correlation.
+around random cluster positions gets rid of the uncorrelated pairs and allows
+us to estimate the projected cross-correlation. The uncertainty in the galaxy
+distribution masks prevents us from using the Landy-Szalay estimator. {\bf Cite
+Landy-Szalay paper.}
 
 Given the flux limited galaxy catalog that we use, we expect to
 observe more correlated galaxies in galaxy clusters that lie closer
@@ -541,26 +545,32 @@ which varies with the redshift of the clusters in order to account
 for the k-corrections, which cannot be computed individually for
 each galaxy.
 
-We bin the galaxies into narrow redshift bins and produce a histogram of
-the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the galaxies in each bin. Due to
-the Lyman-$\alpha$-break present in the red galaxy population, the two galaxy populations
-separate in such a histogram and we fit a double Gaussian distribution to it.
-Based on the fitted distribution we put a cut in color such that we can exclude a contamination
-of the blue population by incorrectly characterized red galaxies with a confidence of 3$\sigma$.
-Repeating this proceduce for each redshift bin we end up with a redshift dependent color cut that
-separates the red from the blue population minimizing the contamination of the blue population by
-red galaxies. Although being much simpler and faster than calculating the individual k-corrections
-for each galaxy this procedure has its own shortcomings as discussed in Appendix~\ref{sec:Errors}.
+In order to compute the color cut to be used, we first match spectroscopic
+galaxies in the Sloan digital Sky Survey ({\bf which data release?}) to their
+Pan-STARRS photometry. We bin these galaxies in narrow redshift bins and
+produce a histogram of the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the
+galaxies in each bin. Due to the presence of the $4000\AA$-break present in the
+red galaxy population, the two galaxy populations separate in such histograms
+into two populations and we fit a double Gaussian distribution to it.  Based on
+the fitted distribution we put a cut in color to exclude a contamination of the
+blue population by incorrectly characterized red galaxies with a confidence of
+3$\sigma$. We repeat this procedure for each redshift bin, to obtain a redshift
+dependent color cut that separates the red from the blue population minimizing
+the contamination of the blue population by red galaxies. Although being much
+simpler and faster than calculating the individual k-corrections for each
+galaxy, this procedure has its own shortcomings as discussed in
+Appendix~\ref{sec:Errors}, in particular due to the photometric errors of red
+galaxies. We would therefore exercise appropriate caution while interpreting
+the results obtained by dividing galaxies in to color bins.
 
-Depending upon the cluster redshift
-under consideration the same galaxy may be considered red or blue. Our
-method avoids the use of uncertain photometric redshifts to derive
-k-corrections \citep[cf.][]{baxter2017halo}. We will study the
-cross-correlations to derive the splashback radii for these galaxy
-populations separately, as well as the fractional
-contributions of the red and the blue galaxies to the total density profile
-as a function of radius.
-
+In our analysis, the same galaxy may be considered red or blue depending upon
+the cluster redshift under consideration. Our method avoids the use of
+uncertain photometric redshifts to derive k-corrections
+\citep[cf.][]{baxter2017halo}. We will study the cross-correlations to derive
+the splashback radii for these galaxy populations separately, as well as the
+fractional contributions of the red and the blue galaxies to the total density
+profile as a function of radius. The caveats in the interpretation of these
+results are mentioned in the Appendix~\ref{sec:Errors}.
 
 \section{Results}
 \label{sec:Results}
@@ -733,7 +743,7 @@ model fits. The logarithmic derivatives show a distinct steepening
 feature at around $1.3~\mpch$. The figure shows that the
 location of the steepest slope does not change appreciably when the
 magnitude limit is changed, even though we use a sample which is one
-magnitude deeper than $M_{\rm i}-5\log h=-19.44$. The 68\%
+magnitude brighter than $M_{\rm i}-5\log h=-19.44$. The 68\%
 confidence interval of the location of the steepest slope is
 indicated by the vertical, shaded region. We also show the location
 of the virial radius $r_{\mathrm{200m}}$ based on the Planck SZ mass estimate 
@@ -758,6 +768,14 @@ for each of the samples are listed in Table~\ref{tab:fit_parameters}
 and our results show that the location of the splashback radius does
 not depend upon the sample once we use galaxies fainter than $M_{\rm
 i}-5\log h=-19.44$. Our measurements have an accuracy of $\sim$15\%.
+
+{\bf Dominik, we need to add in the first and second derivative of just the one
+halo term to these plots $\rho_{\rm in}\,f_{\rm trans}$. Also highlight that
+the slope is dropping down precipitously within a factor 2 in radius. Mention
+that in the next paragraph. Add in Figure~\ref{fig:derivatives}, the second
+derivative posterior as well. In fact you can leave out the current left hand
+panel and just plot the the first and second derivatives of $\log\rho_{\rm
+in}\,f_{\rm trans}$.}
 
 Following \citet{baxter2017halo}, we also present the values of the
 logarithmic derivatives at the location of the steepest slope for
