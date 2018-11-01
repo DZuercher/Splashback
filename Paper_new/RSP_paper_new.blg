@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: RSP_paper_new.aux
 The style file: mnras.bst
@@ -6,44 +6,44 @@ Database file #1: RSP_paper_newNotes.bib
 Database file #2: RSP_library.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 50 entries,
+You've used 51 entries,
             2881 wiz_defined-function locations,
-            1016 strings with 16393 characters,
-and the built_in function-call counts, 22641 in all, are:
-= -- 1825
-> -- 1674
-< -- 101
-+ -- 763
-- -- 234
-* -- 2625
-:= -- 3566
+            1021 strings with 16560 characters,
+and the built_in function-call counts, 23070 in all, are:
+= -- 1848
+> -- 1717
+< -- 103
++ -- 784
+- -- 240
+* -- 2676
+:= -- 3641
 add.period$ -- 0
-call.type$ -- 50
-change.case$ -- 100
-chr.to.int$ -- 49
-cite$ -- 50
-duplicate$ -- 1146
-empty$ -- 1151
-format.name$ -- 410
-if$ -- 3930
+call.type$ -- 51
+change.case$ -- 102
+chr.to.int$ -- 50
+cite$ -- 51
+duplicate$ -- 1168
+empty$ -- 1172
+format.name$ -- 418
+if$ -- 3996
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 50
-newline$ -- 163
-num.names$ -- 328
-pop$ -- 238
+missing$ -- 51
+newline$ -- 166
+num.names$ -- 336
+pop$ -- 246
 preamble$ -- 1
-purify$ -- 200
+purify$ -- 204
 quote$ -- 0
-skip$ -- 711
+skip$ -- 723
 stack$ -- 0
-substring$ -- 1214
-swap$ -- 543
-text.length$ -- 203
+substring$ -- 1222
+swap$ -- 557
+text.length$ -- 207
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 450
+type$ -- 459
 warning$ -- 0
-while$ -- 358
+while$ -- 364
 width$ -- 0
-write$ -- 506
+write$ -- 515

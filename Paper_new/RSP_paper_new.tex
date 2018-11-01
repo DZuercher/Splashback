@@ -167,10 +167,11 @@ halo assembly bias. The existence of projection effects in the
 optical cluster catalog in the context of halo assembly bias was 
 also demonstrated by \citet{zu2016level}.
 
-\citet{umetsu2017lensing} used Xray selected clusters to look for
-the splashback radius using the weak lensing signal, however
+\citet{umetsu2017lensing} as well as \citet{contigiani2018weak} 
+used Xray selected clusters to look for the splashback radius 
+using the weak lensing signal, however
 stacking issues and the low signal-to-noise ratio remains a significant
-hurdle. \citet{chang2017splashback} found evidence for the splashback
+hurdle for both of them. \citet{chang2017splashback} found evidence for the splashback
 radius in the weak lensing signal, but their analysis was again done
 using optically selected clusters in the Dark energy survey
 \citep{dark2005dark}. Regardless of the projection issues present in
@@ -463,8 +464,8 @@ cluster-galaxy pairs and cluster randoms-galaxy pairs at a given
 comoving projected separation $R$. The subtraction of the signal
 around random cluster positions gets rid of the uncorrelated pairs and allows
 us to estimate the projected cross-correlation. The uncertainty in the galaxy
-distribution masks prevents us from using the Landy-Szalay estimator. {\bf Cite
-Landy-Szalay paper.}
+distribution masks prevents us from using the Landy-Szalay estimator \citep{landy1993bias}. 
+{\bf Cite Landy-Szalay paper.}
 
 Given the flux limited galaxy catalog that we use, we expect to
 observe more correlated galaxies in galaxy clusters that lie closer
@@ -546,7 +547,7 @@ for the k-corrections, which cannot be computed individually for
 each galaxy.
 
 In order to compute the color cut to be used, we first match spectroscopic
-galaxies in the Sloan digital Sky Survey ({\bf which data release?}) to their
+galaxies in the Sloan digital Sky Survey (DR 13) ({\bf which data release?}) to their
 Pan-STARRS photometry. We bin these galaxies in narrow redshift bins and
 produce a histogram of the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the
 galaxies in each bin. Due to the presence of the $4000\AA$-break present in the
@@ -624,6 +625,8 @@ the signal-to-noise ratio (SNR). The vertical, shaded regions indicate the
 estimates of the splashback radii as estimated from the corresponding minima 
 of the derivative profiles, which are shown in the column in the middle. The
 rightmost column shows the second derivative profiles in matching color.
+The grey curves show the corresponding, estimated first and second derivatives of the 
+one-halo term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14}).
 For comparison, the location of the $r_{\mathrm{200m}}$ radius as calculated 
 from the average cluster sample properties is indicated by the black, dotted
 lines.}
@@ -716,14 +719,16 @@ estimated from the full PS 21.5 galaxy catalog. }
    \label{fig:color_curve_2D} 
 \end{figure}
 \begin{figure*}
-    \includegraphics[scale=0.75]{color_separated_3D_with_spline_no_mc.pdf}
+    \includegraphics[scale=0.76]{color_separated_3D_with_spline_no_mc.pdf}
 \caption{We show the three-dimensional cross-correlations as
 inferred by cross-correlating the cluster sample with the
 color-separated galaxy subsamples, as well as the corresponding
 splashback radii (indicated by the colored, vertical bands) and
-their first and second order derivative profiles. Here, the black, dashed lines indicate
-upper and lower bounds of the three-dimensional splashback radius
-corresponding to the full PS 21.5 galaxy sample.}
+their first and second order derivative profiles. The light-colored 
+curves show the corresponding first and second derivatives of the one-halo
+term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14})
+Here, the black, dashed lines indicate upper and lower bounds of the 
+three-dimensional splashback radius corresponding to the full PS 21.5 galaxy sample.}
    \label{fig:color_curve_3D} 
 \end{figure*}
 \begin{figure}
@@ -787,7 +792,9 @@ of the splashback radius, making it difficult to
 be reproduced by classical fitting functions like the NFW profile,
 which reach such slopes only asymptotically and even that only
 without the presence of the outer 2-halo term. This provides
-evidence for the existence of the splashback feature.
+evidence for the existence of the splashback feature. From the second
+derivative profiles we also note that the drop in the cross-correlation
+signal is very sharp and happens within a factor 2 in radius.
 
 We perform a preliminary comparison of the measurements with
 expectations from cold dark matter models. The average halo mass of
