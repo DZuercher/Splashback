@@ -65,10 +65,11 @@ radius measured so far in the literature for photometrically
 selected galaxy clusters. We show that the splashback radius does
 not depend upon the galaxy magnitude for galaxies fainter than
 $M_i-5\log h=-19.44$, and is present at a consistent location in
-both red and blue galaxy populations. The presence of the splashback radius in
-color-separated galaxy distributions could potentially be used to put lower limits on the
-quenching timescales for galaxies. Further, we record an increase 
-in the fraction of red galaxies that is associated with the splashback radius.
+galaxy populations divided by color. The presence of the splashback radius in
+the blue galaxy population could potentially be used to put lower limits on the
+quenching timescales for galaxies. However, these results need further
+verification with deeper datasets, as photometric errors could cause
+contamination of blue galaxies with red galaxies.
 
 \end{abstract}
 
@@ -166,10 +167,11 @@ halo assembly bias. The existence of projection effects in the
 optical cluster catalog in the context of halo assembly bias was 
 also demonstrated by \citet{zu2016level}.
 
-\citet{umetsu2017lensing} used Xray selected clusters to look for
-the splashback radius using the weak lensing signal, however
+\citet{umetsu2017lensing} as well as \citet{contigiani2018weak} 
+used Xray selected clusters to look for the splashback radius 
+using the weak lensing signal, however
 stacking issues and the low signal-to-noise ratio remains a significant
-hurdle. \citet{chang2017splashback} found evidence for the splashback
+hurdle for both of them. \citet{chang2017splashback} found evidence for the splashback
 radius in the weak lensing signal, but their analysis was again done
 using optically selected clusters in the Dark energy survey
 \citep{dark2005dark}. Regardless of the projection issues present in
@@ -178,8 +180,9 @@ present in the logic of using photometric galaxies to select
 clusters as over-densities in a given aperture, and then using the
 same photometric sample of galaxies to look for the splashback
 radius. There is a possibility that the aperture used to select the
-cluster catalogs could be imprinted in a non-trivial way on the
-measured number density profiles of clusters. 
+cluster catalogs could be imprinted in a non-trivial way on the measured number
+density profiles of clusters. {\bf Add citation to the more recent Xray paper
+by Henk Hoekstra and collaborators as well.}
 
 In this work, we move away from the optical cluster selection and
 explore the use of SZ selected cluster catalogs. While the SZ
@@ -459,8 +462,10 @@ galaxies. This estimator can be written as
 where D$_1$D$_2$ and R$_1$D$_2$ are the normalized numbers of
 cluster-galaxy pairs and cluster randoms-galaxy pairs at a given
 comoving projected separation $R$. The subtraction of the signal
-around random cluster positions gets rid of the uncorrelated pairs
-and allows us to estimate the projected cross-correlation.
+around random cluster positions gets rid of the uncorrelated pairs and allows
+us to estimate the projected cross-correlation. The uncertainty in the galaxy
+distribution masks prevents us from using the Landy-Szalay estimator \citep{landy1993bias}. 
+{\bf Cite Landy-Szalay paper.}
 
 Given the flux limited galaxy catalog that we use, we expect to
 observe more correlated galaxies in galaxy clusters that lie closer
@@ -539,26 +544,34 @@ cross-correlations for the blue and the red galaxy samples
 separately. We use a $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ color cut
 which varies with the redshift of the clusters in order to account
 for the k-corrections, which cannot be computed individually for
-each galaxy. 
+each galaxy.
 
-We exploit the XXX SDSS galaxy sample to calibrate our color cut (cite ???).
-The SDSS galaxy sample is divided into a red and a blue galaxy population
-using the color cut XXX (cite???). By cross matching the sample with our Pan-STARRS
-catalog we can identify parts of the Pan-STARRS galaxies as red and blue galaxies,
-respectively. Additionally, we assign the photometric redshifts from the SDSS sample to
-the matched Pan-STARRS galaxies. The redshift dependent 
-$g_{\mathrm{P1}}-r_{\mathrm{P1}}$ color cut is then calibrated to exclude
-red galaxies from being characterized as blue galaxies at a confidence level of 3$\sigma$.
+In order to compute the color cut to be used, we first match spectroscopic
+galaxies in the Sloan digital Sky Survey (DR 13) ({\bf which data release?}) to their
+Pan-STARRS photometry. We bin these galaxies in narrow redshift bins and
+produce a histogram of the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the
+galaxies in each bin. Due to the presence of the $4000\AA$-break present in the
+red galaxy population, the two galaxy populations separate in such histograms
+into two populations and we fit a double Gaussian distribution to it.  Based on
+the fitted distribution we put a cut in color to exclude a contamination of the
+blue population by incorrectly characterized red galaxies with a confidence of
+3$\sigma$. We repeat this procedure for each redshift bin, to obtain a redshift
+dependent color cut that separates the red from the blue population minimizing
+the contamination of the blue population by red galaxies. Although being much
+simpler and faster than calculating the individual k-corrections for each
+galaxy, this procedure has its own shortcomings as discussed in
+Appendix~\ref{sec:Errors}, in particular due to the photometric errors of red
+galaxies. We would therefore exercise appropriate caution while interpreting
+the results obtained by dividing galaxies in to color bins.
 
-Depending upon the cluster redshift
-under consideration the same galaxy may be considered red or blue. Our
-method avoids the use of uncertain photometric redshifts to derive
-k-corrections \citep[cf.][]{baxter2017halo}. We will study the
-cross-correlations to derive the splashback radii for these galaxy
-populations separately, as well as the fractional
-contributions of the red and the blue galaxies to the total density profile
-as a function of radius.
-
+In our analysis, the same galaxy may be considered red or blue depending upon
+the cluster redshift under consideration. Our method avoids the use of
+uncertain photometric redshifts to derive k-corrections
+\citep[cf.][]{baxter2017halo}. We will study the cross-correlations to derive
+the splashback radii for these galaxy populations separately, as well as the
+fractional contributions of the red and the blue galaxies to the total density
+profile as a function of radius. The caveats in the interpretation of these
+results are mentioned in the Appendix~\ref{sec:Errors}.
 
 \section{Results}
 \label{sec:Results}
@@ -612,6 +625,8 @@ the signal-to-noise ratio (SNR). The vertical, shaded regions indicate the
 estimates of the splashback radii as estimated from the corresponding minima 
 of the derivative profiles, which are shown in the column in the middle. The
 rightmost column shows the second derivative profiles in matching color.
+The grey curves show the corresponding, estimated first and second derivatives of the 
+one-halo term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14}).
 For comparison, the location of the $r_{\mathrm{200m}}$ radius as calculated 
 from the average cluster sample properties is indicated by the black, dotted
 lines.}
@@ -704,14 +719,16 @@ estimated from the full PS 21.5 galaxy catalog. }
    \label{fig:color_curve_2D} 
 \end{figure}
 \begin{figure*}
-    \includegraphics[scale=0.75]{color_separated_3D_with_spline_no_mc.pdf}
+    \includegraphics[scale=0.76]{color_separated_3D_with_spline_no_mc.pdf}
 \caption{We show the three-dimensional cross-correlations as
 inferred by cross-correlating the cluster sample with the
 color-separated galaxy subsamples, as well as the corresponding
 splashback radii (indicated by the colored, vertical bands) and
-their first and second order derivative profiles. Here, the black, dashed lines indicate
-upper and lower bounds of the three-dimensional splashback radius
-corresponding to the full PS 21.5 galaxy sample.}
+their first and second order derivative profiles. The light-colored 
+curves show the corresponding first and second derivatives of the one-halo
+term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14})
+Here, the black, dashed lines indicate upper and lower bounds of the 
+three-dimensional splashback radius corresponding to the full PS 21.5 galaxy sample.}
    \label{fig:color_curve_3D} 
 \end{figure*}
 \begin{figure}
@@ -731,7 +748,7 @@ model fits. The logarithmic derivatives show a distinct steepening
 feature at around $1.3~\mpch$. The figure shows that the
 location of the steepest slope does not change appreciably when the
 magnitude limit is changed, even though we use a sample which is one
-magnitude deeper than $M_{\rm i}-5\log h=-19.44$. The 68\%
+magnitude brighter than $M_{\rm i}-5\log h=-19.44$. The 68\%
 confidence interval of the location of the steepest slope is
 indicated by the vertical, shaded region. We also show the location
 of the virial radius $r_{\mathrm{200m}}$ based on the Planck SZ mass estimate 
@@ -757,6 +774,14 @@ and our results show that the location of the splashback radius does
 not depend upon the sample once we use galaxies fainter than $M_{\rm
 i}-5\log h=-19.44$. Our measurements have an accuracy of $\sim$15\%.
 
+{\bf Dominik, we need to add in the first and second derivative of just the one
+halo term to these plots $\rho_{\rm in}\,f_{\rm trans}$. Also highlight that
+the slope is dropping down precipitously within a factor 2 in radius. Mention
+that in the next paragraph. Add in Figure~\ref{fig:derivatives}, the second
+derivative posterior as well. In fact you can leave out the current left hand
+panel and just plot the the first and second derivatives of $\log\rho_{\rm
+in}\,f_{\rm trans}$.}
+
 Following \citet{baxter2017halo}, we also present the values of the
 logarithmic derivatives at the location of the steepest slope for
 the total three-dimensional cross-correlations, as well as those for
@@ -767,7 +792,9 @@ of the splashback radius, making it difficult to
 be reproduced by classical fitting functions like the NFW profile,
 which reach such slopes only asymptotically and even that only
 without the presence of the outer 2-halo term. This provides
-evidence for the existence of the splashback feature.
+evidence for the existence of the splashback feature. From the second
+derivative profiles we also note that the drop in the cross-correlation
+signal is very sharp and happens within a factor 2 in radius.
 
 We perform a preliminary comparison of the measurements with
 expectations from cold dark matter models. The average halo mass of
@@ -824,6 +851,16 @@ red galaxies below the splashback radius. On scales larger than the
 splashback radius, the fractional contributions of the two populations become
 very similar.
 
+We note that, in principle it is possible that the blue galaxy population does not posses
+a splashback feature but that due to our separation procedure outlined in Section~\ref{sec:Color}
+some of the red galaxies are identified as blue ones and are contaminating the correlation function
+of the blue population. Such a contamination could be caused by a scattering of some of the red galaxies
+into the blue population due to the large photometric errors of the Pan-STARRS galaxies at faint magnitudes.
+We tried to investigate the possiblity of that happening as outlined in 
+Appendix~\ref{sec:Errors}. Unfortunately, we established that at the current state of the data we cannot
+exclude such a contamination and the results derived using the color separated galaxy populations
+should be used with caution therefore.
+
 \section{Future work}
 \label{sec:Future}
 
@@ -859,6 +896,12 @@ the sky, resulting in less clusters but with a deeper field of view,
 such as in the case of the Hyper Suprime-Cam at Subaru Telescope,
 which will survey $\approx 1400$ deg$^2$ of the sky and achieve a
 depth of 26.2 magnitudes \citep{takada2010subaru}.
+
+The separation of the blue and red galaxy populations as described in 
+Section~\ref{sec:Color} is prone to photometric errors. In order to 
+assure our finding of a splashback feature in the blue galaxy population
+a deeper galaxy catalog would be desirable. Again, the future survey
+conducted with the Hyper Suprime-Cam could come to rescue.
 
 Lastly, but most importantly, the investigation of any systematics
 which might originate from the SZ selection of the Planck clusters
@@ -949,17 +992,103 @@ the HEALPix (K.M. Górski et al., 2005, ApJ, 622, p759) package
 \bibliographystyle{mnras}
 \bibliography{RSP_library} 
 
-
-
 \appendix
+
+\section{Estimating the contamination of the blue galaxy population}
+\label{sec:Errors}
+In our separation procedure of the blue from the red galaxy population 
+we assume the photometric magnitudes of the Pan-STARRS galaxies to be exact.
+However, photometric errors could cause red galaxies to scatter into the blue
+population which contaminates the correlation function and might be the cause 
+for the splashback feature observed in the blue population. Therefore, we 
+investigate the possiblity of such a contamination. 
+
+Firstly, we need to know how high such a contamination would have to be in order
+to reproduce the splashback signal as seen in the observations given that the actual
+blue poulation does not posses such a signal at all. We assume a simple $r^{-1.5}$ power 
+law for the correlation signal of the blue population which by construction cannot cause a splashback feature. Then,
+we simulate a contamination of the population by adding some of the accordingly rescaled 
+correlation signal of the red population, which does posses a splashback feature.
+We find that a contamination of at least 20\% is necessary to reproduce the observed
+splashback signal.
+
+Next we estimate the photometric errors of the Pan-STARRS galaxies in each one of the used
+bands (namely $i_{PS}, g_{PS}, r_{PS}$). Since we chose galaxies with $15.0 \leq i_{PS} \leq 21.5$
+for our analysis we consider the $i_{PS}$ errors as given in the Pan-STARRS survey of only 
+the galaxies in this magnitude range. We fit a Gaussian to their distribution and use a conservative $3\sigma$ confidence
+estimate for the photometric error in the $i_{PS}$ band. We repeat the same analysis for the
+$g_{PS}$ and $r_{PS}$ bands, but using magnitude ranges which are shifted by the mean magnitude
+differences between the $i_{PS}$ band and the $g_{PS}$ and $r_{PS}$ bands, respectively.
+The histograms of the errors as well as the estimated photometric errors are shown in
+Figure~\ref{fig:photoerrors}. We find similar photometric errors in the $i_{PS}$ (63 mmag)
+and $r_{PS}$ band (64 mmag) but a larger error in the $g_{PS}$ band of 81 mmag.
+
+\begin{figure}
+\centering{
+    \includegraphics[scale=0.6]{errors.pdf}}
+\caption{Histograms of the photometric errors in the used $i_{PS}, g_{PS}, r_{PS}$ bands.
+The errors were taken dirrectly from the Pan-STARRS survey and sampled for galaxy type 
+objects in the magniude range $15.0 \leq i_{PS} \leq 21.5$, $16.3 \leq g_{PS} \leq 22.8$ and $15.4 \leq r_{PS} \leq 21.9$, respectively. 
+The upper photometric error limits at $3\sigma$
+confidence are listed in the upper right of the figure.}
+    \label{fig:photoerrors}•
+\end{figure}
+
+
+Finally, we estimate the contamination of the blue galaxy population given the cut in $g_{PS} - r_{PS}$
+color that we used to separate the two populations. We start the same way as we established the cut:
+By taking narrow redshift bins and then by binning the $g_{PS} - r_{PS}$ colors of the galaxies in each
+redshift bin. Then we proceed by fitting a double Gaussian to the color distribution in each redshift bin
+(indicated by the solid, accordingly colored lines in Figure~\ref{fig:histogram}). We put the cut which
+separates the two distributions from each other at a $g_{PS} - r_{PS}$ color such that red galaxies are
+excluded from being incorrectly characterized as blue galaxies at a confidence level of $3\sigma$ (indicated
+by the solid, vertical, black line). At that point the fractional contribution of the red population reads 
+$\sim 40\%$ which corresponds to a free field galaxy sample. In order to model the distribution inside of 
+the cluster region we rescale the red distribution such that we end up with a fractional contribution of 
+the red population of $65\%$. We do now take into account the estimated photometric errors in the $g_{PS}$ and
+$r_{PS}$ bands by broadening the Gaussian distributions accordingly. The contamination is then estimated as:
+\begin{equation}
+\sum_{z=0.03}^{0.33} \int_{-\infty}^{cut(z)} 1 + \frac{\mathcal{N}_r(g-r)}{\mathcal{N}_b(g-r)} \mathrm{d}(g-r)
+\end{equation}
+where the sum runs over all redshift bins, the integration is performed over the $g_{PS} - r_{PS}$ color up 
+to the redshift dependent cut $cut(z)$ separating the two distributions and $\mathcal{N}_r(g-r)$ and $\mathcal{N}_b(g-r)$
+representing the broadened Gaussian distributions of the red and blue population, respectively
+(dashed, accordingly colored curves). With the described analysis we calculate a contamination of 24\%, which would
+be high enough to explain the observed splashback signal of the blue galaxy population solely by red galaxies
+that scattered into the blue population. However, this cannot be taken as disproof of the existence of a splashback
+feature in the blue galaxy population. The contamination estimate strongly depenends on two factors: Firstly, on the 
+confidence at which one wants to exclude red galaxies from being misidentified as blue galaxies and secondly on the
+method one uses to estimate the photometric errors (magnitude range and the conservatism of the error estimate).
+Depending on the approach we got contamination estimates ranging from 0.0001\% to 60\%. Therefore, at the current
+state it cannot be concisely established if the observed splashback feature stems from a contamination of red
+galaxies or not. A deeper galaxy catalog with smaller photometric errors, especially in the $g_{PS}$ band is
+required to shed light on this matter.
+
+
+\begin{figure}
+\centering{
+    \includegraphics[scale=0.6]{best_hist_58.pdf}}
+\caption{Histogram of the $g_{PS} - r_{PS}$ colors of the galaxies in a certain redshift bin for illustration
+of the contamination estimation. The solid, colored curves indicate the initially fitted Gaussian distributions,
+whereas the dashed curves represent the Gaussian distributions broadened by the photometric errors of the Pan-STARRS
+survey. The black, vertical line indicates the cut, separating the two galaxy populations as inferred from the original
+distributions. The cut excludes red galaxies from being characterized as blue galaxies at $3/sigma$ confidence.}
+    \label{fig:histogram}•
+\end{figure}
+
 
 \section{Modelling cluster mis-centering}
 \label{sec:mis-centering}
-As described in \citet{baxter2017halo} mis-centering of the central cluster positions are not expected to change the location of the splashback feature but might decrease the significance of the finding. Therefore, we modelled the effects of mis-centering on the correlation function and its influence on the results. 
+As described in \citet{baxter2017halo} mis-centering of the central cluster 
+positions are not expected to change the location of the splashback feature 
+but might decrease the significance of the finding. Therefore, we modelled the 
+effects of mis-centering on the correlation function and its influence on the results. 
 
 The mass dependence of the exact mis-centering fractions are not
-well understood and mis-centering effects are therefore difficult to model \citep{Skibba:2011, Hoshino:2015}. We follow the approach outlined in \citet{baxter2017halo} to take the effects of a possible mis-centering of a fraction of the cluster positions 
-into account by modelling the influence on the two-dimensional correlation function.
+well understood and mis-centering effects are therefore difficult to 
+model \citep{Skibba:2011, Hoshino:2015}. We follow the approach outlined 
+in \citet{baxter2017halo} to take the effects of a possible mis-centering of a fraction 
+of the cluster positions into account by modelling the influence on the two-dimensional correlation function.
  
 Denoting the fraction of mis-centered clusters in the sample with $f_{\rm mis}$ we relate
 the correlation function $\xi'_{\rm 2D}(R)$ that is affected by the mis-centering of the clusters to the correlation function
