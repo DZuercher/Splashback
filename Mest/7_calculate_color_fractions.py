@@ -47,8 +47,8 @@ if __name__ == "__main__":
 
 
     mc = False
-    red_type = "Planck_PS_21.5_red_hard_spline_no_mc"
-    blue_type = "Planck_PS_21.5_blue_hard_spline_no_mc"
+    red_type = "Planck_PS_21.5_red_spline_no_mc"
+    blue_type = "Planck_PS_21.5_blue_spline_no_mc"
     add = "_best"
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
@@ -56,7 +56,7 @@ if __name__ == "__main__":
     rsteps = 25
     nwalkers = 28
     blue_cutoff = 0#Due to modding files have different length -> cutoff portion at beginning of blue chanis
-    red_cutoff = 14408#Due to modding files have different length -> cutoff portion at beginning of blue chains
+    red_cutoff =179#Due to modding files have different length -> cutoff portion at beginning of blue chains
 
     calc_color_frac(red_type, blue_type, add, output_dir)
 

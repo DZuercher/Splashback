@@ -78,17 +78,16 @@ def get_cuts(color, bin_num, bins, z_steps, confidence, plotting):
 	blue_con[it - 1] = blues
 	red_con[it - 1] = reds
 
-        if (it == 58) & (plotting == True):
-	    plt.figure(it)
-	    plt.hist(colors, bins = bins, color='k', alpha=0.8, histtype='step', lw=0.5)
-	    gr_range = edges[:-1] + (edges[1] - edges[0])/2.
-	    plt.plot(gr_range, blue_c* np.exp( - (gr_range - blue_mu)**2.0 / (2.0 * blue_sigma**2.0) ), 'b-')
-	    plt.plot(gr_range, red_c_old* np.exp( - (gr_range - red_mu)**2.0 / (2.0 * red_sigma**2.0) ), 'r-')
-	    plt.plot(gr_range, blue_c* np.exp( - (gr_range - blue_mu)**2.0 / (2.0 * blue_sigma_broad**2.0) ), 'b--')
-	    plt.plot(gr_range, red_c* np.exp( - (gr_range - red_mu)**2.0 / (2.0 * red_sigma_broad**2.0) ), 'r--')
-	    plt.axvline(cut, color = 'k')
-	    plt.xlabel("g-r")
-	    plt.savefig("%s/best_hist_%s.pdf" % (output_dir, it ))
+        if (it % 10 == 0) & (plotting == True):
+            plt.figure(it / 10)
+            plt.hist(colors, bins = bins)
+            gr_range = edges[:-1] + (edges[1] - edges[0])/2.
+            plt.plot(gr_range, blue_c* np.exp( - (gr_range - blue_mu)**2.0 / (2.0 * blue_sigma**2.0) ), 'b-', lw = 0.3)
+            plt.plot(gr_range, red_c_old* np.exp( - (gr_range - red_mu)**2.0 / (2.0 * red_sigma**2.0) ), 'r-', lw = 0.3)
+            plt.plot(gr_range, blue_c* np.exp( - (gr_range - blue_mu)**2.0 / (2.0 * blue_sigma_broad**2.0) ), 'b--', lw = 0.3)
+            plt.plot(gr_range, red_c* np.exp( - (gr_range - red_mu)**2.0 / (2.0 * red_sigma_broad**2.0) ), 'r--', lw = 0.3)
+            plt.axvline(cut, color = 'k', lw = 0.3)
+            plt.savefig("%s/test_hist_%s.pdf" % (output_dir, it/ 10 ))
 
     return cuts, red_con, blue_con
 
@@ -110,22 +109,12 @@ if __name__ == '__main__':
     green_err = 0.081
     iband_err = 0.063
 
-    #Errors from 15.0 to 21.0 mag
-    red_err = 0.059
-    green_err = 0.08
-    iband_err = 0.055
-
-    #Errors from 15.0 to 20.0 mag
-    red_err = 0.037
-    green_err = 0.059
-    iband_err = 0.032
-
     min_z = 0.03
     max_z = 0.33
     z_step = 100
     bins = 500
 
-    confidence = 6 # Confidence level to exclude Reds from Blues (in sigmas)
+    confidence = 3 # Confidence level to exclude Reds from Blues (in sigmas)
 
     catalog = "/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat"
     output_dir = "/work/dominik.zuercher/Output/match_PS"
@@ -151,8 +140,6 @@ if __name__ == '__main__':
     labels = ["g-i", "r-i", "g-r"]
     for i in range(3):
 
-	if i != 2:
-	    continue
 	bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
 	print("Redshift binning done")
 	cuts, red_con, blue_con = get_cuts(colors[i], bin_num, bins, z_step, confidence, plotting = (i == 2))
@@ -181,6 +168,8 @@ if __name__ == '__main__':
 	    plt.xlabel("z")
 	    plt.ylabel(labels[i])
 	    plt.savefig("%s/%s_vs_z.pdf" % (output_dir, labels[i]))
+            output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
+	    np.savetxt("%s/spline_data.dat" % output_dir, output)
 
 	idx = (red_con > 0.0) & (blue_con > 0.0)
 	red_con = red_con[idx]

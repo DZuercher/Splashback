@@ -36,6 +36,8 @@ def curve_graphs(types):
 	dr_devs=dr_plotdat[rsteps*2:rsteps*3,:]
 	dr_rhodevs=dr_plotdat[rsteps*3:rsteps*4,:]
 	dr_rhodevs2=dr_plotdat[rsteps*4:rsteps*5,:]
+	dr_innerrhodevs=dr_plotdat[rsteps*5:rsteps*6,:]
+	dr_innerrhodevs2=dr_plotdat[rsteps*6:rsteps*7,:]
 
 	dr_splashdat=pd.read_csv("%s/%s/values.dat" % (est_directory, type_), sep=' ',header=None)
 	dr_splashdat=np.asarray(dr_splashdat.values)
@@ -80,11 +82,18 @@ def curve_graphs(types):
 	#Plot 3D derivative MCMC fits
 	axarr2[i,1].plot(rrange,dr_rhodevs[:,0],linestyle='-',c=assign_color(i,0))
         axarr2[i,1].fill_between(rrange,dr_rhodevs[:,0]-dr_rhodevs[:,2],dr_rhodevs[:,0]+dr_rhodevs[:,1],facecolor=assign_color(i,0),alpha=0.3)
+
+	idx = rrange < 2.
+	#inner halo term
+	axarr2[i,1].plot(rrange,dr_innerrhodevs[:,0],linestyle='-',c='grey')
+        axarr2[i,1].fill_between(rrange[idx],dr_innerrhodevs[:,0][idx]-dr_innerrhodevs[:,2][idx],dr_innerrhodevs[:,0][idx]+dr_innerrhodevs[:,1][idx],facecolor='grey',alpha=0.3)
 	
         #Plot 3D 2nd derivative MCMC fits
 	axarr2[i,2].plot(rrange,dr_rhodevs2[:,0],linestyle='-',c=assign_color(i,0))
         axarr2[i,2].fill_between(rrange,dr_rhodevs2[:,0]-dr_rhodevs2[:,2],dr_rhodevs2[:,0]+dr_rhodevs2[:,1],facecolor=assign_color(i,0),alpha=0.3)
-
+	#inner halo term
+	axarr2[i,2].plot(rrange[idx],-dr_innerrhodevs2[:,0][idx],linestyle='-',c='grey')
+        axarr2[i,2].fill_between(rrange[idx],-(dr_innerrhodevs2[:,0][idx]-dr_innerrhodevs2[:,2][idx]),-(dr_innerrhodevs2[:,0][idx]+dr_innerrhodevs2[:,1][idx]),facecolor='grey',alpha=0.3)
 	i+=1
 
 
@@ -232,15 +241,16 @@ def hist_graphs(types):
         if mc == False:
             type_ += "_no_mc"
         print("Doing %s",type_)
-	dr_data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (est_directory, type_), sep=' ',header=None,error_bad_lines=False,usecols=(rsteps*4,rsteps*4+1,rsteps*4+3,rsteps*4+4))
+	dr_data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (est_directory, type_), sep=' ',header=None,error_bad_lines=False,usecols=(rsteps*7,rsteps*7+1,rsteps*7+4, rsteps*7+5))
 	dr_data_array=np.asarray(dr_data_array.values)
 	dr_rsp2d_array=dr_data_array[:,0]
 	dr_rsp2d_array=dr_rsp2d_array.reshape((dr_rsp2d_array.size,1))
 	dr_rsp3d_array=dr_data_array[:,1]
 	dr_rsp3d_array=dr_rsp3d_array.reshape((dr_rsp3d_array.size,1))
-	dr_maxrhodev_array=dr_data_array[:,2]
-	dr_maxinnerrhodev_array=dr_data_array[:,3]
+	dr_maxinnerrhodev_array=dr_data_array[:,2]
 	dr_maxinnerrhodev_array=dr_maxinnerrhodev_array.reshape((dr_maxinnerrhodev_array.size,1))
+	dr_maxinnerrhodev2_array=dr_data_array[:,3]
+	dr_maxinnerrhodev2_array=dr_maxinnerrhodev2_array.reshape((dr_maxinnerrhodev2_array.size,1))
 
         print("Data read")
         print("Binning...")
@@ -249,8 +259,8 @@ def hist_graphs(types):
 	axarr1[0].hist(dr_rsp2d_array.reshape(dr_rsp2d_array.size),100,range=[1,2],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
 	axarr1[1].hist(dr_rsp3d_array.reshape(dr_rsp3d_array.size),100,range=[1.2,3],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
 
-	axarr2[0].hist(dr_maxrhodev_array.reshape(dr_maxrhodev_array.size),100,range=[-4.5,-2.5],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
-	axarr2[1].hist(dr_maxinnerrhodev_array.reshape(dr_maxinnerrhodev_array.size),100,range=[-6.0,-2.5],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
+	axarr2[0].hist(dr_maxinnerrhodev_array.reshape(dr_maxinnerrhodev_array.size),100,range=[-4.5,-2.5],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
+	axarr2[1].hist(dr_maxinnerrhodev2_array.reshape(dr_maxinnerrhodev2_array.size),100,range=[-6.0,-2.5],color=assign_color(i,0),label=labels[i],density=True,histtype='step')
 	i+=1
 
     print("Plotting...")
@@ -260,8 +270,8 @@ def hist_graphs(types):
 
     axarr1[0].set_xlabel(r"$R$ (h$^{-1}$Mpc)")
     axarr1[1].set_xlabel(r"$r$ (h$^{-1}$Mpc)")
-    axarr2[0].set_xlabel(r"$\frac{\mathrm{d}\log\rho}{\mathrm{d}\log r}(r_{\mathrm{sp}}^{\mathrm{3D}})$")
-    axarr2[1].set_xlabel(r"$\frac{\mathrm{d}\log\rho_{\mathrm{in}}f_{\mathrm{trans}}}{\mathrm{d}\log r} (r_{\mathrm{sp}}^{\mathrm{3D}})$")
+    axarr2[0].set_xlabel(r"$\frac{\mathrm{d}\log\rho_{\mathrm{in}}f_{\mathrm{trans}}}{\mathrm{d}\log r} (r_{\mathrm{sp}}^{\mathrm{3D}})$")
+    axarr2[1].set_xlabel(r"$\frac{\mathrm{d}^2\log\rho_{\mathrm{in}}f_{\mathrm{trans}}}{\mathrm{d}(\log r)^2} (r_{\mathrm{sp}}^{\mathrm{3D}})$")
 
     axarr1[0].text(2.75, 3.5, r'$R_{\mathrm{sp}}^{\mathrm{2D}}$',fontsize=7)
     axarr1[1].text(2.75, 1.1, r'$r_{\mathrm{sp}}^{\mathrm{3D}}$',fontsize=7)
@@ -273,8 +283,8 @@ def hist_graphs(types):
     axarr1[0].set_xlim([1.0,3.0])
     axarr1[1].set_xlim([1.0,3.0])
 
-    axarr2[0].set_xlim([-2.5,-5.5])
-    axarr2[1].set_xlim([-2.5,-5.5])
+    #axarr2[0].set_xlim([-2.5,-5.5])
+    #axarr2[1].set_xlim([-2.5,-5.5])
     f1.tight_layout()
     f2.tight_layout()
     #plt.tight_layout(w_pad=10)
@@ -348,6 +358,8 @@ def color_plot(red_type, blue_type):
     red_devs=red_plotdat[rsteps*2:rsteps*3,:]
     red_rhodevs=red_plotdat[rsteps*3:rsteps*4,:]
     red_rhodevs2=red_plotdat[rsteps*4:rsteps*5,:]
+    red_innerrhodevs=red_plotdat[rsteps*5:rsteps*6,:]
+    red_innerrhodevs2=red_plotdat[rsteps*6:rsteps*7,:]
 
 
     blue_plotdat=pd.read_csv("%s/%s/plotsave.dat" % (est_directory, blue_type),sep=' ',header=None)
@@ -357,6 +369,8 @@ def color_plot(red_type, blue_type):
     blue_devs=blue_plotdat[rsteps*2:rsteps*3,:]
     blue_rhodevs=blue_plotdat[rsteps*3:rsteps*4,:]
     blue_rhodevs2=blue_plotdat[rsteps*4:rsteps*5,:]
+    blue_innerrhodevs=blue_plotdat[rsteps*5:rsteps*6,:]
+    blue_innerrhodevs2=blue_plotdat[rsteps*6:rsteps*7,:]
 
     red_splashdat=pd.read_csv("%s/%s/values.dat" % (est_directory, red_type), sep=' ',header=None)
     red_splashdat=np.asarray(red_splashdat.values)
@@ -398,12 +412,30 @@ def color_plot(red_type, blue_type):
     axarr2[1].fill_between(rrange,red_rhodevs[:,0]-red_rhodevs[:,2],red_rhodevs[:,0]+red_rhodevs[:,1],facecolor='r',alpha=0.3)
     axarr2[1].fill_between(rrange,blue_rhodevs[:,0]-blue_rhodevs[:,2],blue_rhodevs[:,0]+blue_rhodevs[:,1],facecolor='b',alpha=0.3)
 
+
+    idx = rrange < 2.
+    #inner halo term
+    axarr2[1].plot(rrange,red_innerrhodevs[:,0],linestyle='-',c='tomato')
+    axarr2[1].fill_between(rrange[idx],red_innerrhodevs[:,0][idx]-red_innerrhodevs[:,2][idx],red_innerrhodevs[:,0][idx]+red_innerrhodevs[:,1][idx],facecolor='tomato',alpha=0.3)
+    axarr2[1].plot(rrange,blue_innerrhodevs[:,0],linestyle='-',c='lightblue')
+    axarr2[1].fill_between(rrange[idx],blue_innerrhodevs[:,0][idx]-blue_innerrhodevs[:,2][idx],blue_innerrhodevs[:,0][idx]+blue_innerrhodevs[:,1][idx],facecolor='lightblue',alpha=0.3)
+
+	
     #Plot 3D 2nd derivative MCMC fits
     axarr2[2].plot(rrange,red_rhodevs2[:,0],linestyle='-',c='r')
     axarr2[2].plot(rrange,blue_rhodevs2[:,0],linestyle='-',c='b')
 
     axarr2[2].fill_between(rrange,red_rhodevs2[:,0]-red_rhodevs2[:,2],red_rhodevs2[:,0]+red_rhodevs2[:,1],facecolor='r',alpha=0.3)
     axarr2[2].fill_between(rrange,blue_rhodevs2[:,0]-blue_rhodevs2[:,2],blue_rhodevs2[:,0]+blue_rhodevs2[:,1],facecolor='b',alpha=0.3)
+
+
+    idx = rrange < 2.
+    #inner halo term
+    axarr2[2].plot(rrange,-red_innerrhodevs2[:,0],linestyle='-',c='tomato')
+    axarr2[2].fill_between(rrange[idx],-(red_innerrhodevs2[:,0][idx]-red_innerrhodevs2[:,2][idx]),-(red_innerrhodevs2[:,0][idx]+red_innerrhodevs2[:,1][idx]),facecolor='tomato',alpha=0.3)
+    axarr2[2].plot(rrange,-blue_innerrhodevs2[:,0],linestyle='-',c='lightblue')
+    axarr2[2].fill_between(rrange[idx],-(blue_innerrhodevs2[:,0][idx]-blue_innerrhodevs2[:,2][idx]),-(blue_innerrhodevs2[:,0][idx]+blue_innerrhodevs2[:,1][idx]),facecolor='lightblue',alpha=0.3)
+
 
     #Make vertical line at locations of R200m and R3D
     #axarr[0,0].axvline(x=r200m,c="k",linestyle=":")
@@ -469,6 +501,8 @@ def color_plot(red_type, blue_type):
     axarr2[2].set_xlim([0,8])
     
     axarr1[0].set_ylim([0.08,20])
+    axarr2[1].set_ylim([-3.8,-0.2])
+    axarr2[2].set_ylim([-4.0,4.3])
 
     f1.savefig("%s/plots/color_separated_2D_%s.pdf" % (splash_directory, run_type))
     f2.savefig("%s/plots/color_separated_3D_%s.pdf" % (splash_directory, run_type))
@@ -701,7 +735,7 @@ def get_color_table(red_type, blue_type):
 ######################################
 
 
-run_type = "with_hard_spline_no_mc"
+run_type = "with_spline_no_mc"
 
 
 mc = False
@@ -716,22 +750,19 @@ splash_directory = "/work/dominik.zuercher/Output/splashpipe"
 est_directory = "/work/dominik.zuercher/Output/Mest"
 
 types=['Planck_PS_21','Planck_PS_21.5','Planck_PS_22']
-red_type = 'Planck_PS_21.5_red_hard_spline'
-blue_type = 'Planck_PS_21.5_blue_hard_spline'
+red_type = 'Planck_PS_21.5_red_spline'
+blue_type = 'Planck_PS_21.5_blue_spline'
 full_type =  'Planck_PS_21.5'
-
-
-
 
 
 print("Plotting color separated plot")
 color_plot(red_type, blue_type)
-get_color_table(red_type, blue_type)
+#get_color_table(red_type, blue_type)
 print("Plotting curves")
-curve_graphs(types)
+#curve_graphs(types)
 print("Plotting splashback comparison")
-comp_splash(types)
+#comp_splash(types)
 print("Plotting histograms")
 #hist_graphs(types)
 print("Producing splashback and fitting parameter tables")
-get_tables(types)
+#get_tables(types)

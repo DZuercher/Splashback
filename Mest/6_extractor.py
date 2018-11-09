@@ -43,9 +43,9 @@ def correct_chain(type_,add,modded=False):
 	value_array=np.delete(value_array,broken_walkers,axis=0)
 	samples=np.delete(samples,broken_walkers,axis=0)
 
-    #Find nan values from rhodev_array
+    #Find nan values from rhodev_arrays
     print("Search and remove NAN entries...")
-    rhodev_array=value_array[:,rsteps*3:rsteps*4]
+    rhodev_array=value_array[:,rsteps*3:rsteps*7]
     fix=np.isnan(rhodev_array)
     row=np.invert(np.any(fix,axis=1))
     print("Found %d NAN derivatives" % (value_array.shape[0] - np.sum(row)) )
@@ -92,7 +92,8 @@ if __name__=="__main__":
 
     mc = False
 
-    types=["Planck_PS_21.5_red_hard_spline", "Planck_PS_21.5_blue_hard_spline"]
+    types=["Planck_PS_21", "Planck_PS_21.5", "Planck_PS_22", "Planck_PS_21.5_red_spline", "Planck_PS_21.5_blue_spline"]
+    types=["Planck_PS_21.5_blue_spline"]
     adds = ["_best"]
     modded = False
     for add in adds:

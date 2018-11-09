@@ -88,17 +88,17 @@ if __name__ == "__main__":
     idx = (red_PS < 900) & (red_PS > -900) & (green_PS < 900) & (green_PS > -900) 
     redshift = redshift[idx]
     red_PS = red_PS[idx]
-    iband_PS = iband_PS[idx]
+    green_PS = green_PS[idx]
     id_ = id_[idx]
-    color = red_PS - iband_PS
+    color = red_PS - green_PS
     print("Catalog read")
 
 
     bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
     print("Redshift binning done")
     cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
-    if calc_contamination == True:
-	cuts_err = get_cuts(color, bin_num, bins, z_step, confidence, True)
+    #if calc_contamination == True:
+#	cuts_err = get_cuts(color, bin_num, bins, z_step, confidence, True)
     print("histograms made")
 
 
@@ -113,23 +113,22 @@ if __name__ == "__main__":
     idx = (cuts > 0.0) & (cuts < 1.5)
     z_middles_1 = z_middles[idx]
     cuts = cuts[idx]
-    cuts_err = cuts_err[idx]
+    #cuts_err = cuts_err[idx]
 
     spl = UnivariateSpline(z_middles_1, cuts)
 
-    spl_err = UnivariateSpline(z_middles_1, cuts_err)
+    #spl_err = UnivariateSpline(z_middles_1, cuts_err)
 
 
     rrange = np.linspace(0, 0.35, 1000)
     yy0 = cut(rrange)
 
-    """
+    
     output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
-    if include_PS_errors == False:
-        np.savetxt("%s/spline_data.dat" % output_dir, output)
-    else:
-        np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
-    """
+ #   if include_PS_errors == False:
+    np.savetxt("%s/spline_data.dat" % output_dir, output)
+ #   else:
+  #      np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
 
     #np.savetxt("%s/redshifts.dat" % output_dir, z_middles.reshape(z_middles.size,1))
     #np.savetxt("%s/colors.dat" % output_dir, cuts.reshape(z_middles.size,1))
@@ -137,7 +136,7 @@ if __name__ == "__main__":
     #plt.plot(z_middles, cuts, 'k-', lw = 0.3, label = "cut")
     #plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
     plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
-    plt.plot(rrange, spl_err(rrange), 'k-', lw=0.3, label = "spline (inc. PS errors)")
+    #plt.plot(rrange, spl_err(rrange), 'k-', lw=0.3, label = "spline (inc. PS errors)")
 
     plt.ylim([0,3])
     plt.xlim([0.03,0.33])
@@ -147,7 +146,7 @@ if __name__ == "__main__":
     plt.savefig("%s/color_vs_z.pdf" % output_dir)
 
 
-
+    """
     #Calculate contaminations for mixed characterization (best estimate?)
     #Falses
     reds_below_cut = (color < spl(redshift) ) & (color > spl_err(redshift))
@@ -161,3 +160,9 @@ if __name__ == "__main__":
     print("Contamination: %f" % (np.sum(reds_below_cut)/(np.sum(reds_below_cut) + np.sum(blues_below_cut)))*100.0 )
     #print("Reds above cut: %s" % np.sum(reds_above_cut))
     #print("Blues above cut: %s" % np.sum(blues_above_cut))
+    """
+
+
+
+
+

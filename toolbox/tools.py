@@ -991,8 +991,23 @@ def logdev_einasto_profile_inner(r,p):
     gamma = 10.0**gamma
     beta = 10.0**beta
     rt = 10.0**rt
-    #return r*(ftrans(r,p2)*rho_inner(r,p0))/einasto_profile(r,p)*( -2.0*r**(alpha-1.0)/rs**alpha - gamma*r**(beta-1.0)/rt**beta*(1.0+(r/rt)**beta)**(-1.0)  )
-    return 2*(r/rs)**alpha+gamma*1./(1+(r/rt)**beta)*(r/rt)**beta
+    return -gamma/ftrans(r,p2)*(r/rt)**beta-2.*(r/rs)**alpha
+
+
+def logdev2_einasto_profile_inner(r,p):
+    rhos, alpha, rs, rho0, se, rt, beta, gamma = p
+    p0 = p[0:3]
+    p1 = p[3:5]
+    p2 = p[5:8]
+    rhos=10.0**rhos
+    #rho0=10.0**rho0
+    alpha = 10.0**alpha
+    rs = 10.0**rs
+    gamma = 10.0**gamma
+    beta = 10.0**beta
+    rt = 10.0**rt
+    return -1./logdev_einasto_profile_inner(r,p)*((gamma/ftrans(r,p2))**2.*(r/rt)**(2.*beta) + gamma*beta/ftrans(r,p2)*(r/rt)**beta + 2*alpha*(r/rs)**alpha) 
+
 
 def einasto_profile_outer(r, p):
     '''3D galaxy density distribution as proposed by Diemer ] Kravtsov 2014 '''

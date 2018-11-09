@@ -23,26 +23,28 @@ def cal_procedure(type_,add,modded=False):
         data_array=pd.read_csv("%s/%s/Data_full.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
     else:
         data_array=pd.read_csv("%s/%s/Data_full_modded.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
-        dev2_array=pd.read_csv("%s/%s/dev2_full_modded.txt" % (output_dir, type_), sep=' ',header=None,error_bad_lines=False)
 
     print("Read")
     data_array=np.asarray(data_array.values)
-    dev2_array=np.asarray(dev2_array.values)
     sigma_array=data_array[:,0:rsteps]
     rho_array=data_array[:,rsteps:rsteps*2]
     dev_array=data_array[:,rsteps*2:rsteps*3]
     rhodev_array=data_array[:,rsteps*3:rsteps*4]
-    rhodev2_array = dev2_array
-    rsp2d_array=data_array[:,rsteps*4]
+    rhodev2_array=data_array[:,rsteps*4:rsteps*5]
+    innerrhodev_array=data_array[:,rsteps*5:rsteps*6]
+    innerrhodev2_array=data_array[:,rsteps*6:rsteps*7]
+    rsp2d_array=data_array[:,rsteps*7]
     rsp2d_array=rsp2d_array.reshape((rsp2d_array.size,1))
-    rsp3d_array=data_array[:,rsteps*4+1]
+    rsp3d_array=data_array[:,rsteps*7+1]
     rsp3d_array=rsp3d_array.reshape((rsp3d_array.size,1))
-    chisquare_array=data_array[:,rsteps*4+2]
+    chisquare_array=data_array[:,rsteps*7+2]
     chisquare_array=chisquare_array.reshape((chisquare_array.size,1))
-    maxrhodev_array=data_array[:,rsteps*4+3]
+    maxrhodev_array=data_array[:,rsteps*7+3]
     maxrhodev_array=maxrhodev_array.reshape((maxrhodev_array.size,1))
-    maxinnerrhodev_array=data_array[:,rsteps*4+4]
+    maxinnerrhodev_array=data_array[:,rsteps*7+4]
     maxinnerrhodev_array=maxinnerrhodev_array.reshape((maxinnerrhodev_array.size,1))
+    maxinnerrhodev2_array=data_array[:,rsteps*7+4]
+    maxinnerrhodev2_array=maxinnerrhodev2_array.reshape((maxinnerrhodev2_array.size,1))
 
 
     #Calculating percentile values
@@ -56,6 +58,10 @@ def cal_procedure(type_,add,modded=False):
     print("rhodevs done")
     rhodevs2 = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(rhodev2_array, [16, 50, 84], axis=0))))
     print("rhodevs2 done")
+    innerrhodevs = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(innerrhodev_array, [16, 50, 84], axis=0))))
+    print("innerrhodevs done")
+    innerrhodevs2 = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(innerrhodev2_array, [16, 50, 84], axis=0))))
+    print("innerrhodevs2 done")
     rsp2ds = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(rsp2d_array, [16, 50, 84], axis=0))))
     rsp2ds=rsp2ds.reshape(rsp2ds.size)
     print("rsp2ds done")
@@ -73,14 +79,17 @@ def cal_procedure(type_,add,modded=False):
     maxinnerrhodevs = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(maxinnerrhodev_array, [16, 50, 84], axis=0))))
     maxinnerrhodevs=maxinnerrhodevs.reshape(maxinnerrhodevs.size)
     print("maxinnerrhodevs done")
+    maxinnerrhodevs2 = np.asarray(map(lambda v: (v[1], v[2]-v[1], v[1]-v[0]), zip(*np.percentile(maxinnerrhodev2_array, [16, 50, 84], axis=0))))
+    maxinnerrhodevs2=maxinnerrhodevs2.reshape(maxinnerrhodevs2.size)
+    print("maxinnerrhodevs2 done")
 
     #Saving
-    outarr=np.vstack((sigmas,rhos,devs,rhodevs, rhodevs2))
+    outarr=np.vstack((sigmas,rhos,devs,rhodevs, rhodevs2, innerrhodevs, innerrhodevs2))
     np.savetxt("%s/%s/plotsave.dat" % (output_dir, type_), outarr)
-    valarr=np.vstack((rsp2ds,rsp3ds,chisquares,maxrhodevs,maxinnerrhodevs))
+    valarr=np.vstack((rsp2ds,rsp3ds,chisquares,maxrhodevs,maxinnerrhodevs, maxinnerrhodevs2))
     np.savetxt("%s/%s/values.dat" % (output_dir, type_), valarr)
 
-
+    """
     #Plotting Histograms
     f, axarr = plt.subplots(2,2)
     n,bins,patches = axarr[0,0].hist(rsp2d_array.reshape(rsp2d_array.size),100,alpha=0.5,range=[0,10],label="RSP 2D")
@@ -99,7 +108,7 @@ def cal_procedure(type_,add,modded=False):
 
     plt.tight_layout()
     plt.savefig("%s/%s/vis_values.pdf" % (output_dir, type_))
-
+    """
 
 
 #-----Main-----
@@ -112,7 +121,7 @@ if __name__ == "__main__":
 
     output_dir = "/work/dominik.zuercher/Output/Mest"
 
-    types = ["Planck_PS_21.5_blue_hard_spline","Planck_PS_21.5_red_hard_spline"]
+    types = ["Planck_PS_21", "Planck_PS_21.5", "Planck_PS_22", "Planck_PS_21.5_blue_spline","Planck_PS_21.5_red_spline"]
     adds = ["_best"]
     for add in adds:
         for type_ in types:

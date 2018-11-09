@@ -40,6 +40,9 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     rhos=plotdat[rsteps:rsteps*2,:]
     devs=plotdat[rsteps*2:rsteps*3,:]
     rhodevs=plotdat[rsteps*3:rsteps*4,:]
+    rhodevs2=plotdat[rsteps*4:rsteps*5,:]
+    innerrhodevs=plotdat[rsteps*5:rsteps*6,:]
+    innerrhodevs2=plotdat[rsteps*6:rsteps*7,:]
 
     splashdat=pd.read_csv("%s/%s/values.dat" % (output_dir, type_),sep=' ',header=None)
     splashdat=np.asarray(splashdat.values)
@@ -48,77 +51,8 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     chisquares=splashdat[2,:]
     maxrhodevs=splashdat[3,:]
     maxinnerrhodevs=splashdat[4,:]
+    maxinnerrhodevs2=splashdat[5,:]
 
-    #Plotting graphs
-    f, axarr = plt.subplots(ncols=2,nrows=2)
-    axarr[0,0].errorbar(rr, yy, yy_err, fmt=".")
-    axarr[0,0].plot(rrange,sigmas[:,0],'r-',label="MCMC fit")
-    axarr[0,0].plot(rrange,sigmas[:,0]+sigmas[:,1],'r--')
-    axarr[0,0].plot(rrange,sigmas[:,0]-sigmas[:,2],'r--')
-    axarr[0,0].axvline(rsp2ds[0],c='k',label="RSP 2D")
-    axarr[0,0].axvline(rsp2ds[0]+rsp2ds[1],c='k',ls='dashed')
-    axarr[0,0].axvline(rsp2ds[0]-rsp2ds[2],c='k',ls='dashed')
-    axarr[0,0].axvline(rsp3ds[0],c='b',label="RSP 3D",alpha=0.5)
-    axarr[0,0].axvline(rsp3ds[0]+rsp3ds[1],c='b',ls='dashed',alpha=0.5)
-    axarr[0,0].axvline(rsp3ds[0]-rsp3ds[2],c='b',ls='dashed',alpha=0.5)
-    axarr[0,0].set_title("2D correlation signal")
-    axarr[0,0].set_xscale("log")
-    axarr[0,0].set_yscale("log")
-    axarr[0,0].set_xlabel(r"$R$ ($h^{-1}$Mpc)")
-    axarr[0,0].set_ylabel(r"$\xi^{\rm 2d}$ ($h^{-1}$Mpc)")
-    axarr[0,0].legend(loc='lower left',fontsize="x-small")
-
-    axarr[0,1].plot(rrange,rhos[:,0],'r-',label="MCMC fit")
-    axarr[0,1].plot(rrange,rhos[:,0]+rhos[:,1],'r--')
-    axarr[0,1].plot(rrange,rhos[:,0]-rhos[:,2],'r--')
-    axarr[0,1].axvline(rsp2ds[0],c='k',label="RSP 2D",alpha=0.5)
-    axarr[0,1].axvline(rsp2ds[0]+rsp2ds[1],c='k',ls='dashed',alpha=0.5)
-    axarr[0,1].axvline(rsp2ds[0]-rsp2ds[2],c='k',ls='dashed',alpha=0.5)
-    axarr[0,1].axvline(rsp3ds[0],c='b',label="RSP 3D")
-    axarr[0,1].axvline(rsp3ds[0]+rsp3ds[1],c='b',ls='dashed')
-    axarr[0,1].axvline(rsp3ds[0]-rsp3ds[2],c='b',ls='dashed')
-    axarr[0,1].set_title("3D correlation signal")
-    axarr[0,1].set_xscale("log")
-    axarr[0,1].set_yscale("log")
-    axarr[0,1].set_xlabel(r"$R$ ($h^{-1}$Mpc)")
-    axarr[0,1].set_ylabel(r"$\xi^{\rm 2d}$ ($h^{-1}$Mpc)")
-    #axarr[0,1].legend()
-
-    axarr[1,0].plot(rrange,devs[:,0],'r-',label="MCMC derivative")
-    axarr[1,0].plot(rrange,devs[:,0]+devs[:,1],'r--')
-    axarr[1,0].plot(rrange,devs[:,0]-devs[:,2],'r--')
-    axarr[1,0].axvline(rsp2ds[0],c='k',label="RSP 2D")
-    axarr[1,0].axvline(rsp2ds[0]+rsp2ds[1],c='k',ls='dashed')
-    axarr[1,0].axvline(rsp2ds[0]-rsp2ds[2],c='k',ls='dashed')
-    axarr[1,0].axvline(rsp3ds[0],c='b',label="RSP 3D",alpha=0.5)
-    axarr[1,0].axvline(rsp3ds[0]+rsp3ds[1],c='b',ls='dashed',alpha=0.5)
-    axarr[1,0].axvline(rsp3ds[0]-rsp3ds[2],c='b',ls='dashed',alpha=0.5)
-    axarr[1,0].set_title("2D First Derivative")
-    axarr[1,0].set_xscale("log")
-    axarr[1,0].set_xlabel(r"$R$ ($h^{-1}$Mpc)")
-    axarr[1,0].set_ylabel(r"$\mathrm{d} log\xi^{\rm 2d} /\mathrm{d} logr$")
-    #axarr[1,0].legend()
-
-
-    axarr[1,1].plot(rrange,rhodevs[:,0],'r-',label="MCMC derivative")
-    axarr[1,1].plot(rrange,rhodevs[:,0]+rhodevs[:,1],'r--')
-    axarr[1,1].plot(rrange,rhodevs[:,0]-rhodevs[:,2],'r--')
-    axarr[1,1].axvline(rsp2ds[0],c='k',label="RSP 2D",alpha=0.5)
-    axarr[1,1].axvline(rsp2ds[0]+rsp2ds[1],c='k',ls='dashed',alpha=0.5)
-    axarr[1,1].axvline(rsp2ds[0]-rsp2ds[2],c='k',ls='dashed',alpha=0.5)
-    axarr[1,1].axvline(rsp3ds[0],c='b',label="RSP 3D")
-    axarr[1,1].axvline(rsp3ds[0]+rsp3ds[1],c='b',ls='dashed')
-    axarr[1,1].axvline(rsp3ds[0]-rsp3ds[2],c='b',ls='dashed')
-    axarr[1,1].set_title("3D First Derivative")
-    axarr[1,1].set_xscale("log")
-    axarr[1,1].set_xlabel(r"$R$ ($h^{-1}$Mpc)")
-    axarr[1,1].set_ylabel(r"$\mathrm{d} log\rho /\mathrm{d} logr$")
-    #axarr[1,1].legend()
-    plt.tight_layout()
-    plt.savefig("%s/%s/model_plot_%s.pdf" % (output_dir, type_, type_))
-
-    print("Plot done")
-    
     #Drawing chains
     nochains=False
     if modded==False:
@@ -135,10 +69,11 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     except:
         nochains=True
     if mc==False:
-        param_names = [r'$\log_{10}(\rho_{\mathrm{s}})$',r'$\alpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(\rho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(\beta)$',r'$\log_{10}(\gamma)$']
+        param_names = [r'$\log_{10}(ho_{\mathrm{s}})$',r'$lpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(ho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(eta)$',r'$\log_{10}(\gamma)$']
     else:
-        param_names = [r'$\log_{10}(\rho_{\mathrm{s}})$',r'$\alpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(\rho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(\beta)$',r'$\log_{10}(\gamma)$',r'f$_{\rm min}$',r'$\sigma$']
+        param_names = [r'$\log_{10}(ho_{\mathrm{s}})$',r'$lpha$',r'$\log_{10}(r_{\mathrm{s}})$',r'$\log_{10}(ho_{\mathrm{0}})$',r'$s_{\mathrm{e}}$',r'$\log_{10}(r_{\mathrm{t}})$',r'$\log_{10}(beta)$',r'$\log_{10}(\gamma)$',r'f$_{m min}$',r'$\sigma$']
 
+    """
     if nochains==False:
 	#Visualisation of chains
 	fig=plt.figure(1)
@@ -153,7 +88,7 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
 	plt.savefig("%s/%s/chains.pdf" % (output_dir, type_))
 	plt.close(fig)
     print("chains drawn")
-    
+    """
 
     #Printing value output
     flatsamples=data
@@ -168,9 +103,9 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
 
     mcmc_par = np.asarray(mcmc_par)
     if mc==False:
-        d = {'lrhos' : lrhos_mcmc, 'lalpha' : lalpha_mcmc, 'lrs' : lrs_mcmc, 'lrho0' : lrho0_mcmc, 'lse' : lse_mcmc, 'lrt' : lrt_mcmc, 'lbeta' : lbeta_mcmc, 'lgamma' : lgamma_mcmc, 'maxrhodev' : maxrhodevs,'maxinnerrhodev' : maxinnerrhodevs,'chisquare' :  chisquares, 'rsp2d' : rsp2ds, 'rsp3d' : rsp3ds}
+        d = {'lrhos' : lrhos_mcmc, 'lalpha' : lalpha_mcmc, 'lrs' : lrs_mcmc, 'lrho0' : lrho0_mcmc, 'lse' : lse_mcmc, 'lrt' : lrt_mcmc, 'lbeta' : lbeta_mcmc, 'lgamma' : lgamma_mcmc, 'maxrhodev' : maxrhodevs,'maxinnerrhodev' : maxinnerrhodevs, 'maxinnerrhodevs2' : maxinnerrhodevs2, 'chisquare' :  chisquares, 'rsp2d' : rsp2ds, 'rsp3d' : rsp3ds}
     else:
-        d = {'lrhos' : lrhos_mcmc, 'lalpha' : lalpha_mcmc, 'lrs' : lrs_mcmc, 'lrho0' : lrho0_mcmc, 'lse' : lse_mcmc, 'lrt' : lrt_mcmc, 'lbeta' : lbeta_mcmc, 'lgamma' : lgamma_mcmc, 'maxrhodev' : maxrhodevs,'maxinnerrhodev' : maxinnerrhodevs,'chisquare' :  chisquares, 'rsp2d' : rsp2ds, 'rsp3d' : rsp3ds, 'fmin': fmin_mcmc, 'sigma': sigma_mcmc}
+        d = {'lrhos' : lrhos_mcmc, 'lalpha' : lalpha_mcmc, 'lrs' : lrs_mcmc, 'lrho0' : lrho0_mcmc, 'lse' : lse_mcmc, 'lrt' : lrt_mcmc, 'lbeta' : lbeta_mcmc, 'lgamma' : lgamma_mcmc, 'maxrhodev' : maxrhodevs,'maxinnerrhodev' : maxinnerrhodevs,'maxinnerrhodevs2' : maxinnerrhodevs2, 'chisquare' :  chisquares, 'rsp2d' : rsp2ds, 'rsp3d' : rsp3ds, 'fmin': fmin_mcmc, 'sigma': sigma_mcmc}
 
 
 
@@ -178,13 +113,13 @@ def vis_procedure(ndim,type_,add,modded=False,mc=False):
     df.to_csv("%s/%s/results.csv" % (output_dir, type_), sep=',', index=False)
     print("Results printed")
 
-
+    """
     #Corner Plot
     flatsamples=flatsamples.reshape([flatsamples.shape[0],flatsamples.shape[1]])
     fig = corner.corner(flatsamples,bins=50,labels=param_names,label_kwargs={'fontsize':16})
     fig.savefig("%s/%s/cornerplot.pdf" % (output_dir, type_))
     print("Cornerplots drawn")
-
+    """
 
 if __name__ == "__main__":
 
@@ -199,7 +134,7 @@ if __name__ == "__main__":
     nwalkers_modded = 28
     steps = 100000
     rsteps = 25
-    types = ['Planck_PS_21.5_blue_hard_spline','Planck_PS_21.5_red_hard_spline']
+    types = ['Planck_PS_21', 'Planck_PS_21.5', 'Planck_PS_22', 'Planck_PS_21.5_blue_spline','Planck_PS_21.5_red_spline']
     adds = ["_best"]
     for add in adds:
         for type_ in types:
