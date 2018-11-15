@@ -1199,53 +1199,73 @@ cross-correlatoin analysis to the blue galaxy population.
 
 \section{Estimating the contamination of the blue galaxy population}
 \label{sec:Errors}
-{\bf Add figures to this appendix}.
 
-To infer the color cut to separate star forming galaxies from the
-quenched galaxy population, we cross-matched the SDSS spectroscopic
-sample to its Pan-STARRS photometry. In Figure~\ref{xx}, we show the
-plot of the Pan-STARRS $(g-r)$ color as a function of redshift, and
-the color cut we use in our analysis. The SDSS spectroscopic sample is
-however quite shallow, and thus consists of galaxies that are brighter
-than the Pan-STARRS galaxies that we wish to cross-correlate. At
-fainter magnitudes, we can expect photometric errors to scatter red
-galaxies into the blue population, potentially contaminating the
-correlation function measurement. This could erroneously cause for the
+\begin{figure*}
+    \includegraphics[width= \textwidth]{color_vs_z.pdf}
+\caption{Scatter plot showing the $(g_{\mathrm{PS}}-r_{\mathrm{PS}})$ colors
+of the matched galaxies versus their redshifts, where the red dots correspond
+to galaxies identified as red from the SDSS spectroscopic colors and blue dots
+correspond to galaxies identified as blue, respectively. The black, solid line
+indicates the spline cut separating the two populations and excluding the red 
+galaxies from the blue population at a confidence level of $3 \sigma$.}
+   \label{fig:g-r_vs_z} 
+\end{figure*}
+
+To infer the color cut which separates star forming (blue) galaxies from the
+quenched (red) galaxy population, we cross-matched the SDSS spectroscopic
+sample to its Pan-STARRS photometry. In Figure~\ref{fig:g-r_vs_z}, we show the
+plot of the Pan-STARRS $(g_{\mathrm{PS}}-r_{\mathrm{PS}})$ color as a 
+function of redshift, and the color cut we use in our analysis. 
+The SDSS spectroscopic sample is however quite shallow, 
+and thus consists of galaxies that are brighter than the Pan-STARRS 
+galaxies that we wish to cross-correlate. At fainter magnitudes, we can 
+expect red galaxies to scatter into the blue population 
+due to photometric errors, potentially contaminating the
+correlation function measurement. This could erroneously cause the
 splashback feature observed in the blue population. Therefore, we
 need to assess the possiblity of such a contamination. 
 
-In Figure~\ref{}, we show the photometric errors of the Pan-STARRS
+\begin{figure*}
+    \includegraphics[width= \textwidth]{mag_errors.pdf}
+\caption{Shown are the photometric errors of the Pan-STARRS galaxies versus
+their magnitude in each of the used band. The dashed curves indicate the running
+median of the photometric error.}
+   \label{fig:mag_errors} 
+\end{figure*}
+
+In Figure~\ref{fig:mag_errors}, we show the photometric errors of the Pan-STARRS
 galaxies as a function of magnitude in each of the bands we use. The
-galaxies that we use in our cross-correlation for the red/blue
-analysis have an absolute magnitude of $M_{i}-5\log h=-18.94$. This
+galaxies that we use in our cross-correlation analysis for the red/blue
+galaxy population have an upper absolute magnitude limit of $M_{i}-5\log h=-18.94$. This
 corresponds to a different apparent magnitude limit at each redshift.
 For each spectroscopically matched galaxy, we figure out how faint the
-apparent magnitude limit in the $i$ band is compared to the actual
-apparent magnitude of the galaxy. We assume that the populations of
+apparent magnitude limit in the $i_{\mathrm{PS}}$ band is compared to the actual
+apparent magnitude of the galaxy, recorded by Pan-STARRS. Aassume that the populations of
 galaxies that we use to cross-correlate with clusters have the same
-intrinsic colors, but are just fainter. This gives us the true
+intrinsic colors, but are just fainter we infer the true
 intrinsic magnitude of the galaxies that we cross-correlate in the
-$g$ and the $r$ band. We perturb these magnitudes by the expected
-errors at that magnitude as seen in Figure~\ref{}.
+$g_{\mathrm{PS}}$ and the $r_{\mathrm{PS}}$ band. We randomly perturb these magnitudes 
+by the expected photmometric errors at that magnitude as reported in Figure~\ref{fig:mag_errors}.
 
 Next, we compute the fraction of galaxies which were intrinsically red
-that now enter the blue population as defined using the same color
-cut, but based on the perturbed magnitudes as a result of photometric
-errors. We find such contamination of intrinsically red galaxies to
-the blue population to be about 5 percent. This value would apply in
-the field. Given that the red fraction is higher in clusters ($\sim
-60$ percent in the whole cluster) than in the field ($\sim 40$ percent),
+that now entered the blue population by the perturbation. Where we
+defined the separation of the populations using the same color
+cut. We find such a contamination of intrinsically red galaxies to
+the blue population to be about 5 \%. This value would apply for a galaxy population
+measured in the field. Given that the red fraction is higher in clusters ($\sim
+60$ \% in the whole cluster) than in the field ($\sim 40$ \%),
 we expect there to be a larger proportion of red galaxies which could
 potentially contaminate the blue galaxies due to photometric errors.
-This would roughly double the contamination to be about 10 percent.
+This would roughly double the contamination to be about 10 \%.
 
 This is a conservative estimate of the contamination, because the
 spectroscopic galaxy sample we use has a large incompleteness at the
 blue end at redshifts beyond $0.2$, where SDSS targetted the luminous
-red galaxy population. Thus we are missing a lot of the blue galaxy
+red galaxy population, recording only very few blue galaxies. 
+Thus we are missing a lot of the blue galaxy
 population in the highest redshift bins in our spectroscopic sample.
-Nevertheless we estimate what a roughly 10 percent contamination would
-mean for the cross-correlation signal found for the blue galaxies.
+Nevertheless we estimate if a $\sim 10$ \% contamination could
+cause the splashback signal found in the cross-correlation for the blue galaxies.
 
 % \begin{figure}
 % \centering{
@@ -1261,13 +1281,14 @@ mean for the cross-correlation signal found for the blue galaxies.
 The null hypothesis that we would like to establish or rule out is
 that the blue galaxies just consist of the infall population and show
 no splashback feature. We assume a simple $r^{-1.5}$ power law for the
-cross-correlation of the blue population with clusters consistent with
-an infalling population, and the inferred 3d cross-correlation
-function of the red galaxy population from our analysis.  Given these
+3D cross-correlation of the blue population consistent for clusters with
+an infalling population, and a 3D cross-correlation equal to the signal
+found for the red galaxy population in our analysis. Given these
 cross-correlation functions we can estimate the cross-correlation of
 the blue population when contaminated with a given amount of red
-galaxies. We find that in order to reproduce the observed
-cross-correlation function of blue galaxies, we need a contamination
+galaxies, by considering a weighted sum of the two signals. 
+We find that in order to reproduce the observed
+cross-correlation function of the blue galaxies, we need a contamination
 of about 20\%. While our conservatively estimated contamination is
 smaller than this value, a proper modeling of this contamination is
 warranted before definitive conclusions can be drawn. Larger galaxy
