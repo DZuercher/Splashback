@@ -165,15 +165,14 @@ using the weak lensing signal, however stacking issues and the low
 signal-to-noise ratio remains a significant hurdle for both of them.
 \citet{chang2017splashback} found evidence for the splashback radius
 in the weak lensing signal, but their analysis was again done using
-optically selected clusters in the Dark energy survey
-\citep{dark2005dark}. Regardless of the projection issues present in
-the optical cluster catalog, there is some inherent circularity
-present in the logic of using photometric galaxies to select
-clusters as over-densities in a given aperture, and then using the
-same photometric sample of galaxies to look for the splashback
-radius. There is a possibility that the aperture used to select the
-cluster catalogs could be imprinted in a non-trivial way on the measured number
-density profiles of clusters.
+optically selected clusters in the Dark energy survey. Regardless of the
+projection issues present in the optical cluster catalog, there is some
+inherent circularity present in the logic of using photometric galaxies to
+select clusters as over-densities in a given aperture, and then using the same
+photometric sample of galaxies to look for the splashback radius. There is a
+possibility that the aperture used to select the cluster catalogs could be
+imprinted in a non-trivial way on the measured number density profiles of
+clusters.
 
 In this work, we move away from the optical cluster selection and
 explore the use of SZ selected cluster catalogs. While the SZ
@@ -225,9 +224,11 @@ $r$ and projected distances by $R$.
 
 \begin{figure}
     \includegraphics[scale=0.55]{Planck_summary.pdf}
-\caption{Visualization of the distribution of the masses and redshifts of the used
-clusters from the PSZ2 catalog.}
-   \label{fig:placnk_summary}
+\caption{The distribution of the masses and redshifts of the galaxy clusters
+from the PSZ2 catalog that we use in our analysis. The histograms on the right
+hand side and the bottom show the distribution in mass and redshift,
+respectively.}
+   \label{fig:planck_summary}
 \end{figure}
 
 The baryonic component of a galaxy cluster is dominated by the hot,
@@ -332,9 +333,10 @@ union cluster catalog is publicly available from the
 \fnurl{\textit{Planck Legacy Archive}}{https://pla.esac.esa.int/pla/\#
 home}.
 
-We restrict ourselves to the redshift range $0.03 \leq z \leq 0.33$ in
-order to have a similar redshift range as used in
-\citet{more2016detection}. Due to the larger beam size of the Planck
+We restrict ourselves to the redshift range $0.03 \leq z \leq 0.33$ in order to
+have a similar redshift range used in \citet{more2016detection}. The mass and
+the redshift distribution of the Planck clusters we use is shown in
+Fig.~\ref{fig:planck_summary}. Due to the larger beam size of the Planck
 satellite, the cluster positions as reported in the catalog may be
 mis-centered from the true centers of the galaxy clusters. We perform
 a visual inspection of Pan-STARRS images taken around the detected
@@ -652,7 +654,7 @@ due to size of the cluster sample used in their study.}
 
 \begin{table*}
     \centering
-    \caption{We list our findings for the fitting parameters obtained from cross-correlating the galaxy cluster sample with the different galaxy catalogs. For each parameter estimate the median as well as the 16\% and 84\% quantiles of the posterior distribution are given. We also list the estimated locations of the steepening feature in the two-dimensional cross-correlation signal ($R_{\mathrm{sp}}^{\mathrm{2D}}$) as well as the three-dimensional splashback radius ($r_{\mathrm{sp}}^{\mathrm{3D}}$). In the last column the minimal, reduced $\chi^2$ value of the model fit is indicated. The two-dimensional posterior distributions of the fitting parameters are displayed in 
+    \caption{The table presents the posterior distribution of the parameters obtained from fitting the cross-correlation of the galaxy cluster sample with the different galaxy catalogs. For each parameter estimate the median as well as the 16\% and 84\% quantiles of the posterior distribution are given. We also list the estimated locations of the steepening feature in the two-dimensional cross-correlation signal ($R_{\mathrm{sp}}^{\mathrm{2D}}$), as well as the three-dimensional splashback radius ($r_{\mathrm{sp}}^{\mathrm{3D}}$). In the last column the minimum, reduced $\chi^2$ value of the model fit is indicated. The two-dimensional posterior distributions of the fitting parameters are displayed in 
 Figure~\ref{fig:corner_21} up to Figure~\ref{fig:cornerblue}.}
     \label{tab:fit_parameters}
     \begin{tabular}{cccccccccccccc}
@@ -676,22 +678,22 @@ PS 21.5 (B) & $-1.00_{-0.24}^{+0.47}$ & $-0.31_{-0.15}^{+0.21}$ & $0.22_{-0.31}^
 \begin{figure*}
 \centering{
   \includegraphics[scale=0.8]{derivatives_with_spline_no_mc.pdf}}
-\caption{We show the distributions of the logarithmic derivatives of
+\caption{The distributions of the logarithmic derivatives of
 the three-dimensional cross-correlation signals at the location of
-the splashback radius. In the left panel the distributions of the
+the splashback radius are shown. In the left panel the distributions of the
 derivatives of the full profiles are shown, whereas only the inner
 halo term (namely $\rho_{\mathrm{in}}f_{\mathrm{trans}}$) is
-considered in the right panel.}
+shown in the right panel.}
    \label{fig:derivatives} 
 \end{figure*}
 \begin{figure*}
 \centering{
     \includegraphics[scale=0.8]{splashback_with_spline_no_mc.pdf}}
-\caption{Shown are the posterior distributions of the inferred
+\caption{The posterior distributions of the inferred
 locations of steepest slope of the two- and three dimensional
-cross-correlation signals. On the left side the distributions of the
+cross-correlation signals. The distributions of the
 locations of the two-dimensional steepening feature
-($R_{\mathrm{sp}}^{\mathrm{2D}}$) are shown, whereas the
+($R_{\mathrm{sp}}^{\mathrm{2D}}$) are shown in the left panel, while the
 distributions of the three-dimensional counterparts
 ($r_{\mathrm{sp}}^{\mathrm{3D}}$) are shown on the right. The
 magnitude limit applied to the galaxy catalogs is indicated for each
@@ -1053,7 +1055,7 @@ survey in purple. The ICRS coordinate system is used.}
 
 \section{Modelling cluster mis-centering}
 \label{sec:mis-centering}
-As can be seen for the analysis and results in \citet{baxter2017halo},
+As can be seen from the analysis and results in \citet{baxter2017halo},
 the mis-centering of the central cluster positions in optical clusters
 were not large enough to change the location of the steepest slope in
 the cluster-galaxy cross-correlations. They do however decrease the
@@ -1212,6 +1214,7 @@ cross-correlatoin analysis to the blue galaxy population.
 \label{sec:Errors}
 
 \begin{figure*}
+
     \includegraphics[width= \textwidth]{color_vs_z.pdf}
 \caption{Scatter plot showing the $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ colors
 of the matched galaxies versus their redshifts, where the red dots correspond
@@ -1237,11 +1240,13 @@ splashback feature observed in the blue population. Therefore, we
 need to assess the possiblity of such a contamination. 
 
 \begin{figure*}
+\centering{
     \includegraphics[width= \textwidth]{mag_errors.pdf}
 \caption{Shown are the photometric errors of the Pan-STARRS galaxies versus
 their magnitude in each of the used band. The dashed curves indicate the running
 median of the photometric error.}
    \label{fig:mag_errors} 
+}
 \end{figure*}
 
 In Figure~\ref{fig:mag_errors}, we show the photometric errors of the Pan-STARRS
