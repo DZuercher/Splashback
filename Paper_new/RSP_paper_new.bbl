@@ -207,15 +207,15 @@ Navarro J.~F.,  Frenk C.~S.,   White S.~D.,  1997, The Astrophysical Journal,
 Navarro J.~F.,  et~al., 2004, Monthly Notices of the Royal Astronomical
   Society, 349, 1039
 
+\bibitem[\protect\citeauthoryear{{Planck Collaboration} et~al.,}{{Planck
+  Collaboration} et~al.}{2016}]{ade2016psclusters}
+{Planck Collaboration} et~al., 2016, \mn@doi [\aap]
+  {10.1051/0004-6361/201525823}, \href
+  {http://adsabs.harvard.edu/abs/2016A%26A...594A..27P} {594, A27}
+
 \bibitem[\protect\citeauthoryear{Rykoff et~al.,}{Rykoff
   et~al.}{2014}]{rykoff2014redmapper}
 Rykoff E.,  et~al., 2014, The Astrophysical Journal, 785, 104
-
-\bibitem[\protect\citeauthoryear{Simet, McClintock, Mandelbaum, Rozo, Rykoff,
-  Sheldon  \& Wechsler}{Simet et~al.}{2016}]{simet2016weak}
-Simet M.,  McClintock T.,  Mandelbaum R.,  Rozo E.,  Rykoff E.,  Sheldon E.,
-  Wechsler R.~H.,  2016, Monthly Notices of the Royal Astronomical Society,
-  466, 3103
 
 \bibitem[\protect\citeauthoryear{{Skibba}, {van den Bosch}, {Yang}, {More},
   {Mo}  \& {Fontanot}}{{Skibba} et~al.}{2011}]{Skibba:2011}
@@ -231,9 +231,6 @@ Sunyaev R.~A.,  Zeldovich Y.~B.,  1970, Astrophysics and Space Science, 7, 3
   Zeldovich}{1980}]{sunyaev1980velocity}
 Sunyaev R.,  Zeldovich I.~B.,  1980, Monthly Notices of the Royal Astronomical
   Society, 190, 413
-
-\bibitem[\protect\citeauthoryear{Takada}{Takada}{2010}]{takada2010subaru}
-Takada M.,  2010, in AIP Conference Proceedings. pp 120--127
 
 \bibitem[\protect\citeauthoryear{Umetsu \& Diemer}{Umetsu \&
   Diemer}{2017}]{umetsu2017lensing}
