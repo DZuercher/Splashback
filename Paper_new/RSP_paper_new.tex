@@ -65,11 +65,10 @@ optically selected galaxy clusters. We show that the splashback radius
 does not depend upon the galaxy magnitude for galaxies fainter than
 $M_i-5\log h=-19.44$, and is present at a consistent location in
 galaxy populations divided by color. The presence of the splashback
-radius in the star-forming galaxy population could potentially be used
-to put lower limits on the quenching timescales for galaxies. However,
-these results need further verification with deeper datasets, as
-photometric errors could cause contamination of the star-forming
-galaxy sample by quenched galaxies.
+radius in the star-forming galaxy population could potentially be used to put
+lower limits on the quenching timescales for galaxies. We can marginally rule
+out the contamination of the star-forming galaxy sample by quenched galaxies,
+but the results would need further verification with deeper datasets.
 
 \end{abstract}
 
@@ -342,7 +341,7 @@ a visual inspection of Pan-STARRS images taken around the detected
 galaxy clusters in order to locate the nearest, brightest cluster
 galaxy (BCG). We regard the position of the BCG as the true cluster
 location, under the assumption that the BCG is located at the true,
-gravitational center. Due to this crude assumption, we additionally 
+gravitational center. Due to this assumption, we additionally 
 study the effects of a possible, remaining mis-centering of the 
 cluster positions in our model for the two-dimensional correlation 
 function (see Appendix~\ref{sec:mis-centering}). 
@@ -351,7 +350,7 @@ The final sample that we use consists of 596
 galaxy clusters and is about an order of magnitude smaller compared
 to the sample used in \citet{more2016detection}. The sample we use
 in this paper has an average redshift of 0.177, and an average
-cluster mass $M_{500c}$ of about $3.0 \cdot 10^{14}
+cluster mass $M_{500c}$ of about $3.0 \times 10^{14}
 h^{-1}$M$_{\sun}$. In Table~\ref{tab:cluster_catalogs} we compare
 the main properties of the cluster catalog used in this work to that
 used by \citet{more2016detection}. A map of the sky positions of the clusters
@@ -466,8 +465,8 @@ such biases with redshift of the clusters we restrict ourselves to
 galaxies with absolute magnitudes brighter than a certain magnitude
 limit, which depends on the depth of the used galaxy catalog. We
 make the assumption that the galaxies reside at the redshift of the
-cluster in question. The used magnitude limits are (-19.44, -18.94
-and -18.44) for the catalogs PS 21, PS 21.5 and PS 22, respectively.
+cluster in question. The magnitude limits we use are -19.44, -18.94 and -18.44
+and name the corresponding catalogs PS 21, PS 21.5 and PS 22, respectively.
 
 We use the functional form of \citet{diemer2014dependence} in order
 to model our two-dimensional correlation function measurements. This
@@ -565,10 +564,9 @@ In our analysis, the same galaxy may be considered red or blue depending upon
 the cluster redshift under consideration. Our method avoids the use of
 uncertain photometric redshifts to derive k-corrections
 \citep[cf.][]{baxter2017halo}. We will study the cross-correlations to derive
-the splashback radii for these galaxy populations separately, as well as the
-fractional contributions of the red and the blue galaxies to the total density
-profile as a function of radius. The caveats in the interpretation of these
-results are mentioned in the Appendix~\ref{sec:Errors}.
+the splashback radii for these galaxy populations separately. The caveats in
+the interpretation of these results due to photometric errors are discussed in the
+Appendix~\ref{sec:Errors}.
 
 \section{Results}
 \label{sec:Results}
@@ -746,7 +744,7 @@ model fits. The logarithmic derivatives show a distinct steepening
 feature at around $1.3~\mpch$. The figure shows that the
 location of the steepest slope does not change appreciably when the
 magnitude limit is changed, even though we use a sample which is one
-magnitude brighter than $M_{\rm i}-5\log h=-19.44$. The 68\%
+magnitude fainter than $M_{\rm i}-5\log h=-19.44$. The 68\%
 confidence interval of the location of the steepest slope is
 indicated by the vertical, shaded region. We also show the location
 of the virial radius $r_{\mathrm{200m}}$ based on the Planck SZ mass estimate 
@@ -852,10 +850,10 @@ the red galaxy population into the blue galaxy sample. We report on
 our investigations in Appendix~\ref{sec:Errors} as a cautionary tale,
 and to guide future efforts to establish the splashback radius in the
 blue galaxy population. We show that given the current state of the
-data we cannot exclude a contamination of the correlation function of
-blue galaxies from the red galaxy population and appropriate caution
-be warranted in the interpretation or use of the results derived using
-the color separated galaxy populations.
+data we can marginally exclude a contamination of the correlation
+function of blue galaxies from the red galaxy population but
+appropriate caution is warranted in the interpretation or use of the
+results derived using the color separated galaxy populations.
 
 
 \section{Conclusions and future directions}
@@ -957,7 +955,7 @@ cluster catalogs such as those detected from Xray surveys.
 
 The separation of the blue and red galaxy populations as described in
 Section~\ref{sec:Color} is prone to photometric errors as explored in
-the Appendix. A deeper galaxy catalog would be required in order to
+the Appendix~\ref{sec:Errors}. A deeper galaxy catalog would be required in order to
 confirm or rule out the existence of the splashback feature in the
 blue galaxy population. The ongoing deep galaxy surveys such as the
 Hyper Suprime-Cam (HSC) and the Dark Energy Survey (DES) would be able
@@ -1212,7 +1210,8 @@ cross-correlatoin analysis to the blue galaxy population.
 \label{sec:Errors}
 
 \begin{figure*}
-    \includegraphics[width= 0.5\textwidth]{color_vs_z.pdf}
+\centering{
+    \includegraphics[width= 0.5\textwidth]{color_vs_z.pdf}}
 \caption{Scatter plot showing the $(g_{\mathrm{PS}}-r_{\mathrm{PS}})$ colors
 of the matched galaxies versus their redshifts, where the red dots correspond
 to galaxies identified as red from the SDSS spectroscopic colors and blue dots
@@ -1238,7 +1237,7 @@ need to assess the possiblity of such a contamination.
 
 \begin{figure*}
 \centering{
-    \includegraphics[width= \textwidth]{mag_errors.pdf}
+    \includegraphics[width= \textwidth]{mag_errors.png}
 \caption{Shown are the photometric errors of the Pan-STARRS galaxies versus
 their magnitude in each of the used band. The dashed curves indicate the running
 median of the photometric error.}
