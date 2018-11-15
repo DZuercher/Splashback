@@ -200,7 +200,7 @@ reach the apocenters of their orbit after infall, then they are not
 expected to show a splashback feature in their density distribution.
 In pursuit of this question, we also explore the dependence of the
 cluster-galaxy cross-correlations separately for star forming and
-quenched galaxy populations separated by color.
+quenched galaxy populations as separated by their color.
 
 This paper is organized as follows. We introduce the observational
 data sets we use in Section~\ref{sec:data}, namely the cluster and the
@@ -209,7 +209,8 @@ use in Section~\ref{sec:estimators}. We present and discuss our
 results in Section~\ref{sec:Results}. Finally, we summarize our
 findings in Section~\ref{sec:Conclusions} and discuss possible future
 directions. Throughout the paper, we use a flat $\Lambda$CDM cosmology
-with $\Omega_{\rm m}=0.27$ to convert redshifts and angles into
+with $\Omega_{\rm m}=0.27$ and a dimensionless Hubble parameter of $h=0.7$ 
+to convert redshifts and angles into
 cosmological distances. Also, we denote three-dimensional distances by
 $r$ and projected distances by $R$.
 
@@ -353,7 +354,9 @@ in this paper has an average redshift of 0.177, and an average
 cluster mass $M_{500c}$ of about $3.0 \times 10^{14}
 h^{-1}$M$_{\sun}$. In Table~\ref{tab:cluster_catalogs} we compare
 the main properties of the cluster catalog used in this work to that
-used by \citet{more2016detection}. A map of the sky positions of the clusters
+used by \citet{more2016detection}. Additionaly, Figure~\ref{fig:placnk_summary}
+visualizes the distribution of the masses and redshifts of the used clusters.
+A map of the sky positions of the clusters
 can be found in Figure~\ref{fig:planck_fig} in
 Appendix~\ref{sec:figures}. 
 
@@ -543,7 +546,7 @@ for the k-corrections, which cannot be computed individually for
 each galaxy.
 
 In order to compute the color cut to be used, we first match spectroscopic
-galaxies in the Sloan digital Sky Survey (DR 13) to their
+galaxies in the Sloan Digital Sky Survey (DR 8) to their
 Pan-STARRS photometry. We bin these galaxies in narrow redshift bins and
 produce a histogram of the $g_{\mathrm{P1}}-r_{\mathrm{P1}}$ colors of the
 galaxies in each bin. Due to the presence of the $4000\AA$-break present in the
@@ -558,7 +561,7 @@ simpler and faster than calculating the individual k-corrections for each
 galaxy, this procedure has its own shortcomings as discussed in
 Appendix~\ref{sec:Errors}, in particular due to the photometric errors of red
 galaxies. We would therefore exercise appropriate caution while interpreting
-the results obtained by dividing galaxies in to color bins.
+the results obtained by dividing galaxies into color bins.
 
 In our analysis, the same galaxy may be considered red or blue depending upon
 the cluster redshift under consideration. Our method avoids the use of
@@ -721,8 +724,8 @@ inferred by cross-correlating the cluster sample with the
 color-separated galaxy subsamples, as well as the corresponding
 splashback radii (indicated by the colored, vertical bands) and
 their first and second order derivative profiles. The light-colored 
-curves show the corresponding first and second derivatives of the one-halo
-term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14})
+curves show the corresponding first and second order derivatives of the one-halo
+term (namely $\rho_{\mathrm{in}}(r)f_{\mathrm{trans}}(r)$ in Equation~\ref{eq:dk14}).
 Here, the black, dashed lines indicate upper and lower bounds of the 
 three-dimensional splashback radius corresponding to the full PS 21.5 galaxy sample.}
    \label{fig:color_curve_3D} 
@@ -771,9 +774,9 @@ not depend upon the sample once we use galaxies fainter than $M_{\rm
 i}-5\log h=-19.44$. Our measurements have an accuracy of $\sim$15\%.
 
 Following \citet{baxter2017halo}, we also present the values of the
-logarithmic derivatives at the location of the steepest slope for
+first and second order logarithmic derivatives at the location of the steepest slope for
 the total three-dimensional cross-correlations, as well as those for
-the inner halo term in the left and right hand panels of
+the inner halo term in the middle and right hand panels of
 Figure~\ref{fig:derivatives}, respectively. The logarithmic slope of the 
 cross-correlation is significantly steeper than $-3$ at the location 
 of the splashback radius, making it difficult to
@@ -781,7 +784,7 @@ be reproduced by classical fitting functions like the NFW profile,
 which reach such slopes only asymptotically and even that only
 without the presence of the outer 2-halo term. This provides
 evidence for the existence of the splashback feature. From the second
-derivative profiles we also note that the drop in the cross-correlation
+order derivative profiles we also note that the drop in the cross-correlation
 signal is very sharp and happens within a factor 2 in radius.
 
 We perform a preliminary comparison of the measurements with
@@ -798,7 +801,7 @@ find for the three samples is consistent with this expectation,
 although we can not rule out $\sim 15\%$ deviations in either directions,
 given our large error bars.
 
-Next we present our measurements of the projected and
+Next, we present our measurements of the projected and
 three-dimensional cross-correlations of the red and blue galaxy populations
 satisfying $M_{i}-5\log h<-18.94$ with our SZ-selected cluster
 sample. The projected cross-correlations are presented in Figure~\ref{fig:color_curve_2D},
@@ -846,7 +849,7 @@ defined based on spectroscopic galaxies, which tend to be brighter
 than the typical galaxies we use for the cross-correlation. As we use
 galaxies at fainter magnitudes for the cross-correlation, the
 photometric errors increase dramatically and can scatter many more of
-the red galaxy population into the blue galaxy sample. We report on
+the red galaxies into the blue galaxy sample. We report on
 our investigations in Appendix~\ref{sec:Errors} as a cautionary tale,
 and to guide future efforts to establish the splashback radius in the
 blue galaxy population. We show that given the current state of the
@@ -1211,8 +1214,8 @@ cross-correlatoin analysis to the blue galaxy population.
 
 \begin{figure*}
 \centering{
-    \includegraphics[width= 0.5\textwidth]{color_vs_z.pdf}}
-\caption{Scatter plot showing the $(g_{\mathrm{PS}}-r_{\mathrm{PS}})$ colors
+    \includegraphics[width= \textwidth]{color_vs_z.pdf}
+\caption{Scatter plot showing the $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ colors
 of the matched galaxies versus their redshifts, where the red dots correspond
 to galaxies identified as red from the SDSS spectroscopic colors and blue dots
 correspond to galaxies identified as blue, respectively. The black, solid line
@@ -1224,7 +1227,7 @@ galaxies from the blue population at a confidence level of $3 \sigma$.}
 To infer the color cut which separates star forming (blue) galaxies from the
 quenched (red) galaxy population, we cross-matched the SDSS spectroscopic
 sample to its Pan-STARRS photometry. In Figure~\ref{fig:g-r_vs_z}, we show the
-plot of the Pan-STARRS $(g_{\mathrm{PS}}-r_{\mathrm{PS}})$ color as a 
+plot of the Pan-STARRS $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ color as a 
 function of redshift, and the color cut we use in our analysis. 
 The SDSS spectroscopic sample is however quite shallow, 
 and thus consists of galaxies that are brighter than the Pan-STARRS 
@@ -1251,24 +1254,24 @@ galaxies that we use in our cross-correlation analysis for the red/blue
 galaxy population have an upper absolute magnitude limit of $M_{i}-5\log h=-18.94$. This
 corresponds to a different apparent magnitude limit at each redshift.
 For each spectroscopically matched galaxy, we figure out how faint the
-apparent magnitude limit in the $i_{\mathrm{PS}}$ band is compared to the actual
+apparent magnitude limit in the $i_{\mathrm{P1}}$ band is compared to the actual
 apparent magnitude of the galaxy, recorded by Pan-STARRS. Assuming that the populations of
 galaxies that we use to cross-correlate with clusters have the same
 intrinsic colors, but are just fainter, we infer the true
 intrinsic magnitude of the galaxies that we cross-correlate in the
-$g_{\mathrm{PS}}$ and the $r_{\mathrm{PS}}$ band. We randomly perturb these magnitudes 
+$g_{\mathrm{P1}}$ and the $r_{\mathrm{P1}}$ band. We randomly perturb these magnitudes 
 by the expected photometric errors at that magnitude as reported in Figure~\ref{fig:mag_errors}.
 
 Next, we compute the fraction of galaxies which were intrinsically red
 that now entered the blue population by the perturbation, where we
 defined the separation of the populations using the same color
 cut. We find such a contamination of intrinsically red galaxies to
-the blue population to be about 5 \%. This value would apply for a galaxy population
+the blue population to be about 5\%. This value would apply for a galaxy population
 measured in the field. Given that the red fraction is higher in clusters ($\sim
-60$ \% in the whole cluster) than in the field ($\sim 40$ \%),
+60$\% in the whole cluster) than in the field ($\sim 40$\%),
 we expect there to be a larger proportion of red galaxies in the cluster which could
 potentially contaminate the blue galaxies due to photometric errors.
-This would roughly double the contamination to be about 10 \%.
+This would roughly double the contamination to be about 10\%.
 
 This is a conservative estimate of the contamination, because the
 spectroscopic galaxy sample we use has a large incompleteness at the
@@ -1276,7 +1279,7 @@ blue end at redshifts beyond $0.2$, where SDSS targetted the luminous
 red galaxy population, recording only very few blue galaxies. 
 Thus we are missing a lot of the blue galaxy
 population in the highest redshift bins in our spectroscopic sample.
-Nevertheless we assess if a $\sim 10$ \% contamination could
+Nevertheless we assess if a $\sim 10$\% contamination could
 cause the splashback signal found in the cross-correlation for the blue galaxies.
 
 % \begin{figure}
