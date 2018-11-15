@@ -1,8 +1,6 @@
 \pdfoutput=1
 \documentclass[iop, apjl, twocolappendix, numberedappendix]{emulateapj}
-%\usepackage{newtxtext,newtxmath}
 \usepackage[T1]{fontenc}
-%\usepackage{ae,aecompl}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -11,7 +9,6 @@
 \usepackage{ulem}
 \usepackage{xspace}
 \usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
-%\usepackage{nccmath}
 \usepackage[utf8]{inputenc}
 \newcommand{\fhat}[1]{\expandafter\hat#1}
 \newcommand{\fbar}[1]{\expandafter\bar#1}
@@ -36,14 +33,18 @@
 
 \title{The Splashback Radius of Planck-SZ clusters}
 
+\thanks{This work was submitted and defended as a Masters thesis by Dominik
+Zuercher at the DPHYS in ETH Zurich in June 2018.}
+
 \author{
-Dominik Zürcher \altaffilmark{1, 2}
+Dominik Zürcher \altaffilmark{1, 2, 4}
 Surhud More \altaffilmark{3, 1}, 
 }
 \affil{
 $^{1}$Kavli Institute for the Physics and Mathematics of the Universe (Kavli IPMU, WPI), 5-1-5 Kashiwanoha, Kashiwa, Chiba 277-8583, Japan \\ 
 $^{2}$Department of Physics, ETH Zurich, Wolfgang Pauli Strasse 27, 8093 Zurich, Switzerland\\
-$^{3}$The Inter-University Centre for Astronomy and Astrophysics, Post Bag 4, Ganeshkhind, Pune 411007, India
+$^{3}$The Inter-University Centre for Astronomy and Astrophysics, Post Bag 4, Ganeshkhind, Pune 411007, India\\
+$^{4}$ dominikz@phys.ethz.ch
 }
 
 \begin{abstract}
@@ -72,9 +73,9 @@ but the results would need further verification with deeper datasets.
 
 \end{abstract}
 
-%\begin{keywords}
-%galaxies:clusters:general -- galaxies:halos -- methods:observational -- cosmology:dark matter -- cosmology:large-scale structure of Universe -- cosmology:observations
-%\end{keywords}
+% \begin{keywords}
+% galaxies:clusters:general -- galaxies:halos -- methods:observational -- cosmology:dark matter -- cosmology:large-scale structure of Universe -- cosmology:observations
+% \end{keywords}
 
 \section{Introduction}
 \label{sec:Introduction}
@@ -354,7 +355,7 @@ in this paper has an average redshift of 0.177, and an average
 cluster mass $M_{500c}$ of about $3.0 \times 10^{14}
 h^{-1}$M$_{\sun}$. In Table~\ref{tab:cluster_catalogs} we compare
 the main properties of the cluster catalog used in this work to that
-used by \citet{more2016detection}. Additionaly, Figure~\ref{fig:placnk_summary}
+used by \citet{more2016detection}. Additionaly, Figure~\ref{fig:planck_summary}
 visualizes the distribution of the masses and redshifts of the used clusters.
 A map of the sky positions of the clusters
 can be found in Figure~\ref{fig:planck_fig} in
@@ -730,16 +731,6 @@ Here, the black, dashed lines indicate upper and lower bounds of the
 three-dimensional splashback radius corresponding to the full PS 21.5 galaxy sample.}
    \label{fig:color_curve_3D} 
 \end{figure*}
-%\begin{figure}
-%    \includegraphics[width= \columnwidth]{color_fraction_with_spline_no_mc.pdf}
-%\caption{Fractional contributions of the red and blue galaxy
-%populations to the total galaxy number density. We show the
-%locations of the splashback radii associated with the two subsamples
-%with the colored, vertical bands and the upper and lower bounds of
-%the splashback radius obtained from the full PS 21.5 catalog with
-%the black, dashed lines.}
-%   \label{fig:color_fraction} 
-%\end{figure}
 The right panels in Figure~\ref{fig:2D_graphs} show the
 corresponding analytical derivatives of the two-dimensional
 cross-correlations and the 68\% confidence interval based on our
@@ -827,23 +818,6 @@ population would imply that there needs to be a reasonable fraction of
 blue galaxies that fall into the cluster and continue to stay blue
 even after reaching their apocenters.
 
-% Star forming galaxies in models
-% which quench their star formation on a timescale shorter than the
-% orbital time scale are not expected to show presence of the splashback
-% feature. A quantitative exploration of the implications is beyond the
-% scope of this work, but will be followed up in the future.
-
-% In Figure~\ref{fig:color_fraction}, we show the fractional
-% contributions of the red and blue galaxies to the total,
-% three-dimensional cross-correlation \footnote{The fractions are
-% obtained by performing an appropriate number density weighting.}.
-% The red galaxies dominate the central parts of the galaxy clusters
-% but become less dominant as we move further away from the cluster center.
-% We see an increase of the fractional contribution of
-% red galaxies below the splashback radius. On scales larger than the
-% splashback radius, the fractional contributions of the two populations become
-% very similar.
-
 We caution however that the cut we use to define our samples was
 defined based on spectroscopic galaxies, which tend to be brighter
 than the typical galaxies we use for the cross-correlation. As we use
@@ -923,47 +897,14 @@ which reduces the number of galaxies that can be used to infer the
 cross-correlation signal. We are exploring the use of alternative
 cluster catalogs such as those detected from Xray surveys.
 
-% As it can be seen from Table~\ref{tab:snr}, the signal-to-noise
-% ratio of our measurement is lower when using the PS 22 catalog
-% compared to the other two estimates. This has two causes: Firstly,
-% the sky-coverage of the PS 22 catalog is $\approx$ 25\% lower than
-% for PS 21 and PS 21.5 since more regions had to be excluded due to
-% the survey depth being too low in those regions. Therefore, some
-% clusters from the PSZ2 catalog are missed when the PS 22 catalog is
-% exploited, which reduces the statistics. Secondly, as we consider
-% fainter galaxies, the contamination from background galaxies
-% increases. This requires a better estimate of the uncorrelated
-% background component. A more precise estimation of the uncorrelated
-% background contamination would be possible by using a random galaxy
-% catalog in addition to the random cluster sample. This would allow
-% to use the more sophisticated Landy \& Szalay estimator
-% \citep{landy1993bias} to perform the background subtraction.
-
-% Another approach to increase the statistics of the measurements would 
-% be to increase the redshift range in which clusters are being considered. 
-% We chose $0.03 \leq z \leq 0.33$ in order to keep the analysis comparable 
-% to \citet{more2016detection}. However, this cut reduces the cluster sample 
-% size. Increasing the redshift range has its own limitations, though. 
-% It would be required to use a brighter magnitude limit for galaxies, 
-% which reduces the number of galaxies that can be used to infer the 
-% cross-correlation signal. This results in a trade-off which could be investigated
-% to find the optimal redshift range. Alternatively, other cluster samples that do 
-% not rely on optical cluster finding such as Xray based surveys might 
-% serve as independent and larger cluster samples. 
-% Another plausible approach would be to consider a smaller region of
-% the sky, resulting in less clusters but with a deeper field of view,
-% such as in the case of the Hyper Suprime-Cam at Subaru Telescope,
-% which will survey $\approx 1400$ deg$^2$ of the sky and achieve a
-% depth of 26.2 magnitudes \citep{takada2010subaru}.
-
 The separation of the blue and red galaxy populations as described in
 Section~\ref{sec:Color} is prone to photometric errors as explored in
 the Appendix~\ref{sec:Errors}. A deeper galaxy catalog would be required in order to
 confirm or rule out the existence of the splashback feature in the
 blue galaxy population. The ongoing deep galaxy surveys such as the
-Hyper Suprime-Cam (HSC) and the Dark Energy Survey (DES) would be able
+Hyper Suprime-Cam \citep{Aihara2018} and the Dark Energy Survey \citep{Abbott2018} would be able
 to provide such data sets, albeit in a limited area. The Large
-Synoptic Survey telescope (LSST) would eventually provide deep as well
+Synoptic Survey telescope \citep{LSST2009} would eventually provide deep as well
 as wide galaxy catalogs to eventually establish the locations of the
 splashback radius at high significance.
 
@@ -1214,7 +1155,7 @@ cross-correlatoin analysis to the blue galaxy population.
 
 \begin{figure*}
 \centering{
-    \includegraphics[width= \textwidth]{color_vs_z.pdf}
+    \includegraphics[width= \textwidth]{color_vs_z.pdf}}
 \caption{Scatter plot showing the $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ colors
 of the matched galaxies versus their redshifts, where the red dots correspond
 to galaxies identified as red from the SDSS spectroscopic colors and blue dots
