@@ -75,7 +75,7 @@ if __name__ == "__main__":
     confidence = 3 # Confidence level to exclude Reds from Blues (in sigmas)
 
     catalog = "/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat"
-    output_dir = "/work/dominik.zuercher/Output/match_PS"
+    output_dir = "."
 
 
     data = np.loadtxt(catalog)
@@ -90,43 +90,47 @@ if __name__ == "__main__":
     red_PS = red_PS[idx]
     green_PS = green_PS[idx]
     id_ = id_[idx]
-    color = red_PS - green_PS
+    color = green_PS - red_PS
     print("Catalog read")
 
 
-    bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
+    #bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
     print("Redshift binning done")
-    cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
+
+    #cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
     #if calc_contamination == True:
 #	cuts_err = get_cuts(color, bin_num, bins, z_step, confidence, True)
     print("histograms made")
 
+    idx = np.random.rand(redshift.size)
+    boolar = idx<0.05
+    redshift = redshift[boolar]
+    color = color[boolar]
+    id_ = id_[boolar]
+   
+    ax = plt.subplot(221)
+    ax.scatter(redshift[id_ == True], color[id_ == True], marker='.', s = 0.01, color = 'b', label = "Blue")
+    ax.scatter(redshift[id_ == False], color[id_ == False], marker='.', s = 0.01, color = 'r', label = "Red")
+    #z_edges = np.linspace(min_z, max_z, num = z_step)
+    #z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
 
-
-
-    plt.figure(-1)
-    plt.scatter(redshift[id_ == True], color[id_ == True], s = 0.01, color = 'b', label = "Blue")
-    plt.scatter(redshift[id_ == False], color[id_ == False], s = 0.01, color = 'r', label = "Red")
-    z_edges = np.linspace(min_z, max_z, num = z_step)
-    z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
-
-    idx = (cuts > 0.0) & (cuts < 1.5)
-    z_middles_1 = z_middles[idx]
-    cuts = cuts[idx]
+    #idx = (cuts > 0.0) & (cuts < 1.5)
+    #z_middles_1 = z_middles[idx]
+    #cuts = cuts[idx]
     #cuts_err = cuts_err[idx]
 
-    spl = UnivariateSpline(z_middles_1, cuts)
+    #spl = UnivariateSpline(z_middles_1, cuts)
 
     #spl_err = UnivariateSpline(z_middles_1, cuts_err)
 
 
     rrange = np.linspace(0, 0.35, 1000)
-    yy0 = cut(rrange)
+    #yy0 = cut(rrange)
 
     
-    output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
+    #output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
  #   if include_PS_errors == False:
-    np.savetxt("%s/spline_data.dat" % output_dir, output)
+    #np.savetxt("%s/spline_data.dat" % output_dir, output)
  #   else:
   #      np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
 
@@ -135,14 +139,18 @@ if __name__ == "__main__":
 
     #plt.plot(z_middles, cuts, 'k-', lw = 0.3, label = "cut")
     #plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
-    plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
+
+
+    foo = np.genfromtxt("/work/dominik.zuercher/Output/match_PS/spline_data.dat", unpack=1)
+    spl = UnivariateSpline(foo[0,:], foo[1,:])
+    ax.plot(rrange, spl(rrange), 'k-', lw=0.7, label = "spline")
     #plt.plot(rrange, spl_err(rrange), 'k-', lw=0.3, label = "spline (inc. PS errors)")
 
-    plt.ylim([0,3])
-    plt.xlim([0.03,0.33])
-    plt.legend()
-    plt.xlabel("z")
-    plt.ylabel("g-r")
+    ax.set_ylim([0,2])
+    ax.set_xlim([0.03,0.33])
+    #plt.legend()
+    ax.set_xlabel("z")
+    ax.set_ylabel(r"g$_{\mathrm{P1}}$ - r$_{\mathrm{P1}}$")
     plt.savefig("%s/color_vs_z.pdf" % output_dir)
 
 

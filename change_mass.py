@@ -8,7 +8,7 @@ h = 0.7 #Hubble parameter
 cosmology.setCosmology('bolshoi')
 
 
-def calc_stats(mass, redshift, mass_definition = "200m"):
+def calc_stat(mass, redshift, mass_definition = "200m"):
     if mass_definition == "200m":
         M200m = mass
         c200m = concentration.concentration(M200m, mass_definition, redshift)

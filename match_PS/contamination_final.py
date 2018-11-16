@@ -120,6 +120,11 @@ if __name__ == '__main__':
     green_err = 0.059
     iband_err = 0.032
 
+    #Errors from 15.0 to 20.0 mag
+    red_err = 0.087
+    green_err = 0.090
+    iband_err = 0.068
+
     min_z = 0.03
     max_z = 0.33
     z_step = 100
@@ -150,7 +155,6 @@ if __name__ == '__main__':
     colors = [green_PS - iband_PS, red_PS - iband_PS, green_PS - red_PS]
     labels = ["g-i", "r-i", "g-r"]
     for i in range(3):
-
 	if i != 2:
 	    continue
 	bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
