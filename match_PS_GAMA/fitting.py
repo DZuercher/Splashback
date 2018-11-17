@@ -60,7 +60,7 @@ def get_cuts(color, bin_num, bins, z_steps, confidence, include_PS_errors):
             gr_range = edges[:-1] + (edges[1] - edges[0])/2.
             plt.plot(gr_range, double_gaussian(gr_range, popt[0], popt[1], popt[2], popt[3], popt[4], popt[5]), 'k-', lw = 0.3)
             plt.axvline(cut, color = 'r', lw = 0.3)
-  	    plt.savefig("%s/test_hist_g-r_%s.pdf" % (output_dir, it/ 10 ))
+  	    plt.savefig("%s/test_hist_%s.pdf" % (output_dir, it/ 10 ))
     return cuts
 
 
@@ -74,84 +74,103 @@ if __name__ == "__main__":
 
     confidence = 3 # Confidence level to exclude Reds from Blues (in sigmas)
 
-    catalog = "/work/dominik.zuercher/Output/match_PS_GAMA/matched_spec_new.dat"
-    output_dir = "/work/dominik.zuercher/Output/match_PS_GAMA"
+    catalog = "/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat"
+    output_dir = "."
 
 
     data = np.loadtxt(catalog)
     redshift = data[:,0]
-    red_PS = data[:,1]
-    green_PS = data[:,2]
-    iband_PS = data[:,3]
-    id_ = data[:,4]
+    red_PS = data[:,3]
+    green_PS = data[:,4]
+    iband_PS = data[:,5]
+    id_ = data[:,6]
 
-    idx = (green_PS < 900) & (green_PS > -900) & (red_PS < 900) & (red_PS > -900) 
+    idx = (red_PS < 900) & (red_PS > -900) & (green_PS < 900) & (green_PS > -900) 
     redshift = redshift[idx]
-    green_PS = green_PS[idx]
     red_PS = red_PS[idx]
+    green_PS = green_PS[idx]
     id_ = id_[idx]
     color = green_PS - red_PS
     print("Catalog read")
 
-    plt.figure(-2)
-    plt.scatter(red_PS, color, s=0.01)
-    plt.xlabel("r band")
-    plt.ylabel("g-r")
-    plt.xlim([14,22])
-    plt.ylim([0,5])
-    plt.savefig("%s/g-r_GAMA.png" % output_dir)
-	
-    bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
+
+    #bin_num = bin_redshifts(redshift, min_z, max_z, z_step)
     print("Redshift binning done")
-    cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
 
+    #cuts = get_cuts(color, bin_num, bins, z_step, confidence, False)
+    #if calc_contamination == True:
+#	cuts_err = get_cuts(color, bin_num, bins, z_step, confidence, True)
+    print("histograms made")
 
-    z_edges = np.linspace(min_z, max_z, num = z_step)
-    z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
+    idx = np.random.rand(redshift.size)
+    boolar = idx<0.05
+    redshift = redshift[boolar]
+    color = color[boolar]
+    id_ = id_[boolar]
+   
+    ax = plt.subplot(221)
+    ax.scatter(redshift[id_ == True], color[id_ == True], marker='.', s = 0.01, color = 'b', label = "Blue")
+    ax.scatter(redshift[id_ == False], color[id_ == False], marker='.', s = 0.01, color = 'r', label = "Red")
+    #z_edges = np.linspace(min_z, max_z, num = z_step)
+    #z_middles = z_edges[:-1] + (z_edges[1] - z_edges[0])/2.
 
-    idx = (cuts > 0.0) & (cuts < 1.5)
-    z_middles_1 = z_middles[idx]
-    cuts = cuts[idx]
+    #idx = (cuts > 0.0) & (cuts < 1.5)
+    #z_middles_1 = z_middles[idx]
+    #cuts = cuts[idx]
+    #cuts_err = cuts_err[idx]
 
-    spl = UnivariateSpline(z_middles_1, cuts)
+    #spl = UnivariateSpline(z_middles_1, cuts)
 
+    #spl_err = UnivariateSpline(z_middles_1, cuts_err)
 
 
     rrange = np.linspace(0, 0.35, 1000)
+    #yy0 = cut(rrange)
 
-
-    plt.figure(-1)
-    plt.scatter(redshift, color, s = 0.01, color = 'b', label = "Blue")
     
-    plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
-
-
-
-
-    #plt.scatter(redshift[id_ == False], color[id_ == False], s = 0.01, color = 'r', label = "Red")
+    #output = np.hstack((z_middles.reshape(z_middles.size,1), cuts.reshape(cuts.size,1)))
+ #   if include_PS_errors == False:
+    #np.savetxt("%s/spline_data.dat" % output_dir, output)
+ #   else:
+  #      np.savetxt("%s/spline_data_with_errors.dat" % output_dir, output)
 
     #np.savetxt("%s/redshifts.dat" % output_dir, z_middles.reshape(z_middles.size,1))
     #np.savetxt("%s/colors.dat" % output_dir, cuts.reshape(z_middles.size,1))
 
     #plt.plot(z_middles, cuts, 'k-', lw = 0.3, label = "cut")
     #plt.plot(rrange, yy0, 'g-',lw=0.3, label="orig. cut")
-    #plt.plot(rrange, spl(rrange), 'k-', lw=0.3, label = "spline")
+
+
+    foo = np.genfromtxt("/work/dominik.zuercher/Output/match_PS/spline_data.dat", unpack=1)
+    spl = UnivariateSpline(foo[0,:], foo[1,:])
+    ax.plot(rrange, spl(rrange), 'k-', lw=0.7, label = "spline")
     #plt.plot(rrange, spl_err(rrange), 'k-', lw=0.3, label = "spline (inc. PS errors)")
 
-    plt.ylim([0,2.0])
-    plt.xlim([0.03,0.33])
-    plt.legend()
-    plt.xlabel("z")
-    plt.ylabel("g-r")
-    plt.savefig("%s/g-r_vs_z_GAMA.png" % output_dir)
+    ax.set_ylim([0,2])
+    ax.set_xlim([0.03,0.33])
+    #plt.legend()
+    ax.set_xlabel("z")
+    ax.set_ylabel(r"g$_{\mathrm{P1}}$ - r$_{\mathrm{P1}}$")
+    plt.savefig("%s/color_vs_z.pdf" % output_dir)
 
 
-
+    """
     #Calculate contaminations for mixed characterization (best estimate?)
     #Falses
+    reds_below_cut = (color < spl(redshift) ) & (color > spl_err(redshift))
     #blues_above_cut = (id_ == True) & (color >= spl(redshift) )
     #Rights
     #reds_above_cut = (id_ == False) & (color >= spl(redshift) )
+    blues_below_cut = (color < spl_err(redshift) )
 
+    print("Reds below cut: %s" % np.sum(reds_below_cut))
+    print("Blues below cut: %s" % np.sum(blues_below_cut))
+    print("Contamination: %f" % (np.sum(reds_below_cut)/(np.sum(reds_below_cut) + np.sum(blues_below_cut)))*100.0 )
     #print("Reds above cut: %s" % np.sum(reds_above_cut))
     #print("Blues above cut: %s" % np.sum(blues_above_cut))
+    """
+
+
+
+
+

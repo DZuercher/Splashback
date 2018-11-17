@@ -1,12 +1,10 @@
-#Matches RedMaPPer spectroscopic galaxies with PS galaxies. Contains redshift (from RedMaPPer) and color (from PS)
-from astropy.io import fits
 import scipy.spatial as kdtree
 import sys
-import numpy as np
 from astropy.io import fits as pyfits
 from astroML.crossmatch import crossmatch_angular
 import pandas
 from mpi4py import MPI
+import numpy as np
 
 
 def get_assigned_targets(cat, ps_cat):
@@ -64,22 +62,20 @@ def with_kdtree(cat, ps_cat):
 def procedure(rank):
     print("started")
     #read spectroscopic GAMA galaxies
-    hdul = fits.open(catalog_1)
-    data = hdul[1].data
-    ra = data['RA']
-    dec = data['DEC']
-    redshift = data['Z']
-
-    idx = (redshift > 0.03) & (redshift < 0.33)
-    ra = ra[idx]
-    dec = dec[idx]
-    redshift = redshift[idx]
-    ra = ra.reshape(ra.size,1)  
-    dec = dec.reshape(dec.size,1)  
-    redshift = redshift.reshape(redshift.size,1)  
-    cat = np.hstack((ra, dec, redshift))
-
-    print(cat)
+    dat = pandas.read_csv(catalog_1, skiprows = 1, usecols=[0,1,2,4,5], names=["RA", "DEC", "Z","g","r"])
+    idx = (dat.Z.values > 0.03) & (dat.Z.values < 0.33)
+    ra = dat.RA.values[idx]
+    dec = dat.DEC.values[idx]
+    zred = dat.Z.values[idx]
+    g = dat.g.values[idx]
+    r = dat.r.values[idx]
+    ra = ra.reshape(ra.size,1)
+    dec = dec.reshape(dec.size,1)
+    zred = zred.reshape(zred.size,1)
+    g = g.reshape(g.size,1)
+    r = r.reshape(r.size,1)
+    cat = np.hstack((ra, dec, zred))
+    print("redmapper read")
 
     #read PS 21.5 galaxies
     ps_dat = pandas.read_csv("%s/PS_catalog.csv%03d" % (catalog_2, rank), sep = ',', header = None, usecols = (1, 2, 5, 6, 7), names = (["ra", "dec", 'rband', 'gband', "mag_auto"]) )
@@ -92,26 +88,32 @@ def procedure(rank):
     ps_cat = np.hstack((ra.reshape(ra.size,1), dec.reshape(ra.size,1), color.reshape(color.size,1)))
     print("PS read")
 
+    #ps_cat_matched,dist,ind=get_assigned_targets(cat,ps_cat)
     dd, ii, id_ = with_kdtree(cat, ps_cat)
     print("Matching done!")
     z_matched = np.zeros(0)
-    iband_PS_matched = np.zeros(0)
+    red_matched = np.zeros(0)
+    green_matched = np.zeros(0)
     red_PS_matched = np.zeros(0)
     green_PS_matched = np.zeros(0)
+    iband_PS_matched = np.zeros(0)
     for el in range(dd.size):
 	if id_[el] == True:
-	    z_now = redshift[ii[el]]
-            red_PS_now = rband[el]
-            green_PS_now = gband[el]
-            iband_PS_now = iband[el]
+	    z_now = zred[ii[el]]
+	    red_now = r[ii[el]]
+	    green_now = g[ii[el]]
+	    red_PS_now = rband[el]
+	    green_PS_now = gband[el]
+	    iband_PS_now = iband[el]
 	    z_matched = np.append(z_matched, z_now)
-            red_PS_matched = np.append(red_PS_matched, red_PS_now)
-            green_PS_matched = np.append(green_PS_matched, green_PS_now)
-            iband_PS_matched = np.append(iband_PS_matched, iband_PS_now)
-
+	    red_matched = np.append(red_matched, red_now)
+	    green_matched = np.append(green_matched, green_now)
+	    red_PS_matched = np.append(red_PS_matched, red_PS_now)
+	    green_PS_matched = np.append(green_PS_matched, green_PS_now)
+	    iband_PS_matched = np.append(iband_PS_matched, iband_PS_now)
 
     if z_matched.size > 0:
-	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), red_PS_matched.reshape(red_PS_matched.size,1), green_PS_matched.reshape(green_PS_matched.size,1), iband_PS_matched.reshape(iband_PS_matched.size,1) )))
+	np.savetxt("%s/matched_%03d" % (output_dir, rank), np.hstack((z_matched.reshape(z_matched.size,1), red_matched.reshape(red_matched.size,1), green_matched.reshape(green_matched.size,1), red_PS_matched.reshape(red_PS_matched.size,1), green_PS_matched.reshape(green_PS_matched.size,1), iband_PS_matched.reshape(iband_PS_matched.size,1) )))
 	print("saved!")
     return
 
@@ -120,7 +122,7 @@ def procedure(rank):
 if __name__ == "__main__":
 
     output_dir = "/work/dominik.zuercher/Output/match_PS_GAMA/spec_parts"
-    catalog_1= "/work/dominik.zuercher/DataStore/GAMA/SpecObj.fits" #RedMaPPer
+    catalog_1= "/work/dominik.zuercher/DataStore/GAMA/GAMA_ltl8F2.csv" #GAMA
     catalog_2 = "/work/dominik.zuercher/DataStore/Pan-Starrs/Chunked_galaxies/PS_catalog_21.5" # Chunked Pan-Starrs
 
     comm = MPI.COMM_WORLD
