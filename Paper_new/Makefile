@@ -18,3 +18,4 @@ submit:
 	cp heal_maps.png submit/
 	cp RSP_paper_new.tex submit/
 	cp RSP_library.bib submit/
+	cp RSP_paper_new.bbl submit/
