@@ -17,6 +17,12 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
+\bibitem[\protect\citeauthoryear{{Abbott} et~al.,}{{Abbott}
+  et~al.}{2018}]{Abbott2018}
+{Abbott} T.~M.~C.,  et~al., 2018, preprint, \href
+  {http://adsabs.harvard.edu/abs/2018arXiv180103181A} {} (\mn@eprint {arXiv}
+  {1801.03181})
+
 \bibitem[\protect\citeauthoryear{Adam et~al.,}{Adam
   et~al.}{2016}]{adam2016planck}
 Adam R.,  et~al., 2016, Astronomy \& Astrophysics, 594, A1
@@ -36,6 +42,11 @@ Ade P.~A.,  et~al., 2016b, Astronomy \& Astrophysics, 594, A13
   et~al.}{2014}]{adhikari2014splashback}
 Adhikari S.,  Dalal N.,   Chamberlain R.~T.,  2014, Journal of Cosmology and
   Astroparticle Physics, 2014, 019
+
+\bibitem[\protect\citeauthoryear{{Aihara} et~al.,}{{Aihara}
+  et~al.}{2018}]{Aihara2018}
+{Aihara} H.,  et~al., 2018, \mn@doi [\pasj] {10.1093/pasj/psx081}, \href
+  {http://adsabs.harvard.edu/abs/2018PASJ...70S...8A} {70, S8}
 
 \bibitem[\protect\citeauthoryear{Baxter et~al.,}{Baxter
   et~al.}{2017}]{baxter2017halo}
@@ -66,10 +77,6 @@ Chambers K.~C.,  et~al., 2016, arXiv preprint arXiv:1612.05560
 \bibitem[\protect\citeauthoryear{Chang et~al.,}{Chang
   et~al.}{2017}]{chang2017splashback}
 Chang C.,  et~al., 2017, arXiv preprint arXiv:1710.06808
-
-\bibitem[\protect\citeauthoryear{Collaboration}{Collaboration}{2005}]{dark2005dark}
-Collaboration D. E.~S.,  2005, International Journal of Modern Physics A, 20,
-  3121
 
 \bibitem[\protect\citeauthoryear{Contigiani, Hoekstra  \& Bah{\'e}}{Contigiani
   et~al.}{2018}]{contigiani2018weak}
@@ -164,6 +171,12 @@ Kaiser N.,  et~al., 2010, in Ground-based and Airborne Telescopes III. p.
 Kosyra R.,  Gruen D.,  Seitz S.,  Mana A.,  Rozo E.,  Rykoff E.,  Sanchez A.,
   Bender R.,  2015, Monthly Notices of the Royal Astronomical Society, 452,
   2353
+
+\bibitem[\protect\citeauthoryear{{LSST Science Collaboration} et~al.,}{{LSST
+  Science Collaboration} et~al.}{2009}]{LSST2009}
+{LSST Science Collaboration} et~al., 2009, preprint, \href
+  {http://adsabs.harvard.edu/abs/2009arXiv0912.0201L} {} (\mn@eprint {arXiv}
+  {0912.0201})
 
 \bibitem[\protect\citeauthoryear{Landy \& Szalay}{Landy \&
   Szalay}{1993}]{landy1993bias}
