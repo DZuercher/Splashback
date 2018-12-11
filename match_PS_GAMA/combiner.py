@@ -4,8 +4,8 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    input_dir = "/work/dominik.zuercher/Output/match_PS/spec_parts"
-    output_dir = "/work/dominik.zuercher/Output/match_PS"
+    input_dir = "/work/dominik.zuercher/Output/match_PS_GAMA/spec_parts"
+    output_dir = "/work/dominik.zuercher/Output/match_PS_GAMA"
 
     zred=np.zeros(0)
     red=np.zeros(0)

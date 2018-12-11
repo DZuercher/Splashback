@@ -17,40 +17,20 @@ if __name__ == "__main__":
     catalog = "/work/dominik.zuercher/Output/match_PS_GAMA/matched_spec_new.dat"
     output_dir = "/work/dominik.zuercher/Output/match_PS_GAMA"
 
-    data     = np.loadtxt(catalog)
-    redshift = data[:,0]
-    red_PS   = data[:,1]
-    green_PS = data[:,2]
-    iband_PS = data[:,3]
-    id_      = data[:,4]
+    data = np.loadtxt(catalog)
 
-    idx = (red_PS < 900) & (red_PS > -900) & (green_PS < 900) & (green_PS > -900) & (iband_PS < 900) & (iband_PS > -900)
-    redshift = redshift[idx]
-    red_PS = red_PS[idx]
-    green_PS = green_PS[idx]
-    iband_PS = iband_PS[idx]
-    id_ = id_[idx]
+    #Remove Nans
+    idx = (np.logical_not(np.isnan(data[:,1]))) & (np.logical_not(np.isnan(data[:,2])))
+    data = data[idx]
+
+    redshift = data[:,0]
+    red   = data[:,1]
+    green = data[:,2]
+
     print("Catalog read")
 
-    idx = np.random.rand(redshift.size)
-    boolar = idx<0.05
-    redshift = redshift[boolar]
-    red_PS = red_PS[boolar]
-    green_PS = green_PS[boolar]
-    iband_PS = iband_PS[boolar]
-    id_ = id_[boolar]
-
-    color = green_PS - red_PS
+    color = green - red
     fig = plt.figure(1)
-    plt.scatter(red_PS, color, s = 0.01)
+    plt.scatter(red, color, s = 0.01)
     fig.savefig("%s/g-r_vs_r.pdf" % output_dir)
 
-    color = green_PS - iband_PS
-    fig = plt.figure(2)
-    plt.scatter(iband_PS, color, s = 0.01)
-    fig.savefig("%s/g-i_vs_i.pdf" % output_dir)
-
-    color = red_PS - iband_PS
-    fig = plt.figure(3)
-    plt.scatter(iband_PS, color, s = 0.01)
-    fig.savefig("%s/r-i_vs_i.pdf" % output_dir)

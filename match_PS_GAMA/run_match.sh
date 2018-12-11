@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -lnodes=35:ppn=28,walltime=10:00:00
+#PBS -lnodes=35:ppn=28,walltime=00:10:00
 #PBS -N match_PS
 #PBS -q large
 cd /home/dominik.zuercher/Documents/Splashback/match_PS_GAMA

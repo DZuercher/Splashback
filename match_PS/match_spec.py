@@ -129,7 +129,7 @@ def procedure(rank):
 if __name__ == "__main__":
 
     output_dir = "/work/dominik.zuercher/Output/match_PS/spec_parts"
-    catalog_1= "/work/dominik.zuercher/DataStore/SDSS/SDSS_spec_galaxies.dat" #RedMaPPer
+    catalog_1= "/work/dominik.zuercher/DataStore/SDSS/SDSS_spec_kcorrection_z0.1.dat" #RedMaPPer
     catalog_2 = "/work/dominik.zuercher/DataStore/Pan-Starrs/Chunked_galaxies/PS_catalog_21.5" # Chunked Pan-Starrs
 
     comm = MPI.COMM_WORLD

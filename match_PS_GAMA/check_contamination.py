@@ -13,7 +13,7 @@ def get_app_magnitude(z):
 
 def get_perturbed_magnitudes():
     # Read the matched file for SDSS z and PS magnitudes
-    df = pandas.read_csv("/work/dominik.zuercher/Output/match_PS/matched_spec_new.dat", delim_whitespace=1, usecols=(0, 3, 4, 5, 6), header=None, names=(["zred", "rPS", "gPS", "iPS", "blue"]))
+    df = pandas.read_csv("/work/dominik.zuercher/Output/match_PS_GAMA/matched_spec_new.dat", delim_whitespace=1, usecols=(0, 3, 4, 5, 6), header=None, names=(["zred", "rPS", "gPS", "iPS", "blue"]))
     
     # Read in Dominik's median errors as a function of g band magnitude and then perturb
     gmag, gmag_err = np.loadtxt("/work/dominik.zuercher/g_band_error.txt", unpack=1)
