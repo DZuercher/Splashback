@@ -848,7 +848,9 @@ population would imply that there needs to be a reasonable fraction of
 blue galaxies that fall into the cluster and continue to stay blue
 even after reaching their apocenters.
 
-We caution however that the cut we use to define our samples was
+\textbf{This result is in contradiction to the findings of \citet{baxter2017halo}, who find no splashback feature in the blue galaxy population. At the current state it is not clear how those different results emerge. It might be that, in contrast to our SZ selected cluster sample, there is simply no splashback feature present in the galaxy cluster sample used by \citet{baxter2017halo}, which was constructed using the REDMAPPER algorithm on SDSS data. Further, the separation of the galaxies by color used by \citet{baxter2017halo} is fundamentaly different from our approach. They use K-corrected magnitudes from the SDSS dataset, whereas we avoid using K-corrections but instead use a redshift dependent color cut.}
+
+We caution that the cut we use to define our color-separated samples was
 defined based on spectroscopic galaxies, which tend to be brighter
 than the typical galaxies we use for the cross-correlation. As we use
 galaxies at fainter magnitudes for the cross-correlation, the
@@ -1134,21 +1136,11 @@ systematic or significant given the errors.
 \section{Estimating the contamination of the blue galaxy population}
 \label{sec:Errors}
 
-%\begin{figure*}
-%\centering{
-%    \includegraphics[width= 0.5\textwidth]{color_vs_z.pdf}}
-%\caption{Scatter plot showing the $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ colors
-%of the matched galaxies versus their redshifts, where the red dots correspond
-%to galaxies identified as red from the SDSS spectroscopic colors and blue dots
-%correspond to galaxies identified as blue, respectively. The black, solid line
-%indicates the spline cut separating the two populations and excluding the red 
-%galaxies from the blue population at a confidence level of $3 \sigma$.}
-%   \label{fig:g-r_vs_z} 
-%\end{figure*}
-
 To infer the color cut which separates star forming (blue) galaxies from the
 quenched (red) galaxy population, we cross-matched the SDSS spectroscopic
-sample to its Pan-STARRS photometry. 
+sample to its Pan-STARRS photometry. In Figure~\ref{fig:g-r_vs_z}, we show the
+plot of the Pan-STARRS $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ color as a 
+function of redshift, and the color cut we use in our analysis. 
 The SDSS spectroscopic sample is however quite shallow, 
 and thus consists of galaxies that are brighter than the Pan-STARRS 
 galaxies that we wish to cross-correlate. At fainter magnitudes, we can 
@@ -1228,6 +1220,17 @@ warranted before definitive conclusions can be drawn. Larger galaxy
 surveys with better photometry such as the HSC or LSST would be of
 significant help in alleviating these issues.
 
+\begin{figure*}
+\centering{
+    \includegraphics[width= 0.5\textwidth]{color_vs_z.pdf}}
+\caption{Scatter plot showing the $(g_{\mathrm{P1}}-r_{\mathrm{P1}})$ colors
+of the matched galaxies versus their redshifts, where the red dots correspond
+to galaxies identified as red from the SDSS spectroscopic colors and blue dots
+correspond to galaxies identified as blue, respectively. The black, solid line
+indicates the spline cut separating the two populations and excluding the red 
+galaxies from the blue population at a confidence level of $3 \sigma$.}
+   \label{fig:g-r_vs_z} 
+\end{figure*}
 % \begin{figure}
 % \centering{
 %     \includegraphics[scale=0.6]{best_hist_58.pdf}}

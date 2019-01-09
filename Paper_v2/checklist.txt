@@ -16,6 +16,7 @@ DONE
 
 b) Figures 2 and 3 show very similar things, namely the 2D and 3D density profiles. However, because the figures are split and because the panels come out much larger in Figure 3, it is not immediately apparent that the actual measured results are shown in Figure 2. I have a somewhat radical suggestion: I would combine both figures by stacking the panels vertically instead of horizontally, i.e., combining the 2D and 3D profiles into one column of five panels that shows all aspects of the modeling (data, inferred 2D, 2D slope, 3D etc). Then, the three samples would be three columns that could easily be fit next to each other, particularly as the y-labels would not need to be repeated in each column. The disadvantage is that it would become harder to compare the location of Rsp in the three samples, but as stated in the text, they all agree anyway. The advantage would be that one could directly compare the inferred 2D and 3D radii -- to me, that is more informative. Most importantly, it would be very clear that the combined figure represents the main result of the paper. The same could be done for Figures 6 and 7 which, again, appear somewhat disconnected to the reader even though they are highly connected.
 DONE
+-Fig 1 put R label under second row x axis
 
 c) Tables 3 and 4 contain so little data that they could easily be put into words and added to the text.
 DONE
@@ -23,14 +24,17 @@ DONE
 d) Figures 4 and 5 could easily be combined into one figure, perhaps with clear, large labels inside the panels explaining what the different distributions represent.
 Right panel of Figure 4 was totally crazy. I do not know how we did not see this when submitting. Therefore removed it and fused the other 3 panels into 1 Figure
 
+
 e) Figures 8 and 9 could be combined by showing the clusters on top of the masks. That way, the masks would be more useful because the reader could immediately see how many clusters are masked out.
 DONE
 
 f) Showing the corner plots in Figures 10 to 14 is laudable in terms of absolute completeness of the information presented, but frankly, I am not sure they are necessary. In particular, Figures 10-12 are virtually impossible to distinguish by eye, and Figures 13-14 are difficult to digest. I had to stare at these figures quite hard to derive any meaningful takeaway messages. My suggestions would be to omit all of these figures except perhaps one for one of the PanStarrs samples. That figure could then even be put into the main body of the paper instead of an appendix.
 DONE
+-say that we checked for convergence
 
 g) I am not sure that figures 15 and 16 are necessary. I found the written explanation of the checks on color scatter perfectly adequate and convincing without the figures.
 DONE
+-maybe leave fig 15
 
 2) Throughout the paper, I found that the writing supposed the reader to possess a high level of knowledge about the specifics of the splashback radius and its detection. It would be good to add some gentle explanations as well as smoother transitions between different sections and arguments. I give some examples below.
 
@@ -55,7 +59,7 @@ a) The right panel of Figure 4 seems puzzling, should these slopes not be much s
 Right Panel removed
 
 b) In Section 4, you explain that the splashback radius seen in the blue population may be due to contamination of the blue sample, but the conclusion remains a little unclear in the main text. I would refer to Baxter+17 Figure 5, saying that they found no splashback in the blue population, and make a firm statement on whether there is any evidence that this is wrong (given the issues with contamination).
-Not done yet. I think we can be a bit more bold about our results 
+-refer to baxter and explain why we find something different
 
 4) I have some smaller comments and questions regarding the text and figures.
 
@@ -78,5 +82,3 @@ f) Figure 8 looks like a low-resolution pixel graphic. Is there a reason not to 
 DONE
 
 g) Table 6 would be more useful if it showed the Rsp values computed without miscentering for comparison.
-DONE
-

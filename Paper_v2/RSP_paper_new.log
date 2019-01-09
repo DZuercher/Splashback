@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  13 DEC 2018 19:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  9 JAN 2019 09:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1025,30 +1025,30 @@ LaTeX Warning: A float is stuck (cannot be placed) on input line 850.
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 888.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 890.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 888.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 890.
  [8 <./HISTOGRAMS.pdf>]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 910.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 902.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 910.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 902.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
 [9 <./MAIN_color_results_with_spline_no_mc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 983--988
+Underfull \hbox (badness 10000) in paragraph at lines 985--990
 []\T1/txr/m/n/10 Based on ob-ser-va-tions ob-tained with Planck
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--988
+Underfull \hbox (badness 10000) in paragraph at lines 985--990
 \T1/txr/m/n/10 (http://www.esa.int/Planck), an ESA sci-ence mis-sion
  []
 
@@ -1060,34 +1060,40 @@ Package hyperref Warning: Suppressing empty link on input line 23.
 Package hyperref Warning: Suppressing empty link on input line 188.
 
 )
-<Planck_summary.pdf, id=724, 430.7292pt x 430.7292pt>
+<Planck_summary.pdf, id=731, 430.7292pt x 430.7292pt>
 File: Planck_summary.pdf Graphic file (type pdf)
 <use Planck_summary.pdf>
-Package pdftex.def Info: Planck_summary.pdf  used on input line 1005.
+Package pdftex.def Info: Planck_summary.pdf  used on input line 1007.
 (pdftex.def)             Requested size: 236.9018pt x 236.9018pt.
-<skymaps.pdf, id=725, 1058.39557pt x 193.79105pt>
+<skymaps.pdf, id=732, 1058.39557pt x 193.79105pt>
 File: skymaps.pdf Graphic file (type pdf)
 <use skymaps.pdf>
-Package pdftex.def Info: skymaps.pdf  used on input line 1014.
+Package pdftex.def Info: skymaps.pdf  used on input line 1016.
 (pdftex.def)             Requested size: 513.11743pt x 93.9501pt.
  [10] [11 <./Planck_summary.pdf> <./skymaps.pdf
 
 pdfTeX warning: pdflatex (file ./skymaps.pdf): PDF inclusion: multiple pdfs wit
 h page group included in a single page
->] [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1244.
+>]
+<color_vs_z.pdf, id=804, 208.91867pt x 199.93295pt>
+File: color_vs_z.pdf Graphic file (type pdf)
+<use color_vs_z.pdf>
+Package pdftex.def Info: color_vs_z.pdf  used on input line 1225.
+(pdftex.def)             Requested size: 256.55872pt x 245.53777pt.
+ [12] [13 <./color_vs_z.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1247.
  (./RSP_paper_new.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1244.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1244.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1247.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1247.
 
 Package rerunfilecheck Info: File `RSP_paper_new.out' has not changed.
 (rerunfilecheck)             Checksum: EDCB29A5AA087DCA5CCED4479182DD52;728.
  ) 
 Here is how much of TeX's memory you used:
- 9974 strings out of 494880
- 137908 string characters out of 6179600
- 294442 words of memory out of 5000000
- 13001 multiletter control sequences out of 15000+600000
+ 9982 strings out of 494880
+ 138053 string characters out of 6179600
+ 298897 words of memory out of 5000000
+ 13006 multiletter control sequences out of 15000+600000
  78220 words of font info for 127 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  32i,13n,30p,1766b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1118,10 +1124,10 @@ onts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on RSP_paper_new.pdf (12 pages, 2433673 bytes).
+Output written on RSP_paper_new.pdf (13 pages, 2943428 bytes).
 PDF statistics:
- 879 PDF objects out of 1000 (max. 8388607)
- 741 compressed objects within 8 object streams
- 105 named destinations out of 1000 (max. 500000)
- 127 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 911 PDF objects out of 1000 (max. 8388607)
+ 769 compressed objects within 8 object streams
+ 107 named destinations out of 1000 (max. 500000)
+ 132 words of extra memory for PDF output out of 10000 (max. 10000000)
 
