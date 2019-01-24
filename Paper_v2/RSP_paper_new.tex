@@ -166,47 +166,43 @@ possibility that the aperture used to select the cluster catalogs could be
 imprinted in a non-trivial way on the measured number density profiles of
 clusters.
 
-\textbf{Trying to avoid the problems which complicate the unbiased detction
-of the splashback signal in opical samples some recent studies searched
-for the signature of the splashback effect using non-optical cluster samples.}
-\citet{umetsu2017lensing} as well as \citet{contigiani2018weak}
-used Xray selected clusters to look for the splashback radius
-using the weak lensing signal, however stacking issues and the low
-signal-to-noise ratio remains a significant hurdle for both of them.
-Also \citet{chang2017splashback} found evidence for the splashback feature
-in the weak lensing signal, but their analysis was again done using
-optically selected clusters in the Dark energy survey suffering from 
-the before mentioned issus again.
+\textbf{To avoid optical cluster selection effects, there have been some
+previous efforts to use X-ray selected cluster samples to look for the
+splashback radius using the weak lensing signal\{umetsu2017lensing,
+contigiani2018weak}}.  However stacking issues and the low signal-to-noise
+ratio remains a significant hurdle for both of them. \textbf{The use of weak
+lensing in these studies could get around the biased nature of the galaxy
+distribution by directly probing the dark matter distribution. Along those
+lines,} \citet{chang2017splashback} found evidence for the splashback feature
+in the weak lensing signal, but their analysis was again done using optically
+selected clusters in the Dark energy survey that suffer from the
+afore-mentioned issues.
 
-\textbf{In this work, we explore yet another non-optical cluster sample. 
-Namely, SZ selected clusters.} While the SZ
-selected clusters can also be susceptible to systematic selection
-effects, the scales on which the SZ signal is measured and the
-cluster selection is performed is much smaller than the expected
-location of the splashback radius (typically $R_{\rm 500c}$). We use
-this sample to explore the evidence for the splashback radius in
-observations.  Due to the low signal-to-noise ratio of the weak
-lensing signal, we perform our analysis using cross-correlation of
-galaxies with clusters.  
+\textbf{In this work, we explore clusters selected using the SZ effect.} While
+the SZ selected clusters can also be susceptible to systematic selection
+effects, the scales on which the SZ signal is measured and the cluster
+selection is performed is much smaller than the expected location of the
+splashback radius (typically $R_{\rm 500c}$). We use this sample to explore the
+evidence for the splashback radius in observations.  Due to the low
+signal-to-noise ratio of the weak lensing signal, we perform our analysis using
+cross-correlation of galaxies with clusters.  
 
-\textbf{Dynamcial friction is expected to decrease the observed splashback radius in 
-massive clusters. It causes a
-slow-down of the massive subhalos, hosting many of the observed galaxies, 
-which in return decreases the apocentric
-radius of their orbits and therefore the measured splashback radius of the host cluster. 
-Since the rate of dynamical friction scales
-with the mass of the moving object the effect is stronger for more
-massive subhalos. Therefore, one expects the decrease in the splashback
-radius to scale with the amount of massive subhalos in the host cluster and
-with its mass \citep{adhikari2016observing}. This bias can be limited by choosing a deep enough
-galaxy sample such that a large enough amount of low mass subhalos can be
-observed.} The SDSS sample used by
+\textbf{Dynamical friction is expected to slow down massive subhalos, hosting
+galaxies that are orbiting the galaxy cluster XXXX{Cite paper by Chandrasekhar
+here}XXXX. If a majority of the observed galaxies are hosted by these massive
+subhalos, the slow down due to dynamical friction would reduce the apocenters
+of their orbits, in turn, biasing the measured splashback radius of the host
+cluster XXX{Cite More2016 and papers on Benedikt's SPARTA}XXX. As dynamical
+friction timescales are inversely proportional to the mass of the subhalos,
+this effect is stronger for more massive subhalos. Therefore, one expects the
+splashback radius to decrease for more massive subhalos
+\citep{adhikari2016observing}.  This bias can be limited by choosing a faint
+galaxy sample such that majority of the galaxies reside in low mass subhalos,
+unaffected by dynamical friction.} The SDSS sample used by
 \citet{more2016detection} was already deep enough such that biases in the
-location of the splashback radius due to dynamical friction effects
-were expected to be small. 
-Nevertheless, we use galaxy samples, which
-are even fainter by $0.5-1$ magnitudes compared to those used by
-\citet{more2016detection}.
+location of the splashback radius due to dynamical friction effects were
+expected to be small. Nevertheless, we use galaxy samples, which are fainter by
+$0.5-1$ magnitudes compared to those used by \citet{more2016detection}.
 
 Given that the splashback radius represents a true halo boundary,
 the observations of the splashback radius can be used to study a
@@ -497,24 +493,26 @@ function to the measured two-dimensional correlation signal.
 We use the affine invariant Markov Chain Monte Carlo sampler of \citet{goodman2010ensemble} as
 implemented in the parallel python package {\it emcee} by
 \citet{foreman2013emcee}. 
-\textbf{We keep the parameters $\rho_{\mathrm{s}}$, $\rho_0$ and $s_{\mathrm{e}}$ 
-as free parameters during the fitting procedure. Similarly to \citet{more2016detection} 
-we put flat priors on $\log_{10}(r_{\mathrm{s}})$ and $\log_{10}(r_{\mathrm{t}})$ but double 
-their ranges to $[0.1,5.0]$ compared to their work. In contrast, 
-we use a normal prior with a central value of $\log_{10}(0.2)$ and a scale of 1.2 
-for $\log_{10}(\alpha)$ as deduced from mass estimates \citep{gao2008redshift}. 
-For the parameters $\log_{10}(\beta)$ and $\log_{10}(\gamma)$ we also use normal 
-priors with central values $\log_{10}(6.0)$ and $\log_{10}(4.0)$, respectively 
-and scale 0.4 as recommended by \citet{diemer2014dependence}.}
+\textbf{We let the parameters $\rho_{\mathrm{s}}$, $\rho_0$ and
+$s_{\mathrm{e}}$ vary freely during our fitting procedure. Similar to
+\citet{more2016detection} we put flat priors on $\log_{10}(r_{\mathrm{s}})$ and
+$\log_{10}(r_{\mathrm{t}})$ but double their ranges to $[0.1,5.0]$ compared to
+their work. In contrast to \citet{more2016detection}, we use a normal prior
+with a central value of $\log_{10}(0.2)$ and a scale of 1.2 for
+$\log_{10}(\alpha)$ as deduced from mass estimates \citep{gao2008redshift}.
+For the parameters $\log_{10}(\beta)$ and $\log_{10}(\gamma)$ we also use
+normal priors with central values $\log_{10}(6.0)$ and $\log_{10}(4.0)$,
+respectively and scale 0.4 as recommended by \citet{diemer2014dependence}.}
 
-\textbf{It has been a common concern that the profile in Equation~\ref{eq:model} might introduce
-a splashback feature simply by its functional from and without its presence in the data.
-However, \citet{baxter2017halo} showed that this is not the case by using a Bayesian odds 
-ratio approach to asses that the data is described significantly better by the general 
-profile in Equation~\ref{eq:model} (with the splashback feature)
-rather than by the same profile with fixed $f_{trans} = 1$ (without splashback feature).
-The same conclusion was made by \citet{umetsu2017lensing} who conducted a similar study but
-using weak lensing data.}
+\textbf{It has been a common concern that the profile in
+Equation~\ref{eq:model} introduces a point of minimum slope in the logarithmic
+derivative profile simply due to the functional form. However,
+\citet{baxter2017halo} used a Bayesian evidence approach to assess that the
+data is described significantly better by the general profile in
+Equation~\ref{eq:model} (with the splashback feature) rather than by the same
+profile with fixed $f_{trans} = 1$ (without splashback feature).  The same
+conclusion was made by \citet{umetsu2017lensing} who conducted a similar study
+but using weak lensing data.}
 %\begin{table*}
 %    \centering
 %    \caption{Summary of the priors used in the MCMC sampling
@@ -535,13 +533,19 @@ using weak lensing data.}
 %    \end{tabular} 
 %\end{table*}
 
-\textbf{While there have been other suggestions for defining the location of the
-splashback radius (see \citet{adhikari2014splashback, shi2016outer, 
-mansfield2017splashback, diemer2017splashback}) we adopt the 
-definition given by \citet{more2015splashback}, who define
-the location of the splashback radius for halos on galaxy cluster scales to 
-be consistent with the location of the steepest logarithmic slope of the density
-profile, due to its easy accessibility in data.}
+\textbf{The location of the splashback radius can be identified in various
+ways, e.g., as the radius of the outermost shell in theoretical models of
+spherical symmetric collapse \citep{adhikari2014splashback, shi2016outer}, or
+using non-spherical shells of density jumps \citet{ mansfield2017splashback},
+or the average location of the apocenter of particles falling in the cluster
+potential \citet{diemer2017splashback}. Although these definitions have subtle
+differences, they all follow the general trend of a decreasing splashback
+radius with increasing rate of accretion XXX{Cite Benedikt and Phils paper for
+these comparisons}. In this paper, we adopt the convention of
+\citet{more2015splashback}, who define the location of the splashback radius
+for halos on galaxy cluster scales to be the location of the steepest
+logarithmic slope of the radially averaged density profile, due to its ease of
+accessibility in data.}
 
 We estimate the steepest slope of both the two-dimensional
 and the three-dimensional cross-correlation function. The
@@ -606,11 +610,11 @@ correspond to the three different absolute magnitude limits that we
 have used to select all the galaxies when calculating the
 cross-correlations. The cross-correlation signal is clearly detected
 in all three measurements. \textbf{The signal to noise ratios of the 
-three different estimates of the two-dimensional cross-correlation 
-signals amount to 42.4, 43.3 and 30.9 for the galaxy samples PS 21, 
-PS 21.5 and PS 22, respectively. For comparison: 
-The SNR achieved by \citet{more2016detection} is 263. It is much higher
-due to size of the cluster sample used in their study.}
+three different estimates of the two-dimensional cross-correlation signals
+amount to 42.4, 43.3 and 30.9 for the galaxy samples PS 21, PS 21.5 and PS 22,
+respectively. For comparison, the detection SNR in \citet{more2016detection}
+was 263, a much higher number due to the size of the cluster sample used in
+their study.}
 
 We fit these measurements with our parametric model in Equation~\ref{eq:surface}
 and compute the posterior distribution of the model parameters 
@@ -622,24 +626,24 @@ with their 68\% confidence intervals are listed in
 Table~\ref{tab:fit_parameters} along with the corresponding reduced
 $\chi^2$ values for the best fit. 
 
-\textbf{We show the two-dimensional posterior
-distributions for each pair of parameters for the PS 21.5 sample in 
-Figure~\ref{fig:corner_21.5}. Since the posterior distributions for 
-the other datasetsare very similar we refrain from showing them as well. 
+\textbf{We show the two-dimensional posterior distributions for each pair of
+parameters for the PS 21.5 sample in Figure~\ref{fig:corner_21.5}. The
+posterior distributions for the other datasets show similar degeneracies and
+are not included in the paper for brevity.
 It is observed that there are some strong degeneracies present between 
 parameters describing the same part of the model in Equation~\ref{eq:model} 
 (namely $\rho_{\mathrm{in}}$, $f_{\mathrm{trans}}$ and $\rho_{\mathrm{out}}$).
-This is not unexpected since certain combinations of parameter values can 
+This is expected since certain combinations of parameter values can 
 very well result in the same functional shape of the different parts of 
 the model. This degeneracy also leads to some of the parameters not being 
 constrained tightly (especially $\rho_s$ and $r_s$ due to their strong degeneracy 
-with $\alpha$). On the other hand, it is important to note that there is 
-no degeneracy present between parameters describing different parts of the 
-model, which means that the overall shape of the profile is well constrained. 
-Note also that, since the location of the splashback radius only depends on 
-the overall shape of the profile the uncertainties of the individual parameters 
-within the independent parts of the profile do not translate
-into an uncertainty of the location of the splashback feature directly.}
+with $\alpha$). On the other hand, it is important to note that there is
+little-to-no degeneracy present between parameters describing different parts
+of the model, which means that the overall shape of the profile is well
+constrained.  Note also that, since the location of the splashback radius only
+depends on the overall shape of the profile, the uncertainties of the
+individual parameters within the independent parts of the profile do not
+translate into a huge uncertainty on the location of the splashback feature.}
 
 \begin{figure*}
 	\centering{
@@ -848,7 +852,18 @@ population would imply that there needs to be a reasonable fraction of
 blue galaxies that fall into the cluster and continue to stay blue
 even after reaching their apocenters.
 
-\textbf{This result is in contradiction to the findings of \citet{baxter2017halo}, who find no splashback feature in the blue galaxy population. At the current state it is not clear how those different results emerge. It might be that, in contrast to our SZ selected cluster sample, there is simply no splashback feature present in the galaxy cluster sample used by \citet{baxter2017halo}, which was constructed using the REDMAPPER algorithm on SDSS data. Further, the separation of the galaxies by color used by \citet{baxter2017halo} is fundamentaly different from our approach. They use K-corrected magnitudes from the SDSS dataset, whereas we avoid using K-corrections but instead use a redshift dependent color cut.}
+\textbf{This result seem to be at odds with the findings presented by
+\citet{baxter2017halo}, who find no splashback feature in the blue galaxy
+population. Our investigations suggest that the splashback feature gets less
+prominent as we proceed to look at galaxies which are progressively bluer in
+color. Given that \citet{baxter2017halo}, consider the last quartile of the
+blue population, it is imaginable that they see no evidence for the splashback
+feature in their dataset. The approach used by \citet{baxter2017halo} used to
+separate galaxies into red or blue is also fundamentally different from our
+approach. While \citet{baxter2017halo} use K-corrected magnitudes from SDSS
+relying on the photometric redshifts of galaxies (which could have different
+uncertainties for the red and the blue population), we rely on a color cut
+which depends upon the redshift of the cluster under consideration.}
 
 We caution that the cut we use to define our color-separated samples was
 defined based on spectroscopic galaxies, which tend to be brighter
