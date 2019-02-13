@@ -145,8 +145,8 @@ for reproducibility purposes. We hope the referee will be ok with this.
 > the SZ sample (which is used only to find clusters but not to constrain their
 > profiles).
 
-Reply: We have now included sentences to this effect in the {\bf abstract},
-the introduction as well as just before Section 2.1.
+Reply: We have now included sentences to this effect in the abstract, the
+introduction as well as just before Section 2.1.
 
 >
 > b) Throughout the paper, it is implicitly assumed that the definition of the
@@ -197,8 +197,13 @@ takeaways from the plot in the Results section of the text.
 > 3) Some results seem incompatible with results in Baxter+17, and (if real)
 > those differences should be discussed.
 
+<<<<<<< HEAD
 {\bf Still to be done?} Should be done in paragraph starting with: This result
 seems to be at odds with the findings ....
+=======
+Reply: We have now added a note discussing our results with those in Baxter et
+al. 2017.
+>>>>>>> 7bc5fdce17639ddc903ca345734b41b2147ffe0a
 
 > a) The right panel of Figure 4 seems puzzling, should these slopes not be much
 > steeper? Compare to Figure 4 in Baxter+17.
@@ -259,4 +264,8 @@ Reply: We have now edited this.
 > g) Table 6 would be more useful if it showed the Rsp values computed without
 > miscentering for comparison.
 
+<<<<<<< HEAD
 Reply: We have added the values computed without miscentering as suggested
+=======
+Reply: We have added the Rsp values computed without miscentering in Table 6, as suggested.
+>>>>>>> 7bc5fdce17639ddc903ca345734b41b2147ffe0a
