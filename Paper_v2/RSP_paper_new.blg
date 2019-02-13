@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: RSP_paper_new.aux
+The style file: mnras.bst
+Database file #1: RSP_paper_newNotes.bib
+Database file #2: RSP_library.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 58 entries,
+            2881 wiz_defined-function locations,
+            1057 strings with 23633 characters,
+and the built_in function-call counts, 25530 in all, are:
+= -- 2037
+> -- 1885
+< -- 110
++ -- 879
+- -- 248
+* -- 3019
+:= -- 4029
+add.period$ -- 0
+call.type$ -- 58
+change.case$ -- 116
+chr.to.int$ -- 56
+cite$ -- 58
+duplicate$ -- 1306
+empty$ -- 1309
+format.name$ -- 448
+if$ -- 4380
+int.to.chr$ -- 3
+int.to.str$ -- 0
+missing$ -- 58
+newline$ -- 187
+num.names$ -- 374
+pop$ -- 277
+preamble$ -- 1
+purify$ -- 232
+quote$ -- 0
+skip$ -- 791
+stack$ -- 0
+substring$ -- 1314
+swap$ -- 606
+text.length$ -- 234
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 522
+warning$ -- 0
+while$ -- 406
+width$ -- 0
+write$ -- 587

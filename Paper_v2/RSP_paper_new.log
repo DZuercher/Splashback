@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2018.10.12)  13 FEB 2019 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.12)  13 FEB 2019 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,11 +818,12 @@ Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 32.
 Class revtex4-1 Info: cite was not loaded (OK!) on input line 32.
 Class revtex4-1 Info: mcite was not loaded (OK!) on input line 32.
 Class revtex4-1 Info: multicol was not loaded (OK!) on input line 32.
-No file RSP_paper_new.aux.
+(./RSP_paper_new.aux)
 \openout1 = `RSP_paper_new.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 32.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 32.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
@@ -953,488 +954,56 @@ LaTeX Font Info:    Try loading font information for U+txsyc on input line 56.
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-
-Package natbib Warning: Citation `gunn1972infall' on page 1 undefined on input 
-line 88.
-
-
-Package natbib Warning: Citation `fillmore1984self' on page 1 undefined on inpu
-t line 88.
-
-
-Package natbib Warning: Citation `bertschinger1985self' on page 1 undefined on 
-input line 88.
-
-
-Package natbib Warning: Citation `navarro1997universal' on page 1 undefined on 
-input line 88.
-
-
-Package natbib Warning: Citation `moore1999dark' on page 1 undefined on input l
-ine 88.
-
-
-Package natbib Warning: Citation `navarro1997universal' on page 1 undefined on 
-input line 91.
-
-
-Package natbib Warning: Citation `navarro2004inner' on page 1 undefined on inpu
-t line 95.
-
-
-Package natbib Warning: Citation `cuesta2008virialized' on page 1 undefined on 
-input line 97.
-
-
-Package natbib Warning: Citation `more2011overdensity' on page 1 undefined on i
-nput line 97.
-
-
-Package natbib Warning: Citation `diemer2013pseudo' on page 1 undefined on inpu
-t line 97.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 1 undefined on 
-input line 99.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 1 undefined on 
-input line 101.
-
-
-Package natbib Warning: Citation `adhikari2014splashback' on page 1 undefined o
-n input line 109.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 1 undefined on 
-input line 110.
-
-
-Package natbib Warning: Citation `fillmore1984self' on page 1 undefined on inpu
-t line 114.
-
-
-Package natbib Warning: Citation `bertschinger1985self' on page 1 undefined on 
-input line 114.
-
-
-Package natbib Warning: Citation `lithwick2011self' on page 1 undefined on inpu
-t line 114.
-
-
-Package natbib Warning: Citation `more2015splashback' on page 1 undefined on in
-put line 118.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 1 undefined on 
-input line 123.
-
-
-Package natbib Warning: Citation `more2015splashback' on page 1 undefined on in
-put line 123.
-
-
 Underfull \hbox (badness 1082) in paragraph at lines 126--134
 []\T1/txr/m/n/10 The in-ter-pre-ta-tion of the ac-cre-tion rate de-pen-dence is
 
  []
 
-
-Package natbib Warning: Citation `more2016detection' on page 1 undefined on inp
-ut line 137.
-
-
-Package natbib Warning: Citation `rykoff2014redmapper' on page 1 undefined on i
-nput line 140.
-
-
-Package natbib Warning: Citation `more2016detection' on page 1 undefined on inp
-ut line 141.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 1 undefined on input 
-line 145.
-
-
-Package natbib Warning: Citation `chang2017splashback' on page 1 undefined on i
-nput line 146.
-
-
-Package natbib Warning: Citation `more2016detection' on page 1 undefined on inp
-ut line 147.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 1 undefined on input 
-line 149.
-
-
-Package natbib Warning: Citation `chang2017splashback' on page 1 undefined on i
-nput line 149.
-
-
-Package natbib Warning: Citation `busch2017assembly' on page 1 undefined on inp
-ut line 153.
-
-
-Package natbib Warning: Citation `zu2016level' on page 1 undefined on input lin
-e 160.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package natbib Warning: Citation `umetsu2017lensing' on page 2 undefined on inp
-ut line 172.
-
-
-Package natbib Warning: Citation `contigiani2018weak' on page 2 undefined on in
-put line 172.
-
-
-Package natbib Warning: Citation `chang2017splashback' on page 2 undefined on i
-nput line 176.
-
-
-Package natbib Warning: Citation `chandrasekhar1943dynamical' on page 2 undefin
-ed on input line 201.
-
-
-Package natbib Warning: Citation `more2016detection' on page 2 undefined on inp
-ut line 201.
-
-
-Package natbib Warning: Citation `diemer2017sparta' on page 2 undefined on inpu
-t line 201.
-
-
-Package natbib Warning: Citation `adhikari2016observing' on page 2 undefined on
- input line 201.
-
-
-Package natbib Warning: Citation `more2016detection' on page 2 undefined on inp
-ut line 202.
-
-
-Package natbib Warning: Citation `more2016detection' on page 2 undefined on inp
-ut line 205.
-
-
-LaTeX Warning: Reference `sec:data' on page 2 undefined on input line 221.
-
-
-LaTeX Warning: Reference `sec:estimators' on page 2 undefined on input line 223
-.
-
-
-LaTeX Warning: Reference `sec:Results' on page 2 undefined on input line 224.
-
-
-LaTeX Warning: Reference `sec:Conclusions' on page 2 undefined on input line 22
-5.
-
-
-Package natbib Warning: Citation `sunyaev1970small' on page 2 undefined on inpu
-t line 251.
-
-
-Package natbib Warning: Citation `sunyaev1980velocity' on page 2 undefined on i
-nput line 251.
-
-
-Package natbib Warning: Citation `collaboration2016planck' on page 2 undefined 
-on input line 256.
-
-
-Package natbib Warning: Citation `ade2016planck' on page 2 undefined on input l
-ine 260.
-
-
-Package natbib Warning: Citation `more2016detection' on page 2 undefined on inp
-ut line 280.
-
-
-Package natbib Warning: Citation `ade2014planck' on page 2 undefined on input l
-ine 280.
-
-
-Package natbib Warning: Citation `diemer2017colossus' on page 2 undefined on in
-put line 280.
-
-
-Package natbib Warning: Citation `more2016detection' on page 2 undefined on inp
-ut line 300.
-
-
-Package natbib Warning: Citation `ade2016psclusters' on page 2 undefined on inp
-ut line 320.
-
-
-Package natbib Warning: Citation `ade2014planck' on page 2 undefined on input l
-ine 324.
-
-
-Package natbib Warning: Citation `adam2016planck' on page 2 undefined on input 
-line 324.
-
-
-Package natbib Warning: Citation `collaboration2016planck' on page 2 undefined 
-on input line 324.
-
 LaTeX Font Info:    Try loading font information for T1+txtt on input line 327.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 ) [2]
 
-Package natbib Warning: Citation `more2016detection' on page 3 undefined on inp
-ut line 330.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 329.
 
 
-LaTeX Warning: Reference `sec:mis-centering' on page 3 undefined on input line 
-341.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 329.
 
 
-Package natbib Warning: Citation `more2016detection' on page 3 undefined on inp
-ut line 345.
+Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-
-LaTeX Warning: Reference `tab:cluster_catalogs' on page 3 undefined on input li
-ne 348.
-
-
-Package natbib Warning: Citation `more2016detection' on page 3 undefined on inp
-ut line 350.
-
-
-LaTeX Warning: Reference `fig:planck_summary' on page 3 undefined on input line
- 350.
-
-
-LaTeX Warning: Reference `sec:figures' on page 3 undefined on input line 353.
-
-
-Package natbib Warning: Citation `kosyra2015environment' on page 3 undefined on
- input line 355.
-
-
-Package natbib Warning: Citation `kaiser2002pan' on page 3 undefined on input l
-ine 370.
-
-
-Package natbib Warning: Citation `kaiser2010pan' on page 3 undefined on input l
-ine 370.
-
-
-Package natbib Warning: Citation `bovy2016galactic' on page 3 undefined on inpu
-t line 397.
-
-
-Package natbib Warning: Citation `marshall2006modelling' on page 3 undefined on
- input line 399.
-
-
-Package natbib Warning: Citation `green2015three' on page 3 undefined on input 
-line 399.
-
-
-Package natbib Warning: Citation `drimmel2003three' on page 3 undefined on inpu
-t line 400.
-
-
-Package natbib Warning: Citation `chambers2016pan' on page 3 undefined on input
- line 408.
-
-
-LaTeX Warning: Reference `sec:figures' on page 3 undefined on input line 418.
-
-
-Package natbib Warning: Citation `farrow2013pan' on page 3 undefined on input l
-ine 428.
-
-
-Package natbib Warning: Citation `chambers2016pan' on page 3 undefined on input
- line 430.
-
-
-LaTeX Warning: Reference `tab:galaxy_catalogs' on page 3 undefined on input lin
-e 435.
-
-
-Package natbib Warning: Citation `more2016detection' on page 3 undefined on inp
-ut line 440.
-
-
-Package natbib Warning: Citation `davis1983survey' on page 3 undefined on input
- line 444.
-
-[3]
-
-Package natbib Warning: Citation `landy1993bias' on page 4 undefined on input l
-ine 454.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 4 undefined on 
-input line 466.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 4 undefined on 
-input line 478.
-
-
-Package natbib Warning: Citation `more2016detection' on page 4 undefined on inp
-ut line 488.
-
-
-LaTeX Warning: Reference `eq:surface' on page 4 undefined on input line 489.
-
-
-Package natbib Warning: Citation `goodman2010ensemble' on page 4 undefined on i
-nput line 499.
-
-
-Package natbib Warning: Citation `foreman2013emcee' on page 4 undefined on inpu
-t line 501.
-
-
-Package natbib Warning: Citation `more2016detection' on page 4 undefined on inp
-ut line 511.
-
-
-Package natbib Warning: Citation `more2016detection' on page 4 undefined on inp
-ut line 511.
-
-
-Package natbib Warning: Citation `gao2008redshift' on page 4 undefined on input
- line 511.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 4 undefined on 
-input line 511.
-
-
-LaTeX Warning: Reference `eq:model' on page 4 undefined on input line 521.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 4 undefined on input 
-line 521.
-
-
-LaTeX Warning: Reference `eq:model' on page 4 undefined on input line 521.
-
-
-Package natbib Warning: Citation `umetsu2017lensing' on page 4 undefined on inp
-ut line 521.
-
-
-Package natbib Warning: Citation `adhikari2014splashback' on page 4 undefined o
-n input line 554.
-
-
-Package natbib Warning: Citation `shi2016outer' on page 4 undefined on input li
-ne 554.
-
-
-Package natbib Warning: Citation `mansfield2017splashback' on page 4 undefined 
-on input line 554.
-
-
-Package natbib Warning: Citation `diemer2017splashback' on page 4 undefined on 
-input line 554.
-
-
-Package natbib Warning: Citation `diemer2017splashback' on page 4 undefined on 
-input line 554.
-
-
-Package natbib Warning: Citation `more2015splashback' on page 4 undefined on in
-put line 554.
-
-
-Package natbib Warning: Citation `diemer2014dependence' on page 4 undefined on 
-input line 561.
-
-
-Package natbib Warning: Citation `more2016detection' on page 4 undefined on inp
-ut line 561.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 4 undefined on input 
-line 570.
-
-
-LaTeX Warning: Reference `sec:mis-centering' on page 4 undefined on input line 
-572.
-
+[3] [4]
 
 LaTeX Warning: Command \r invalid in math mode on input line 588.
 
-
-LaTeX Warning: Reference `sec:Errors' on page 4 undefined on input line 598.
-
-[4]
-
-Package natbib Warning: Citation `baxter2017halo' on page 5 undefined on input 
-line 605.
-
-
-LaTeX Warning: Reference `sec:Errors' on page 5 undefined on input line 608.
-
-
-LaTeX Warning: Reference `fig:all_graphs' on page 5 undefined on input line 614
-.
-
-
-Package natbib Warning: Citation `more2016detection' on page 5 undefined on inp
-ut line 623.
-
-
-LaTeX Warning: Reference `eq:surface' on page 5 undefined on input line 625.
-
-
-LaTeX Warning: Reference `sec:estimators' on page 5 undefined on input line 627
-.
-
-
-LaTeX Warning: Reference `tab:fit_parameters' on page 5 undefined on input line
- 632.
-
-
-LaTeX Warning: Reference `fig:corner_21.5' on page 5 undefined on input line 65
-2.
-
-
-LaTeX Warning: Reference `eq:model' on page 5 undefined on input line 652.
-
-<MAIN_results_with_spline_no_mc.pdf, id=100, 564.14922pt x 718.2162pt>
+<MAIN_results_with_spline_no_mc.pdf, id=359, 653.28459pt x 864.85567pt>
 File: MAIN_results_with_spline_no_mc.pdf Graphic file (type pdf)
 <use MAIN_results_with_spline_no_mc.pdf>
 Package pdftex.def Info: MAIN_results_with_spline_no_mc.pdf  used on input line
  656.
-(pdftex.def)             Requested size: 479.52908pt x 610.48665pt.
+(pdftex.def)             Requested size: 555.29454pt x 735.1308pt.
 
-LaTeX Warning: Reference `eq:surface' on page 5 undefined on input line 680.
-
-
-LaTeX Warning: Reference `eq:model' on page 5 undefined on input line 680.
-
-
-LaTeX Warning: Reference `eq:model' on page 5 undefined on input line 680.
+Overfull \hbox (42.17711pt too wide) in paragraph at lines 656--657
+ [][] 
+ []
 
 
-LaTeX Warning: Float too large for page by 23.0748pt on input line 682.
+LaTeX Warning: Float too large for page by 147.71895pt on input line 682.
 
 
 Overfull \hbox (2.7785pt too wide) in paragraph at lines 706--722
  []$[]$ 
  []
 
-<corner215.pdf, id=101, 1287.7512pt x 1284.23808pt>
+<corner215.pdf, id=363, 1287.7512pt x 1284.23808pt>
 File: corner215.pdf Graphic file (type pdf)
 <use corner215.pdf>
 Package pdftex.def Info: corner215.pdf  used on input line 725.
 (pdftex.def)             Requested size: 513.11743pt x 511.72655pt.
-
-LaTeX Warning: Reference `eq:model' on page 5 undefined on input line 729.
-
-<HISTOGRAMS.pdf, id=102, 646.67746pt x 214.78699pt>
+<HISTOGRAMS.pdf, id=365, 646.67746pt x 214.78699pt>
 File: HISTOGRAMS.pdf Graphic file (type pdf)
 <use HISTOGRAMS.pdf>
 Package pdftex.def Info: HISTOGRAMS.pdf  used on input line 735.
@@ -1444,229 +1013,94 @@ Overfull \hbox (4.22525pt too wide) in paragraph at lines 735--736
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:all_graphs' on page 5 undefined on input line 749
-.
-
-<MAIN_color_results_with_spline_no_mc.pdf, id=103, 230.49371pt x 719.9177pt>
+<MAIN_color_results_with_spline_no_mc.pdf, id=367, 230.49371pt x 719.9177pt>
 File: MAIN_color_results_with_spline_no_mc.pdf Graphic file (type pdf)
 <use MAIN_color_results_with_spline_no_mc.pdf>
 Package pdftex.def Info: MAIN_color_results_with_spline_no_mc.pdf  used on inpu
 t line 755.
 (pdftex.def)             Requested size: 172.86986pt x 539.93695pt.
 
-LaTeX Warning: Reference `eq:model' on page 5 undefined on input line 773.
-
-
 LaTeX Warning: Float too large for page by 11.0451pt on input line 775.
 
+[5] [6 <./MAIN_results_with_spline_no_mc.pdf>]
 
-LaTeX Warning: Reference `fig:all_graphs' on page 5 undefined on input line 777
-.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 821.
 
+[7 <./corner215.pdf>]
 
-LaTeX Warning: Reference `fig:all_graphs' on page 5 undefined on input line 794
-.
-
-
-LaTeX Warning: Reference `fig:histograms' on page 5 undefined on input line 803
-.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 821.
 
 
-LaTeX Warning: Reference `tab:fit_parameters' on page 5 undefined on input line
- 804.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 5 undefined on input 
-line 809.
-
-
-LaTeX Warning: Reference `fig:histograms' on page 5 undefined on input line 812
-.
-
-
-Package natbib Warning: Citation `HuKravtsov:2003' on page 5 undefined on input
- line 828.
-
-
-Package natbib Warning: Citation `more2015splashback' on page 5 undefined on in
-put line 831.
-
-
-LaTeX Warning: Reference `fig:color_curve_all' on page 5 undefined on input lin
-e 840.
-
-
-LaTeX Warning: Reference `tab:fit_parameters' on page 5 undefined on input line
- 847.
+Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
 
 Underfull \hbox (badness 1454) in paragraph at lines 836--860
 \T1/txr/m/n/10 three-dimensional cross-correlations of the red and blue
  []
 
-[5] [6 <./MAIN_results_with_spline_no_mc.pdf>]
+[8 <./HISTOGRAMS.pdf>]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 860.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 903.
 
-[7 <./corner215.pdf>]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 860.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 903.
 
 
 Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
 
-
-Package natbib Warning: Citation `baxter2017halo' on page 8 undefined on input 
-line 872.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 8 undefined on input 
-line 872.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 8 undefined on input 
-line 872.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 8 undefined on input 
-line 872.
-
-
-LaTeX Warning: Reference `sec:Errors' on page 8 undefined on input line 880.
-
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 911.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 913.
 
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <10> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 911.
- [8 <./HISTOGRAMS.pdf>]
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 933.
-
-
-LaTeX Warning: A float is stuck (cannot be placed) on input line 933.
-
-
-Class revtex4-1 Warning: Deferred float stuck during \clearpage processing.
-
-
-LaTeX Warning: Reference `sec:Color' on page 9 undefined on input line 954.
-
-
-LaTeX Warning: Reference `sec:Errors' on page 9 undefined on input line 955.
-
-
-Package natbib Warning: Citation `Aihara2018' on page 9 undefined on input line
- 958.
-
-
-Package natbib Warning: Citation `Abbott2018' on page 9 undefined on input line
- 958.
-
-
-Package natbib Warning: Citation `LSST2009' on page 9 undefined on input line 9
-60.
-
-[9 <./MAIN_color_results_with_spline_no_mc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1011
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 913.
+ [9 <./MAIN_color_results_with_spline_no_mc.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1015
 []\T1/txr/m/n/10 Based on ob-ser-va-tions ob-tained with Planck
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1015
 \T1/txr/m/n/10 (http://www.esa.int/Planck), an ESA sci-ence mis-sion
  []
 
-No file RSP_paper_new.bbl.
+(./RSP_paper_new.bbl
 
-LaTeX Warning: Reference `fig:planck_summary' on page 10 undefined on input lin
-e 1022.
-
-
-LaTeX Warning: Reference `fig:skymaps' on page 10 undefined on input line 1024.
+Package hyperref Warning: Suppressing empty link on input line 23.
 
 
-<Planck_summary.pdf, id=428, 430.7292pt x 430.7292pt>
+Package hyperref Warning: Suppressing empty link on input line 194.
+
+[10])
+<Planck_summary.pdf, id=759, 430.7292pt x 430.7292pt>
 File: Planck_summary.pdf Graphic file (type pdf)
 <use Planck_summary.pdf>
-Package pdftex.def Info: Planck_summary.pdf  used on input line 1028.
+Package pdftex.def Info: Planck_summary.pdf  used on input line 1032.
 (pdftex.def)             Requested size: 236.9018pt x 236.9018pt.
-<skymaps.pdf, id=429, 1058.39557pt x 193.79105pt>
+<skymaps.pdf, id=760, 1058.39557pt x 193.79105pt>
 File: skymaps.pdf Graphic file (type pdf)
 <use skymaps.pdf>
-Package pdftex.def Info: skymaps.pdf  used on input line 1037.
+Package pdftex.def Info: skymaps.pdf  used on input line 1041.
 (pdftex.def)             Requested size: 513.11743pt x 93.9501pt.
+ [11 <./Planck_summary.pdf> <./skymaps.pdf
 
-Overfull \hbox (267.8509pt too wide) in paragraph at lines 1037--1038
-[][] 
- []
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 10 undefined on input
- line 1052.
-
-
-Package natbib Warning: Citation `Skibba:2011' on page 10 undefined on input li
-ne 1063.
-
-
-Package natbib Warning: Citation `Hoshino:2015' on page 10 undefined on input l
-ine 1063.
-
-
-Package natbib Warning: Citation `baxter2017halo' on page 10 undefined on input
- line 1064.
-
-
-Package natbib Warning: Citation `yang2006weak' on page 10 undefined on input l
-ine 1101.
-
-
-Package natbib Warning: Citation `johnston2007cross' on page 10 undefined on in
-put line 1101.
-
-
-Package natbib Warning: Citation `cavagnolo2009vizier' on page 10 undefined on 
-input line 1114.
-
-[10 <./Planck_summary.pdf> <./skymaps.pdf
-
-pdfTeX warning: latex (file ./skymaps.pdf): PDF inclusion: multiple pdfs with p
-age group included in a single page
->]
-
-LaTeX Warning: Reference `eq:full' on page 11 undefined on input line 1122.
-
-
-LaTeX Warning: Reference `tab:mis_splash' on page 11 undefined on input line 11
-53.
-
-
-LaTeX Warning: Reference `fig:g-r_vs_z' on page 11 undefined on input line 1162
-.
-
-<color_vs_z.pdf, id=476, 208.91867pt x 199.93295pt>
+pdfTeX warning: pdflatex (file ./skymaps.pdf): PDF inclusion: multiple pdfs wit
+h page group included in a single page
+>] [12]
+<color_vs_z.pdf, id=829, 208.91867pt x 199.93295pt>
 File: color_vs_z.pdf Graphic file (type pdf)
 <use color_vs_z.pdf>
-Package pdftex.def Info: color_vs_z.pdf  used on input line 1246.
+Package pdftex.def Info: color_vs_z.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 256.55872pt x 245.53777pt.
-
-Package natbib Warning: There were undefined citations.
-
-[11] [12 <./color_vs_z.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1268.
+ [13 <./color_vs_z.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1272.
  (./RSP_paper_new.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1268.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1268.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1272.
 
 Package rerunfilecheck Info: File `RSP_paper_new.out' has not changed.
 (rerunfilecheck)             Checksum: EDCB29A5AA087DCA5CCED4479182DD52;728.
-
-
-LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
@@ -1674,44 +1108,45 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
 
  ) 
 Here is how much of TeX's memory you used:
- 9745 strings out of 494881
- 132334 string characters out of 6179626
- 262495 words of memory out of 5000000
- 12830 multiletter control sequences out of 15000+600000
+ 9991 strings out of 494880
+ 138322 string characters out of 6179600
+ 266060 words of memory out of 5000000
+ 13013 multiletter control sequences out of 15000+600000
  78220 words of font info for 127 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 32i,13n,30p,1766b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,13n,30p,1766b,646s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txf
-onts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/urw/times/utmri8a.pfb>
-Output written on RSP_paper_new.pdf (12 pages, 2927617 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/rtxb.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/txfonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/txfonts/t1xtt.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/t
+xex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmri8a.pfb>
+Output written on RSP_paper_new.pdf (13 pages, 3300044 bytes).
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
- 433 compressed objects within 5 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 932 PDF objects out of 1000 (max. 8388607)
+ 789 compressed objects within 8 object streams
+ 109 named destinations out of 1000 (max. 500000)
  132 words of extra memory for PDF output out of 10000 (max. 10000000)
 

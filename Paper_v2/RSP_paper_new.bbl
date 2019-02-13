@@ -1,0 +1,287 @@
+\begin{thebibliography}{}
+\makeatletter
+\relax
+\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}
+\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@}
+  {\mn@doi@[]}}
+\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href
+  {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi
+  \endgroup}
+\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
+\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}
+\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml}
+  {dblp:#1}}
+\def\mn@eprint@#1:#2:#3:#4\@nil{\def\@tempa {#1}\def\@tempb {#2}\def\@tempc
+  {#3}\ifx \@tempc \@empty \let \@tempc \@tempb \let \@tempb \@tempa \fi \ifx
+  \@tempb \@empty \def\@tempb {arXiv}\fi \@ifundefined
+  {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
+  mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
+
+\bibitem[\protect\citeauthoryear{{Abbott} et~al.,}{{Abbott}
+  et~al.}{2018}]{Abbott2018}
+{Abbott} T.~M.~C.,  et~al., 2018, preprint, \href
+  {http://adsabs.harvard.edu/abs/2018arXiv180103181A} {} (\mn@eprint {arXiv}
+  {1801.03181})
+
+\bibitem[\protect\citeauthoryear{Adam et~al.,}{Adam
+  et~al.}{2016}]{adam2016planck}
+Adam R.,  et~al., 2016, Astronomy \& Astrophysics, 594, A1
+
+\bibitem[\protect\citeauthoryear{Ade et~al.,}{Ade et~al.}{2014}]{ade2014planck}
+Ade P.~A.,  et~al., 2014, Astronomy \& Astrophysics, 571, A16
+
+\bibitem[\protect\citeauthoryear{Ade et~al.,}{Ade
+  et~al.}{2016a}]{collaboration2016planck}
+Ade P.,  et~al., 2016a, Astronomy \& Astrophysics
+
+\bibitem[\protect\citeauthoryear{Ade et~al.,}{Ade
+  et~al.}{2016b}]{ade2016planck}
+Ade P.~A.,  et~al., 2016b, Astronomy \& Astrophysics, 594, A13
+
+\bibitem[\protect\citeauthoryear{Adhikari, Dalal  \& Chamberlain}{Adhikari
+  et~al.}{2014}]{adhikari2014splashback}
+Adhikari S.,  Dalal N.,   Chamberlain R.~T.,  2014, Journal of Cosmology and
+  Astroparticle Physics, 2014, 019
+
+\bibitem[\protect\citeauthoryear{Adhikari, Dalal  \& Clampitt}{Adhikari
+  et~al.}{2016}]{adhikari2016observing}
+Adhikari S.,  Dalal N.,   Clampitt J.,  2016, Journal of Cosmology and
+  Astroparticle Physics, 2016, 022
+
+\bibitem[\protect\citeauthoryear{{Aihara} et~al.,}{{Aihara}
+  et~al.}{2018}]{Aihara2018}
+{Aihara} H.,  et~al., 2018, \mn@doi [\pasj] {10.1093/pasj/psx081}, \href
+  {http://adsabs.harvard.edu/abs/2018PASJ...70S...8A} {70, S8}
+
+\bibitem[\protect\citeauthoryear{Baxter et~al.,}{Baxter
+  et~al.}{2017}]{baxter2017halo}
+Baxter E.,  et~al., 2017, The Astrophysical Journal, 841, 18
+
+\bibitem[\protect\citeauthoryear{Bertschinger}{Bertschinger}{1985}]{bertschinger1985self}
+Bertschinger E.,  1985, The Astrophysical Journal Supplement Series, 58, 39
+
+\bibitem[\protect\citeauthoryear{Bovy, Rix, Green, Schlafly  \&
+  Finkbeiner}{Bovy et~al.}{2016}]{bovy2016galactic}
+Bovy J.,  Rix H.-W.,  Green G.~M.,  Schlafly E.~F.,   Finkbeiner D.~P.,  2016,
+  The Astrophysical Journal, 818, 130
+
+\bibitem[\protect\citeauthoryear{Busch \& White}{Busch \&
+  White}{2017}]{busch2017assembly}
+Busch P.,  White S.~D.,  2017, Monthly Notices of the Royal Astronomical
+  Society, 470, 4767
+
+\bibitem[\protect\citeauthoryear{Cavagnolo, Donahue, Voit  \& Sun}{Cavagnolo
+  et~al.}{2009}]{cavagnolo2009vizier}
+Cavagnolo K.,  Donahue M.,  Voit G.,   Sun M.,  2009, VizieR Online Data
+  Catalog, 218
+
+\bibitem[\protect\citeauthoryear{Chambers et~al.,}{Chambers
+  et~al.}{2016}]{chambers2016pan}
+Chambers K.~C.,  et~al., 2016, arXiv preprint arXiv:1612.05560
+
+\bibitem[\protect\citeauthoryear{Chandrasekhar}{Chandrasekhar}{1943}]{chandrasekhar1943dynamical}
+Chandrasekhar S.,  1943, The Astrophysical Journal, 97, 255
+
+\bibitem[\protect\citeauthoryear{Chang et~al.,}{Chang
+  et~al.}{2017}]{chang2017splashback}
+Chang C.,  et~al., 2017, arXiv preprint arXiv:1710.06808
+
+\bibitem[\protect\citeauthoryear{Contigiani, Hoekstra  \& Bah{\'e}}{Contigiani
+  et~al.}{2018}]{contigiani2018weak}
+Contigiani O.,  Hoekstra H.,   Bah{\'e} Y.,  2018, arXiv preprint
+  arXiv:1809.10045
+
+\bibitem[\protect\citeauthoryear{Cuesta, Prada, Klypin  \& Moles}{Cuesta
+  et~al.}{2008}]{cuesta2008virialized}
+Cuesta A.,  Prada F.,  Klypin A.,   Moles M.,  2008, Monthly Notices of the
+  Royal Astronomical Society, 389, 385
+
+\bibitem[\protect\citeauthoryear{Davis \& Peebles}{Davis \&
+  Peebles}{1983}]{davis1983survey}
+Davis M.,  Peebles P.,  1983, The Astrophysical Journal, 267, 465
+
+\bibitem[\protect\citeauthoryear{Diemer}{Diemer}{2017a}]{diemer2017colossus}
+Diemer B.,  2017a, arXiv preprint arXiv:1712.04512
+
+\bibitem[\protect\citeauthoryear{Diemer}{Diemer}{2017b}]{diemer2017sparta}
+Diemer B.,  2017b, The Astrophysical Journal Supplement Series, 231, 5
+
+\bibitem[\protect\citeauthoryear{Diemer \& Kravtsov}{Diemer \&
+  Kravtsov}{2014}]{diemer2014dependence}
+Diemer B.,  Kravtsov A.~V.,  2014, The Astrophysical Journal, 789, 1
+
+\bibitem[\protect\citeauthoryear{Diemer, More  \& Kravtsov}{Diemer
+  et~al.}{2013}]{diemer2013pseudo}
+Diemer B.,  More S.,   Kravtsov A.~V.,  2013, The Astrophysical Journal, 766,
+  25
+
+\bibitem[\protect\citeauthoryear{Diemer, Mansfield, Kravtsov  \& More}{Diemer
+  et~al.}{2017}]{diemer2017splashback}
+Diemer B.,  Mansfield P.,  Kravtsov A.~V.,   More S.,  2017, The Astrophysical
+  Journal, 843, 140
+
+\bibitem[\protect\citeauthoryear{Drimmel, Cabrera-Lavers  \&
+  L{\'o}pez-Corredoira}{Drimmel et~al.}{2003}]{drimmel2003three}
+Drimmel R.,  Cabrera-Lavers A.,   L{\'o}pez-Corredoira M.,  2003, Astronomy \&
+  Astrophysics, 409, 205
+
+\bibitem[\protect\citeauthoryear{Farrow et~al.,}{Farrow
+  et~al.}{2013}]{farrow2013pan}
+Farrow D.~J.,  et~al., 2013, Monthly Notices of the Royal Astronomical Society,
+  437, 748
+
+\bibitem[\protect\citeauthoryear{Fillmore \& Goldreich}{Fillmore \&
+  Goldreich}{1984}]{fillmore1984self}
+Fillmore J.~A.,  Goldreich P.,  1984, The Astrophysical Journal, 281, 1
+
+\bibitem[\protect\citeauthoryear{Foreman-Mackey, Hogg, Lang  \&
+  Goodman}{Foreman-Mackey et~al.}{2013}]{foreman2013emcee}
+Foreman-Mackey D.,  Hogg D.~W.,  Lang D.,   Goodman J.,  2013, Publications of
+  the Astronomical Society of the Pacific, 125, 306
+
+\bibitem[\protect\citeauthoryear{Gao, Navarro, Cole, Frenk, White, Springel,
+  Jenkins  \& Neto}{Gao et~al.}{2008}]{gao2008redshift}
+Gao L.,  Navarro J.~F.,  Cole S.,  Frenk C.~S.,  White S.~D.,  Springel V.,
+  Jenkins A.,   Neto A.~F.,  2008, Monthly Notices of the Royal Astronomical
+  Society, 387, 536
+
+\bibitem[\protect\citeauthoryear{Goodman, Weare  et~al.}{Goodman
+  et~al.}{2010}]{goodman2010ensemble}
+Goodman J.,  Weare J.,   et~al., 2010, Communications in applied mathematics
+  and computational science, 5, 65
+
+\bibitem[\protect\citeauthoryear{Green et~al.,}{Green
+  et~al.}{2015}]{green2015three}
+Green G.~M.,  et~al., 2015, The Astrophysical Journal, 810, 25
+
+\bibitem[\protect\citeauthoryear{Gunn \& Gott~III}{Gunn \&
+  Gott~III}{1972}]{gunn1972infall}
+Gunn J.~E.,  Gott~III J.~R.,  1972, The Astrophysical Journal, 176, 1
+
+\bibitem[\protect\citeauthoryear{{Hoshino} et~al.,}{{Hoshino}
+  et~al.}{2015}]{Hoshino:2015}
+{Hoshino} H.,  et~al., 2015, \mn@doi [\mnras] {10.1093/mnras/stv1271}, \href
+  {http://adsabs.harvard.edu/abs/2015MNRAS.452..998H} {452, 998}
+
+\bibitem[\protect\citeauthoryear{{Hu} \& {Kravtsov}}{{Hu} \&
+  {Kravtsov}}{2003}]{HuKravtsov:2003}
+{Hu} W.,  {Kravtsov} A.~V.,  2003, \mn@doi [\apj] {10.1086/345846}, \href
+  {http://adsabs.harvard.edu/abs/2003ApJ...584..702H} {584, 702}
+
+\bibitem[\protect\citeauthoryear{Johnston et~al.,}{Johnston
+  et~al.}{2007}]{johnston2007cross}
+Johnston D.~E.,  et~al., 2007, arXiv preprint arXiv:0709.1159
+
+\bibitem[\protect\citeauthoryear{Kaiser et~al.,}{Kaiser
+  et~al.}{2002}]{kaiser2002pan}
+Kaiser N.,  et~al., 2002, in Survey and Other Telescope Technologies and
+  Discoveries. pp 154--165
+
+\bibitem[\protect\citeauthoryear{Kaiser et~al.,}{Kaiser
+  et~al.}{2010}]{kaiser2010pan}
+Kaiser N.,  et~al., 2010, in Ground-based and Airborne Telescopes III. p.
+  77330E
+
+\bibitem[\protect\citeauthoryear{Kosyra, Gruen, Seitz, Mana, Rozo, Rykoff,
+  Sanchez  \& Bender}{Kosyra et~al.}{2015}]{kosyra2015environment}
+Kosyra R.,  Gruen D.,  Seitz S.,  Mana A.,  Rozo E.,  Rykoff E.,  Sanchez A.,
+  Bender R.,  2015, Monthly Notices of the Royal Astronomical Society, 452,
+  2353
+
+\bibitem[\protect\citeauthoryear{{LSST Science Collaboration} et~al.,}{{LSST
+  Science Collaboration} et~al.}{2009}]{LSST2009}
+{LSST Science Collaboration} et~al., 2009, preprint, \href
+  {http://adsabs.harvard.edu/abs/2009arXiv0912.0201L} {} (\mn@eprint {arXiv}
+  {0912.0201})
+
+\bibitem[\protect\citeauthoryear{Landy \& Szalay}{Landy \&
+  Szalay}{1993}]{landy1993bias}
+Landy S.~D.,  Szalay A.~S.,  1993, The Astrophysical Journal, 412, 64
+
+\bibitem[\protect\citeauthoryear{Lithwick \& Dalal}{Lithwick \&
+  Dalal}{2011}]{lithwick2011self}
+Lithwick Y.,  Dalal N.,  2011, The Astrophysical Journal, 734, 100
+
+\bibitem[\protect\citeauthoryear{Mansfield, Kravtsov  \& Diemer}{Mansfield
+  et~al.}{2017}]{mansfield2017splashback}
+Mansfield P.,  Kravtsov A.~V.,   Diemer B.,  2017, The Astrophysical Journal,
+  841, 34
+
+\bibitem[\protect\citeauthoryear{Marshall, Robin, Reyl{\'e}, Schultheis  \&
+  Picaud}{Marshall et~al.}{2006}]{marshall2006modelling}
+Marshall D.~J.,  Robin A.,  Reyl{\'e} C.,  Schultheis M.,   Picaud S.,  2006,
+  Astronomy \& Astrophysics, 453, 635
+
+\bibitem[\protect\citeauthoryear{Moore, Ghigna, Governato, Lake, Quinn, Stadel
+  \& Tozzi}{Moore et~al.}{1999}]{moore1999dark}
+Moore B.,  Ghigna S.,  Governato F.,  Lake G.,  Quinn T.,  Stadel J.,   Tozzi
+  P.,  1999, The Astrophysical Journal Letters, 524, L19
+
+\bibitem[\protect\citeauthoryear{More, Kravtsov, Dalal  \& Gottl{\"o}ber}{More
+  et~al.}{2011}]{more2011overdensity}
+More S.,  Kravtsov A.~V.,  Dalal N.,   Gottl{\"o}ber S.,  2011, The
+  Astrophysical Journal Supplement Series, 195, 4
+
+\bibitem[\protect\citeauthoryear{More, Diemer  \& Kravtsov}{More
+  et~al.}{2015}]{more2015splashback}
+More S.,  Diemer B.,   Kravtsov A.~V.,  2015, The Astrophysical Journal, 810,
+  36
+
+\bibitem[\protect\citeauthoryear{More et~al.,}{More
+  et~al.}{2016}]{more2016detection}
+More S.,  et~al., 2016, The Astrophysical Journal, 825, 39
+
+\bibitem[\protect\citeauthoryear{Navarro, Frenk  \& White}{Navarro
+  et~al.}{1997}]{navarro1997universal}
+Navarro J.~F.,  Frenk C.~S.,   White S.~D.,  1997, The Astrophysical Journal,
+  490, 493
+
+\bibitem[\protect\citeauthoryear{Navarro et~al.,}{Navarro
+  et~al.}{2004}]{navarro2004inner}
+Navarro J.~F.,  et~al., 2004, Monthly Notices of the Royal Astronomical
+  Society, 349, 1039
+
+\bibitem[\protect\citeauthoryear{{Planck Collaboration} et~al.,}{{Planck
+  Collaboration} et~al.}{2016}]{ade2016psclusters}
+{Planck Collaboration} et~al., 2016, \mn@doi [\aap]
+  {10.1051/0004-6361/201525823}, \href
+  {http://adsabs.harvard.edu/abs/2016A%26A...594A..27P} {594, A27}
+
+\bibitem[\protect\citeauthoryear{Rykoff et~al.,}{Rykoff
+  et~al.}{2014}]{rykoff2014redmapper}
+Rykoff E.,  et~al., 2014, The Astrophysical Journal, 785, 104
+
+\bibitem[\protect\citeauthoryear{Shi}{Shi}{2016}]{shi2016outer}
+Shi X.,  2016, Monthly Notices of the Royal Astronomical Society, 459, 3711
+
+\bibitem[\protect\citeauthoryear{{Skibba}, {van den Bosch}, {Yang}, {More},
+  {Mo}  \& {Fontanot}}{{Skibba} et~al.}{2011}]{Skibba:2011}
+{Skibba} R.~A.,  {van den Bosch} F.~C.,  {Yang} X.,  {More} S.,  {Mo} H.,
+  {Fontanot} F.,  2011, \mn@doi [\mnras] {10.1111/j.1365-2966.2010.17452.x},
+  \href {http://adsabs.harvard.edu/abs/2011MNRAS.410..417S} {410, 417}
+
+\bibitem[\protect\citeauthoryear{Sunyaev \& Zeldovich}{Sunyaev \&
+  Zeldovich}{1970}]{sunyaev1970small}
+Sunyaev R.~A.,  Zeldovich Y.~B.,  1970, Astrophysics and Space Science, 7, 3
+
+\bibitem[\protect\citeauthoryear{Sunyaev \& Zeldovich}{Sunyaev \&
+  Zeldovich}{1980}]{sunyaev1980velocity}
+Sunyaev R.,  Zeldovich I.~B.,  1980, Monthly Notices of the Royal Astronomical
+  Society, 190, 413
+
+\bibitem[\protect\citeauthoryear{Umetsu \& Diemer}{Umetsu \&
+  Diemer}{2017}]{umetsu2017lensing}
+Umetsu K.,  Diemer B.,  2017, The Astrophysical Journal, 836, 231
+
+\bibitem[\protect\citeauthoryear{Yang, Mo, Van Den~Bosch, Jing, Weinmann  \&
+  Meneghetti}{Yang et~al.}{2006}]{yang2006weak}
+Yang X.,  Mo H.,  Van Den~Bosch F.~C.,  Jing Y.,  Weinmann S.~M.,   Meneghetti
+  M.,  2006, Monthly Notices of the Royal Astronomical Society, 373, 1159
+
+\bibitem[\protect\citeauthoryear{Zu, Mandelbaum, Simet, Rozo  \& Rykoff}{Zu
+  et~al.}{2016}]{zu2016level}
+Zu Y.,  Mandelbaum R.,  Simet M.,  Rozo E.,   Rykoff E.~S.,  2016, Monthly
+  Notices of the Royal Astronomical Society
+
+\makeatother
+\end{thebibliography}
