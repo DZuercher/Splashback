@@ -79,10 +79,10 @@ Reply: We thank the referee for this suggestion. We have now combined Figure 2
 and Figure 3 in the original manuscript into one. However, since the upper two
 panels have the projected radius as the abscissa while the bottom three have
 the 3-dimensional radius instead, we have included the labels at the bottom of
-row 2, and row 5 separately. {\bf TBD: We have also included a label Rsp^{\rm
-2d} and Rsp^{\rm 3d} to indicate the two and three dimensional locations of the
-steepest slopes.} We have similarly combined Figure 6 and 7 into the new Figure
-4.
+row 2, and row 5 separately. We have also included a label Rsp^{\rm 2d} and
+Rsp^{\rm 3d} to indicate the two and three dimensional locations of the
+steepest slopes, since it could be confusing. We have similarly combined Figure
+6 and 7 into the new Figure 4.
 
 >
 > c) Tables 3 and 4 contain so little data that they could easily be put into
@@ -227,8 +227,11 @@ Reply: We have corrected this.
 > profile measure is smooth as it is inferred from the profile fitting function.
 > My expectation would be that the derivatives should look smooth too?
 
-Reply: Not corrected since this would require evaluating function on many more
-points -> large computational cost
+Reply: The noisy looking derivatives were a result of us avoiding the large
+computational cost of storing the derivatives at a large number of radial
+points at every MCMC step. We have now taken the computed points, and plotted
+the spline instead and are displaying it in the Figure to avoid this noise in
+the derivative figure.
 
 > c) Section 4.1 is the only sub-section of Section 4, and thus makes no sense. I
 > would either remove the 4.1 section title or add more sub-sections.
