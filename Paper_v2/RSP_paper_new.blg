@@ -6,44 +6,44 @@ Database file #1: RSP_paper_newNotes.bib
 Database file #2: RSP_library.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 58 entries,
+You've used 59 entries,
             2881 wiz_defined-function locations,
-            1057 strings with 23633 characters,
-and the built_in function-call counts, 25530 in all, are:
-= -- 2037
-> -- 1885
-< -- 110
-+ -- 879
-- -- 248
-* -- 3019
-:= -- 4029
+            1066 strings with 23821 characters,
+and the built_in function-call counts, 26005 in all, are:
+= -- 2077
+> -- 1917
+< -- 114
++ -- 893
+- -- 252
+* -- 3078
+:= -- 4102
 add.period$ -- 0
-call.type$ -- 58
-change.case$ -- 116
-chr.to.int$ -- 56
-cite$ -- 58
-duplicate$ -- 1306
-empty$ -- 1309
-format.name$ -- 448
-if$ -- 4380
+call.type$ -- 59
+change.case$ -- 118
+chr.to.int$ -- 57
+cite$ -- 59
+duplicate$ -- 1329
+empty$ -- 1331
+format.name$ -- 458
+if$ -- 4462
 int.to.chr$ -- 3
 int.to.str$ -- 0
-missing$ -- 58
-newline$ -- 187
-num.names$ -- 374
-pop$ -- 277
+missing$ -- 59
+newline$ -- 190
+num.names$ -- 382
+pop$ -- 280
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 236
 quote$ -- 0
-skip$ -- 791
+skip$ -- 806
 stack$ -- 0
-substring$ -- 1314
-swap$ -- 606
-text.length$ -- 234
+substring$ -- 1340
+swap$ -- 622
+text.length$ -- 238
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 522
+type$ -- 531
 warning$ -- 0
-while$ -- 406
+while$ -- 414
 width$ -- 0
-write$ -- 587
+write$ -- 597
