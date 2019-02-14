@@ -49,8 +49,8 @@ $^{4}$ dominik.zuercher@phys.ethz.ch
 
 \begin{abstract}
 We present evidence for the existence of the splashback radius in galaxy
-clusters selected using the Sunyaev-Zeldovich effect, a sample unaffected by
-systematics related to cluster finding in the optical wavelength range. We show
+clusters selected using the Sunyaev-Zeldovich effect, {\bf a sample unaffected by
+systematics related to cluster finding in the optical wavelength range.} We show
 that the deprojected cross-correlation of galaxy clusters found in the Planck
 survey with galaxies detected photometrically in the Pan-STARRS survey, shows a
 sharp steepening feature (a logarithmic slope steeper than $-3$), which we
@@ -191,14 +191,14 @@ cross-correlation of galaxies with clusters.
 galaxies that are orbiting the galaxy cluster \citep{chandrasekhar1943dynamical}.
 If a majority of the observed galaxies are hosted by these massive
 subhalos, the slow down due to dynamical friction would reduce the apocenters
-of their orbits, and in turn, biasing the measured splashback radius of the host
+of their orbits, and in turn, bias the measured splashback radius of the host
 cluster \citep{more2016detection, diemer2017sparta}. As dynamical
 friction timescales are inversely proportional to the mass of the subhalos,
 this effect is stronger for more massive subhalos. Therefore, one expects the
-splashback radius to decrease for more massive subhalos
-\citep{adhikari2016observing}.  This bias can be limited by choosing a faint
-galaxy sample such that the majority of the galaxies reside in low mass subhalos,
-unaffected by dynamical friction.} The SDSS sample used by
+splashback radius to be biased low as measured for more massive subhalos
+\citep{adhikari2016observing}.  This bias can be overcome by choosing a faint
+enough galaxy sample such that the majority of the galaxies reside in low mass
+subhalos, unaffected by dynamical friction.} The SDSS sample used by
 \citet{more2016detection} was already deep enough such that biases in the
 location of the splashback radius due to dynamical friction effects were
 expected to be small. Nevertheless, we use galaxy samples, which are fainter by
@@ -503,12 +503,13 @@ implemented in the parallel python package {\it emcee} by
 $s_{\mathrm{e}}$ vary freely during our fitting procedure. Similar to
 \citet{more2016detection} we put flat priors on $\log_{10}(r_{\mathrm{s}})$ and
 $\log_{10}(r_{\mathrm{t}})$ but double their ranges to $[0.1,5.0]$ compared to
-their work. In contrast to \citet{more2016detection}, we use a normal prior
-with a central value of $\log_{10}(0.2)$ and a scale of 1.2 for
-$\log_{10}(\alpha)$ as deduced from mass estimates \citep{gao2008redshift}.
-For the parameters $\log_{10}(\beta)$ and $\log_{10}(\gamma)$ we also use
-normal priors with central values $\log_{10}(6.0)$ and $\log_{10}(4.0)$,
-respectively and scale 0.4 as recommended by \citet{diemer2014dependence}.}
+their work in order to stay conservative. We also use a normal prior with a
+central value of $\log_{10}(0.2)$ for $\log_{10}(\alpha)$ as deduced from mass
+estimates \citep{gao2008redshift}. To be conservative, we once again double the
+scale of the prior to be 1.2 compared to \citet{more2016detection}. For the
+parameters $\log_{10}(\beta)$ and $\log_{10}(\gamma)$ we also use normal priors
+with central values $\log_{10}(6.0)$ and $\log_{10}(4.0)$, respectively and
+scale 0.4 as recommended by \citet{diemer2014dependence}.}
 
 \textbf{It has been a common concern that the profile in
 Equation~\ref{eq:model} introduces a point of minimum slope in the logarithmic
@@ -543,7 +544,7 @@ but using weak lensing data.}
 ways, e.g., as the radius of the outermost shell in theoretical models of
 spherical symmetric collapse \citep{adhikari2014splashback, shi2016outer}, or
 using non-spherical shells of density jumps \citep{ mansfield2017splashback},
-or the average location of the apocenter of particles falling in the cluster
+or the average location of the apocenter of particles falling into the cluster
 potential \citet{diemer2017splashback}. Although these definitions have subtle
 differences, they all follow the general trend of a decreasing splashback
 radius with increasing rate of accretion \citep{diemer2017splashback}.
@@ -615,12 +616,12 @@ first row of Figure~\ref{fig:all_graphs}. The different columns
 correspond to the three different absolute magnitude limits that we
 have used to select all the galaxies when calculating the
 cross-correlations. The cross-correlation signal is clearly detected
-in all three measurements. \textbf{The signal to noise ratios of the
+in all three measurements. \textbf{The signal-to-noise ratios of the
 three different estimates of the two-dimensional cross-correlation signals
 amount to 42.4, 43.3 and 30.9 for the galaxy samples PS 21, PS 21.5 and PS 22,
-respectively. For comparison, the detection SNR in \citet{more2016detection}
-was 263, a much higher number due to the size of the cluster sample used in
-their study.}
+respectively. For comparison, the detection signal-to-noise ratio in
+\citet{more2016detection} was 263, a much higher number due to the size of the
+cluster sample used in their study.}
 
 We fit these measurements with our parametric model in Equation~\ref{eq:surface}
 and compute the posterior distribution of the model parameters
@@ -645,15 +646,14 @@ the model. This degeneracy also leads to some of the parameters not being
 constrained tightly (especially $\rho_s$ and $r_s$ due to their strong degeneracy
 with $\alpha$). On the other hand, it is important to note that there is
 little-to-no degeneracy present between parameters describing different parts
-of the model, which means that the overall shape of the profile is well
-constrained.  Note also that, since the location of the splashback radius only
-depends on the overall shape of the profile, the uncertainties of the
-individual parameters within the independent parts of the profile do not
-translate into a huge uncertainty on the location of the splashback feature.}
+of the model, which means that the location of the transition region is well
+constrained. Therefore, the uncertainties of the individual parameters within
+the independent parts of the profile do not directly translate into an
+uncertainty in the location of the splashback feature.}
 
 \begin{figure*}
 	\centering{
-    \includegraphics[scale=0.85]{MAIN_results_with_spline_no_mc.pdf}}
+    \includegraphics[scale=0.75]{MAIN_results_with_spline_no_mc.pdf}}
 \caption{The main results of the study are presented in this Figure.
 The first two rows show the inferred two-dimensional cross-correlation
 signals as well as its derivatives.
