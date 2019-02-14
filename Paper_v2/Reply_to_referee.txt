@@ -52,10 +52,12 @@ detailed suggestions which have helped improve the paper.
 > Figure 1 into Appendix A, which could be renamed from "Sky maps" to "Properties
 > of the SZ sample" or something like that.
 
-Reply: Our original motivation to keep Figure 1 in the beginning was to show the
-average redshift of the sample and the mass range, since that goes in our
-theoretical expectation. However since this is indicated in the Table, we have
-now moved Figure 1 to the appendix based on the referee's suggestion.
+Reply: Our original motivation to keep Figure 1 in the beginning was to show
+the average redshift of the sample and the mass range, since that goes in our
+theoretical expectation. However since this is indicated in Table 1, we have
+now moved Figure 1 to the appendix based on the referee's suggestion. We have
+renamed the appendix to "Properties of the SZ clusters and the PS galaxy
+sample".
 
 >
 > b) Figures 2 and 3 show very similar things, namely the 2D and 3D density
@@ -162,7 +164,9 @@ introduction as well as just before Section 2.1.
 
 Reply: We would like to apologize for missing these citations. We have now
 pointed out these alternative ways of defining the splashback radius in the
-Methods section, along with the relevant citations.
+Methods section, along with the relevant citations. We have also highlighted
+the common thread connecting these different definitions, and mentioned the
+reason we adopt a particular definition in the paper.
 
 >
 > c) It is assumed that the reader understands the connection between the
@@ -174,7 +178,7 @@ Methods section, along with the relevant citations.
 > dynamical friction in SDSS.
 
 Reply: We have now added comments relevant to dynamical friction effects in the
-introduction itself now.
+introduction itself.
 
 >
 > d) One common concern is that the profile fitting function might introduce a
@@ -213,14 +217,18 @@ and thank the referee for noticing it.
 > remains a little unclear in the main text. I would refer to Baxter+17 Figure 5,
 > saying that they found no splashback in the blue population, and make a firm
 > statement on whether there is any evidence that this is wrong (given the issues
-> with contamination).  -refer to baxter and explain why we find something
-> different
->
+> with contamination).  
+
+Reply: We now refer to Baxter et al. 2017, explain the differences between our
+results. We refrain from making a strong statement given that the analysis
+methods are different and the difference between which galaxies we consider
+blue compared to what Baxter et al. adopt in their paper.
+
 > 4) I have some smaller comments and questions regarding the text and figures.
 >
 > a) In Table 2, it looks like "'" were used instead of "." in large numbers.
 
-Reply: We have corrected this.
+Reply: We have now corrected this.
 
 >
 > b) The derivatives in figures 2, 3 etc look somewhat noisy, even though the
@@ -230,20 +238,21 @@ Reply: We have corrected this.
 Reply: The noisy looking derivatives were a result of us avoiding the large
 computational cost of storing the derivatives at a large number of radial
 points at every MCMC step. We have now taken the computed points, and plotted
-the spline instead and are displaying it in the Figure to avoid this noise in
+a spline instead and are displaying it in the Figure to avoid this noise in
 the derivative figure.
 
 > c) Section 4.1 is the only sub-section of Section 4, and thus makes no sense. I
 > would either remove the 4.1 section title or add more sub-sections.
 
-Reply: Done
+Reply: Agreed, we have now changed this.
 
 
 > d) In Section 4, you state that you are using an "average concentration-mass
 > relation" to convert M500c to M200m. Which model of the concentration-mass
 > relation was used?
 
-Reply: We now mention the model of concentration-mass relation we use.
+Reply: We now mention the model of concentration-mass relation we use (Diemer
+and Kravtsov 2015).
 
 
 >
@@ -257,9 +266,10 @@ Reply: We have added the y-labels and increased the size of the inset labels.
 > f) Figure 8 looks like a low-resolution pixel graphic. Is there a reason not to
 > show it as a vector graphic?
 
-Reply: We have now edited this.
+Reply: We had included a png file, and now we have changed it to a pdf.
 
 > g) Table 6 would be more useful if it showed the Rsp values computed without
 > miscentering for comparison.
 
-Reply: We have added the Rsp values computed without miscentering in Table 6, as suggested.
+Reply: We have added the Rsp values computed without miscentering in Table 6,
+as suggested.
