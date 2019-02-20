@@ -12,3 +12,4 @@ submit:
 	cp color_vs_z.pdf submit/
 	cp skymaps.pdf submit/
 	cp corner215.pdf submit/
+	cp Reply_to_referee.txt submit/
