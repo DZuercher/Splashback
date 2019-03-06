@@ -1,0 +1,275 @@
+We thank the referee for the very detailed and useful report. We have made the
+changes based on the referee's detailed suggestions, and these changes should
+have improved the readability of the paper. We hope the revised manuscript is
+in an acceptable format. In our response below, the referees comments have been
+quoted, and our response indicated by Reply.
+
+Please let us know if there are any further concerns.
+
+Cheers,
+Dominik and Surhud
+
+
+> Referee Report
+>
+> In previous work, the splashback radius of dark matter halos was detected by
+> optically selecting galaxy clusters and measuring the galaxy (or lensing mass)
+> distribution around them. In this paper, the authors propose an entirely new
+> method, namely selecting clusters in Planck SZ maps. The main advantage is to
+> avoid the troubling systematics in optical selection that have recently been
+> discovered.
+>
+> The paper represents a highly valuable contribution to the field, and will
+> certainly spark many follow-up studies using other datasets. Overall, the paper
+> is already in good shape: the results and the method by which they were
+> obtained are clear and sensible, and the writing is (mostly) clear. I do,
+> however, fear that the current version is somewhat cluttered with too many
+> figures and tables that might confuse the reader and lessen the paper's impact.
+> Moreover, some of the writing assumes a fair amount of previous knowledge of
+> the subject, meaning that readers unfamiliar with splashback might be turned
+> off.
+>
+> I will be happy to recommend the paper for publication once the major points
+> below have been addressed. I emphasize that many of my suggestions are just
+> that: writing, figure design, and the flow of a paper are, to a large extent, a
+> matter of taste. I hope that you will find my suggestions helpful.
+>
+> Congratulations on this really important result.
+
+Reply: We thank the referee for a careful reading of the manuscript and the
+detailed suggestions which have helped improve the paper.
+
+>
+>
+> 1) The main points of the paper are somewhat hidden in a wealth of 16 figures
+> and 6 tables, some of which seem detail-oriented and make the paper harder to
+> digest than it needs to be. The suggestions below would drastically reduce the
+> number of figures, without losing any essential information.
+>
+> a) Figure 1: It is not clear why the sky maps of the selected clusters are
+> buried in the appendix while the mass-redshift distribution is shown in Figure
+> 1. Both figures are relatively technical. My recommendation would be to shift
+> Figure 1 into Appendix A, which could be renamed from "Sky maps" to "Properties
+> of the SZ sample" or something like that.
+
+Reply: Our original motivation to keep Figure 1 in the beginning was to show
+the average redshift of the sample and the mass range, since that goes in our
+theoretical expectation. However since this is indicated in Table 1, we have
+now moved Figure 1 to the appendix based on the referee's suggestion. We have
+renamed the appendix to "Properties of the SZ clusters and the PS galaxy
+sample".
+
+>
+> b) Figures 2 and 3 show very similar things, namely the 2D and 3D density
+> profiles. However, because the figures are split and because the panels come
+> out much larger in Figure 3, it is not immediately apparent that the actual
+> measured results are shown in Figure 2. I have a somewhat radical suggestion: I
+> would combine both figures by stacking the panels vertically instead of
+> horizontally, i.e., combining the 2D and 3D profiles into one column of five
+> panels that shows all aspects of the modeling (data, inferred 2D, 2D slope, 3D
+> etc). Then, the three samples would be three columns that could easily be fit
+> next to each other, particularly as the y-labels would not need to be repeated
+> in each column. The disadvantage is that it would become harder to compare the
+> location of Rsp in the three samples, but as stated in the text, they all agree
+> anyway. The advantage would be that one could directly compare the inferred 2D
+> and 3D radii -- to me, that is more informative. Most importantly, it would be
+> very clear that the combined figure represents the main result of the paper.
+> The same could be done for Figures 6 and 7 which, again, appear somewhat
+> disconnected to the reader even though they are highly connected.
+
+Reply: We thank the referee for this suggestion. We have now combined Figure 2
+and Figure 3 in the original manuscript into one. However, since the upper two
+panels have the projected radius as the abscissa while the bottom three have
+the 3-dimensional radius instead, we have included the labels at the bottom of
+row 2, and row 5 separately. We have also included a label Rsp^{\rm 2d} and
+Rsp^{\rm 3d} to indicate the two and three dimensional locations of the
+steepest slopes, since it could be confusing. We have similarly combined Figure
+6 and 7 into the new Figure 4.
+
+>
+> c) Tables 3 and 4 contain so little data that they could easily be put into
+> words and added to the text.
+
+Reply: We agree and have described this table in the text instead.
+
+>
+> d) Figures 4 and 5 could easily be combined into one figure, perhaps with
+> clear, large labels inside the panels explaining what the different
+> distributions represent.
+
+Reply: We apologize that the right panel in Figure 4 was inadvertently included
+in the original manuscript. We have now removed that part and combined Figure 4
+and 5 into a single one and included large labels inside the panels explaining
+what each of the distribution corresponds to.
+
+
+>
+> e) Figures 8 and 9 could be combined by showing the clusters on top of the
+> masks. That way, the masks would be more useful because the reader could
+> immediately see how many clusters are masked out.
+
+Reply: We agree and have changed the figure as suggested.
+
+>
+> f) Showing the corner plots in Figures 10 to 14 is laudable in terms of
+> absolute completeness of the information presented, but frankly, I am not sure
+> they are necessary. In particular, Figures 10-12 are virtually impossible to
+> distinguish by eye, and Figures 13-14 are difficult to digest. I had to stare
+> at these figures quite hard to derive any meaningful takeaway messages. My
+> suggestions would be to omit all of these figures except perhaps one for one of
+> the PanStarrs samples. That figure could then even be put into the main body of
+> the paper instead of an appendix.
+
+Reply: We agree with the referee's suggestion and have included one of the
+corner plots in the main manuscript and the others have been removed from the
+appendix. We have also included some messages that we want the reader to take
+from these plots in the text describing this figure.
+
+>
+> g) I am not sure that figures 15 and 16 are necessary. I found the written
+> explanation of the checks on color scatter perfectly adequate and convincing
+> without the figures.
+
+Reply: We agree that the figure 15 corresponding to the error as a function of
+magnitude may not be necessary, but we would like to show the color cut we use
+for reproducibility purposes. We hope the referee will be ok with this.
+
+>
+> 2) Throughout the paper, I found that the writing supposed the reader to
+> possess a high level of knowledge about the specifics of the splashback radius
+> and its detection. It would be good to add some gentle explanations as well as
+> smoother transitions between different sections and arguments. I give some
+> examples below.
+>
+> a) In the abstract, an introductory sentence would help. What has been done so
+> far, why move from optical to SZ selection? A comment to this effect would also
+> be good in Section 2.1, some readers are probably confused as to the purpose of
+> the SZ sample (which is used only to find clusters but not to constrain their
+> profiles).
+
+Reply: We have now included sentences to this effect in the abstract, the
+introduction as well as just before Section 2.1.
+
+>
+> b) Throughout the paper, it is implicitly assumed that the definition of the
+> splashback radius is the radius where the 3D slope of density is steepest, but
+> that is only one of many definitions. It was defined this way in More+15 as the
+> most easily measurable quantity, but one can also use the radius of the
+> outermost shell in theoretical models (Adhikari+14, Shi 16), non-spherical
+> shells (Mansfield+17), or the apocenter radii of particles (Diemer 17). To be
+> clear, this comment is not intended as a sneaky citation request. I do,
+> however, feel that there is already a lot of confusion as to "what the
+> splashback radius actually is", and any splashback paper should try to
+> alleviate this confusion.
+
+Reply: We would like to apologize for missing these citations. We have now
+pointed out these alternative ways of defining the splashback radius in the
+Methods section, along with the relevant citations. We have also highlighted
+the common thread connecting these different definitions, and mentioned the
+reason we adopt a particular definition in the paper.
+
+>
+> c) It is assumed that the reader understands the connection between the
+> limiting magnitude of galaxy samples and dynamical friction, but that
+> connection is far from obvious! Please explain that dynamical friction can
+> reduce Rsp, that this effect is mass-dependent, and that selecting more massive
+> galaxy samples can thus put limits on the effect. In this context, it would
+> also be good to cite Adhikari+16 who measure and model the magnitude of
+> dynamical friction in SDSS.
+
+Reply: We have now added comments relevant to dynamical friction effects in the
+introduction itself.
+
+>
+> d) One common concern is that the profile fitting function might introduce a
+> splashback scale simply due to its functional form. This was shown not to be
+> the case in Baxter+ and Umetsu & Diemer 17, it would be good to explain that.
+
+Reply: We have now added the relevant comments in the methods section.
+
+>
+> e) The corner plots in Figures 10-14, whether they remain in the paper or not,
+> would benefit from some explanation. These plots are hard to read: which
+> parameters are well-constrained, which are not? Which are dominated by priors?
+> Are there important degeneracies? What does all of this mean for the inferred
+> splashback radii?
+
+Reply: We have now kept only one of the corner plots, and have written the main
+takeaways from the plot in the Results section of the text.
+
+>
+> 3) Some results seem incompatible with results in Baxter+17, and (if real)
+> those differences should be discussed.
+
+Reply: We have now added a note discussing our results with those in Baxter et
+al. 2017.
+
+> a) The right panel of Figure 4 seems puzzling, should these slopes not be much
+> steeper? Compare to Figure 4 in Baxter+17.
+
+Reply: This was an erroneous plot, we apologize for not noticing this before,
+and thank the referee for noticing it.
+
+
+>
+> b) In Section 4, you explain that the splashback radius seen in the blue
+> population may be due to contamination of the blue sample, but the conclusion
+> remains a little unclear in the main text. I would refer to Baxter+17 Figure 5,
+> saying that they found no splashback in the blue population, and make a firm
+> statement on whether there is any evidence that this is wrong (given the issues
+> with contamination).  
+
+Reply: We now refer to Baxter et al. 2017, explain the differences between our
+results. We refrain from making a strong statement given that the analysis
+methods are different and the difference between which galaxies we consider
+blue compared to what Baxter et al. adopt in their paper.
+
+> 4) I have some smaller comments and questions regarding the text and figures.
+>
+> a) In Table 2, it looks like "'" were used instead of "." in large numbers.
+
+Reply: We have now corrected this.
+
+>
+> b) The derivatives in figures 2, 3 etc look somewhat noisy, even though the
+> profile measure is smooth as it is inferred from the profile fitting function.
+> My expectation would be that the derivatives should look smooth too?
+
+Reply: The noisy looking derivatives were a result of us avoiding the large
+computational cost of storing the derivatives at a large number of radial
+points at every MCMC step. We have now taken the computed points, and plotted
+a spline instead and are displaying it in the Figure to avoid this noise in
+the derivative figure.
+
+> c) Section 4.1 is the only sub-section of Section 4, and thus makes no sense. I
+> would either remove the 4.1 section title or add more sub-sections.
+
+Reply: Agreed, we have now changed this.
+
+
+> d) In Section 4, you state that you are using an "average concentration-mass
+> relation" to convert M500c to M200m. Which model of the concentration-mass
+> relation was used?
+
+Reply: We now mention the model of concentration-mass relation we use (Diemer
+and Kravtsov 2015).
+
+
+>
+> e) In Figures 4 and 5, y-labels are missing (even though they are fairly
+> obvious). Moreover, it would be good to increase the size of the inset labels
+> that state what each panel is showing.
+
+Reply: We have added the y-labels and increased the size of the inset labels.
+
+>
+> f) Figure 8 looks like a low-resolution pixel graphic. Is there a reason not to
+> show it as a vector graphic?
+
+Reply: We had included a png file, and now we have changed it to a pdf.
+
+> g) Table 6 would be more useful if it showed the Rsp values computed without
+> miscentering for comparison.
+
+Reply: We have added the Rsp values computed without miscentering in Table 6,
+as suggested.
