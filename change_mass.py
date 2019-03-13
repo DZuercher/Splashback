@@ -6,28 +6,31 @@ import colossus.halo.splashback as sb
 
 h = 0.7 #Hubble parameter
 cosmology.setCosmology('bolshoi')
+mass_definition = '500c'
 
-
-def calc_stats(mass, redshift, mass_definition = "200m"):
+def calc_stat(mass, redshift, mass_definition = "200m"):
     if mass_definition == "200m":
         M200m = mass
         c200m = concentration.concentration(M200m, mass_definition, redshift)
+        M200m, R200m, c200m = changeMassDefinition(M200m, c200m, redshift,'200m', '200m')
         M500c, R500c, c500c = changeMassDefinition(M200m, c200m, redshift,'200m', '500c', profile = 'nfw')
     elif mass_definition == "500c":
         M500c = mass
 	c500c = concentration.concentration(M500c, '500c', redshift)
         M200m, R200m, c200m = changeMassDefinition(M500c, c500c, redshift,'500c', '200m')
 
-    Rsp = sb.splashbackRadius(redshift, '200m', M = M200m)[0]*(1 + redshift)
+    Rsp = sb.splashbackRadius(redshift, '200m', M = M200m, model='more15')[0]*(1 + redshift)
+    R200m = R200m*(1 + redshift)
     return M200m, M500c, R200m, Rsp
 
 
 if __name__=="__main__":
    
     #RedMaPPer
-    mass = 1.8e14
+    mass = 1.9e14
     redshift = 0.24
-    M200m, M500c, R200m = calc_stat(mass, redshift, mass_defintion)
+
+    M200m, M500c, R200m, Rsp = calc_stat(mass, redshift, "200m")
     print("RedMaPPer:")
     print("######################################")
     print("R200m is: %E kpc/h" % R200m)
@@ -38,7 +41,7 @@ if __name__=="__main__":
     #SZ
     mass = 4.3e14*h
     redshift = 0.177
-    M200m, M500c, R200m = calc_stat(mass, redshift, mass_defintion)
+    M200m, M500c, R200m , Rsp = calc_stat(mass, redshift, "500c")
     print("SZ:")
     print("######################################")
     print("R200m is: %E kpc/h" % R200m)
@@ -49,7 +52,7 @@ if __name__=="__main__":
     #XR
     mass = 2.3e14*h
     redshift = 0.186
-    M200m, M500c, R200m = calc_stat(mass, redshift, mass_defintion)
+    M200m, M500c, R200m , Rsp = calc_stat(mass, redshift, mass_definition)
     print("XR:")
     print("######################################")
     print("R200m is: %E kpc/h" % R200m)
